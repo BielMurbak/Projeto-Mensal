@@ -6,70 +6,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Scarbak Planejados oferece móveis planejados de alta qualidade, personalizados para atender suas necessidades.">
     <meta name="keywords" content="móveis planejados, Scarbak Planejados, móveis sob medida, design de interiores, móveis corporativos">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel = "stylesheet" href = "reset.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <title>Scarbak Planejados</title>
 </head>
-
 <body>
     <section class="pagina-inicial" id="home">
         <header class="pagina-inicial-topo">
-            <h2>Móveis Planejados</h2>
-            <nav>
+            <h2 class="pagina-inicial-topo-titulo">Móveis Planejados</h2>
+            
+            <!-- O input hamburguer -->
+            <input type="checkbox" id="menu" class="input-hamburguer">
+            <label for="menu">
+                <img src="img/menu.svg" class="hamburguer" alt="Menu">
+            </label>
+
+            <!-- O menu que aparecerá ao clicar no hamburguer -->
+            <nav class = "navbar-menu-principal">
                 <ul class="menu-principal">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre-nos">Sobre Nós</a></li>
-                    <li><a href="#fale-conosco">Fale Conosco</a></li>
-                    <li><a href="#">PT</a></li>
+                    <li class="menu-principal-lista"><a href="#home">Home</a></li>
+                    <li class="menu-principal-lista"><a href="#servicos">Serviços</a></li>
+                    <li class="menu-principal-lista"><a href="#sobre-nos">Sobre Nós</a></li>
+                    <li class="menu-principal-lista"><a href="#fale-conosco">Fale Conosco</a></li>
+                    <li class="menu-principal-lista"><a href="#">PT </a>
+                    </li>
+                    <img src = "img/SETA.svg"  class = "seta">
                 </ul>
             </nav>
         </header>
 
-        <main class="principal">
-            <h1>Scarbak <br>Planejados</h1>
+        <main class="pagina-inicial-principal">
+            <h1 class="pagina-inicial-principal-titulo">Scarbak <br>Planejados</h1>
             <a href="https://wa.me/554599930713?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20móveis%20planejados!" target="_blank" class="botao-orcamento">Solicite seu orçamento</a>
         </main>
     </section>
 
+    
     <section class="pagina-projetos" id="servicos">
         <header class="projetos-topo">
             <h2 class="titulo-projetos">CONHEÇA NOSSOS PROJETOS</h2>
         </header>
-
         <main class="galeria-projetos">
-            <div class="foto">
-                <img src="img/IMG_DORMITORIOS.png" alt="Dormitórios">
-                <span class="texto">DORMITÓRIOS</span>
-            </div>
-            <div class="foto">
-                <img src="img/COZINHA.png" alt="Cozinha">
-                <span class="texto">COZINHA</span>
-            </div>
-            <div class="foto">
-                <img src="img/SALA_DE_ESTAR.png" alt="Sala de Estar">
-                <span class="texto">SALA DE ESTAR</span>
-            </div>
-            <div class="foto">
-                <img src="/img/CORPORATIVO.png" alt="Corporativo">
-                <span class="texto">CORPORATIVO</span>
-            </div>
-            <div class="foto">
-                <img src="img/HOME_OFFICE.png" alt="Home Office">
-                <span class="texto">HOME OFFICE</span>
-            </div>
-            <div class="foto">
-                <img src="img/LAVANDERIA.png" alt="Lavanderia">
-                <span class="texto">LAVANDERIA</span>
-            </div>
-        </main>
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
 
-        <footer class="projetos-rodape">
-            <a class="botao-contato" href="https://wa.me/554599930713?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20móveis%20planejados!" target="_blank">FALE COM NOSSOS ARQUITETOS</a>
-        </footer>
-    </section>
-</body>
-</html>
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
 
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
+
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src = "img/dormitorio1.png" alt = "Dormitórios"></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <div class="swiper-slide"><img src = "img/dormitorio2.png" alt = "Dormitórios" ></div>
+      <span class="texto">DORMITÓRIOS</span>
+    </div>
+</div>
+</main>
+
+<footer class="projetos-rodape">
+    <a class="botao-orcamento2" href="https://wa.me/554599930713?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20móveis%20planejados!" target="_blank">FALE COM NOSSOS ARQUITETOS</a>
+</footer>
+</section>
 
 <section class="terceira-pagina" id="sobre-nos">
     <header class="terceira-pagina-topo">
@@ -84,123 +128,142 @@
                 <br>
                 <br>
                 Na Scarbak Planejados, entendemos que o seu lar é um reflexo de quem você é. Por isso, trabalhamos lado a lado com você para entender suas necessidades, preferências e sonhos. 
-                Desde o planejamento inicial até a execução final, nosso objetivo é garantir que cada detalhe esteja perfeito, oferecendo soluções que maximizem o uso do espaço e enriqueçam a funcionalidade do seu ambiente.
+                Desde o planejamento inicial até a execução final, nosso objetivo é garantir que cada detalhe esteja perfeito, oferecendo soluções que maximizem o uso do espaço e enriqueçam a funcionalidade do seu ambiente.</p>
+                <div class="trescaixas">
+                    <div class="caixa">
+                        <p>Qualidade</p>
+                    </div>
+                    <div class="caixa">
+                        <p>Inovação</p>
+                    </div>
+                    <div class="caixa">
+                        <p>Modernidade</p>
+                    </div>
+                </div>
+                <div class = "banheiro">
+                    <img src = "img/banheiro.png">
+                   </div>
+            </div>
+            <div class="secunda-parte">
+                <div class="secunda-parte-paragrafo">
+                    <p>
+                        Com 40 anos de experiência, temos orgulho de nossa tradição em entregar produtos de alta qualidade e serviços excepcionais. Nossos móveis são feitos com materiais de primeira linha e com um rigoroso controle de qualidade, garantindo durabilidade e sofisticação em cada peça. Nossa dedicação ao cliente e ao aprimoramento contínuo são os pilares que sustentam nossa reputação e sucesso.
+                    </p><br>
+                    <strong>SCARBAK PLANEJADOS - Transformando espaços, criando histórias.</strong>
+                </div>
+        </main>
+    </section>
+
+    <section class = "quarta-pagina">
+        <header class = "quarta-pagina-titulo">
+         <h2>Opiniões do nossos clientes</h2>
+        </header>
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <main class = "quarta-pagina-principal">
+
+                    <div class = "quarta-pagina-principal-cliente">
+                        <div class="quarta-pagina-principal-cliente-topo-cliente">
+                            <img src="img/cliente-rafael.png" alt = "Foto do Cliente">
+                            <div>
+                                <h3>Bianca de Souza</h3>
+                                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
+                            </div>
+                        </div>
+                        <p>
+                            A EQUIPE FOI EXTREMAMENTE ATENCIOSA E PACIENTE, ME OUVINDO E ME AJUDANDO A CRIAR MÓVEIS QUE REFLETEM MEU ESTILO. O RESULTADO FINAL FICOU PERFEITO.
+                        </p>
+                    </div>
+              </div>
+              <div class="swiper-slide">
+                <main class = "quarta-pagina-principal">
+
+                    <div class = "quarta-pagina-principal-cliente">
+                        <div class="quarta-pagina-principal-cliente-topo-cliente">
+                            <img src="img/cliente-rafael.png" alt = "Foto do Cliente">
+                            <div>
+                                <h3>Bianca de Souza</h3>
+                                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
+                            </div>
+                        </div>
+                        <p>
+                            A EQUIPE FOI EXTREMAMENTE ATENCIOSA E PACIENTE, ME OUVINDO E ME AJUDANDO A CRIAR MÓVEIS QUE REFLETEM MEU ESTILO. O RESULTADO FINAL FICOU PERFEITO.
+                        </p>
+                    </div>
+              </div>
+
+
+              <div class="swiper-slide">
+                <main class = "quarta-pagina-principal">
+
+                    <div class = "quarta-pagina-principal-cliente">
+                        <div class="quarta-pagina-principal-cliente-topo-cliente">
+                            <img src="img/cliente-rafael.png" alt = "Foto do Cliente">
+                            <div>
+                                <h3>Bianca de Souza</h3>
+                                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
+                            </div>
+                        </div>
+                        <p>
+                            A EQUIPE FOI EXTREMAMENTE ATENCIOSA E PACIENTE, ME OUVINDO E ME AJUDANDO A CRIAR MÓVEIS QUE REFLETEM MEU ESTILO. O RESULTADO FINAL FICOU PERFEITO.
+                        </p>
+                    </div>
+              </div>
+              </div>
+              </div>
+</div>
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class = "quarta-pagina-principal-cliente">
+            <div class="quarta-pagina-principal-cliente-topo-cliente">
+                <img src="img/CLIENTE.png" alt="Foto do Cliente">
+                <div>
+                    <h3>Joana de Costa Caron</h3>
+                    <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
+                </div>
+            </div>
+            <p>
+                ADORAMOS A EXPERIÊNCIA DE COMPRA COM O PESSOAL DA SCARBAK MÓVEIS, SUPER ATENCIOSOS, ALÉM DA AGILIDADE NA ENTREGA E QUALIDADE DOS MÓVEIS. RECOMENDAMOS.
             </p>
-            <div class="trescaixas">
-                <div class="caixa">
-                    <p>Qualidade</p>
+        </div>
+
+      </div>
+      <div class="swiper-slide">
+        <div class = "quarta-pagina-principal-cliente">
+            <div class="quarta-pagina-principal-cliente-topo-cliente">
+                <img src="img/CLIENTE.png" alt="Foto do Cliente">
+                <div>
+                    <h3>Joana de Costa Caron</h3>
+                    <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
                 </div>
-                <div class="caixa">
-                    <p>Inovação</p>
+            </div>
+            <p>
+                ADORAMOS A EXPERIÊNCIA DE COMPRA COM O PESSOAL DA SCARBAK MÓVEIS, SUPER ATENCIOSOS, ALÉM DA AGILIDADE NA ENTREGA E QUALIDADE DOS MÓVEIS. RECOMENDAMOS.
+            </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class = "quarta-pagina-principal-cliente">
+            <div class="quarta-pagina-principal-cliente-topo-cliente">
+                <img src="img/CLIENTE.png" alt="Foto do Cliente">
+                <div>
+                    <h3>Joana de Costa Caron</h3>
+                    <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
                 </div>
-                <div class="caixa">
-                    <p>Modernidade</p>
-                </div>
             </div>
+            <p>
+                ADORAMOS A EXPERIÊNCIA DE COMPRA COM O PESSOAL DA SCARBAK MÓVEIS, SUPER ATENCIOSOS, ALÉM DA AGILIDADE NA ENTREGA E QUALIDADE DOS MÓVEIS. RECOMENDAMOS.
+            </p>
         </div>
-        <div class="secunda-parte">
-            <img src="img/WhatsApp Image 2024-09-26 at 19.21.58.jpeg" alt="Banheiro">
-            <div class="secunda-parte-paragrafo">
-                <p>
-                    Com 40 anos de experiência, temos orgulho de nossa tradição em entregar produtos de alta qualidade e serviços excepcionais. Nossos móveis são feitos com materiais de primeira linha e com um rigoroso controle de qualidade, garantindo durabilidade e sofisticação em cada peça. Nossa dedicação ao cliente e ao aprimoramento contínuo são os pilares que sustentam nossa reputação e sucesso.
-                </p><br>
-                <strong>SCARBAK PLANEJADOS - Transformando espaços, criando histórias.</strong>
-            </div>
-    </main>
-</section>
-
-<section class = "quarta-pagina">
-  <header class = "quarta-pagina-titulo">
-   <h2>Opiniões do nossos clientes</h2>
-  </header>
-  <main class = "quarta-pagina-principal">
-
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png"Foto do Cliente">
-            <div>
-                <h3>Bianca de Souza</h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            A EQUIPE FOI EXTREMAMENTE ATENCIOSA E PACIENTE, ME OUVINDO E ME AJUDANDO A CRIAR MÓVEIS QUE REFLETEM MEU ESTILO. O RESULTADO FINAL FICOU PERFEITO.
-        </p>
+      </div>
     </div>
+  </div>
 
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png" alt="Foto do Cliente">
-            <div>
-                <h3>Rafael Da Silva Boratto </h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            A EXPERIÊNCIA DE COMPRAR NA MARCENARIA SCARBAK FOI INCRÍVEL! DESDE O PRIMEIRO CONTATO ATÉ A ENTREGA DOS MÓVEIS, FUI MUITO BEM ATENDIDO. 
-        </p>
-    </div>
-
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png" alt="Foto do Cliente">
-            <div>
-                <h3>Gabriel Rodrigues de Souza</h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            TODOS DA SCARBAK MÓVEIS ESTÃO DE PARABÉNS PELO TRABALHO FEITO EM NOSSO APARTAMENTO. ÓTIMO ATENDIMENTO, ATENDERAM TODAS AS ESPECTATIVAS.
-        </p>
-    </div>
-
-
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png" alt="Foto do Cliente">
-            <div>
-                <h3>Joana de Costa Caron</h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            ADORAMOS A EXPERIÊNCIA DE COMPRA COM O PESSOAL DA SCARBAK MÓVEIS, SUPER ATENCIOSOS, ALÉM DA AGILIDADE NA ENTREGA E QUALIDADE DOS MÓVEIS. RECOMENDAMOS.
-        </p>
-    </div>
-
-
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png" alt="Foto do Cliente">
-            <div>
-                <h3>Lautaro Martinez de Santos</h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            MUITO SATISFEITO COM O RESULTADO, SOUBERAM ENTENDER TODAS NOSSAS NECESSIDADES, COM CERTEZA VOLTAREMOS PARA FAZER O RESTANTE DOS MÓVEIS.
-        </p>
-    </div>
-
-
-    <div class = "quarta-pagina-principal-cliente">
-        <div class="quarta-pagina-principal-cliente-topo-cliente">
-            <img src="img/CLIENTE.png" alt="Foto do Cliente">
-            <div>
-                <h3>Samuel Peixoto do Santos</h3>
-                <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
-            </div>
-        </div>
-        <p>
-            MUITO SATISFEITO COM O RESULTADO, SOUBERAM ENTENDER TODAS NOSSAS NECESSIDADES, COM CERTEZA VOLTAREMOS PARA FAZER O RESTANTE DOS MÓVEIS.
-        </p>
-    </div>
-
-  </main>
-</section>
-
-
-    <section class="quinta-pagina" id = "fale-conosco">
+<section class="quinta-pagina" id = "fale-conosco">
         <header class = "quinta-pagina-titulo">
             <h2>Scarbak Móveis</h2>
         </header>
@@ -216,42 +279,13 @@
                 </ul>
             </nav>
         </header>
-        
-        
-       
-    </main>
-    <main class="rodape">
-        <div class  = "quinta-pagina-coluna-do-meio">
-            <div class = "retangulo">
-            <img src="img/silhueta-de-alca-de-telefone.png" alt="foto telefone">
-            </div>
-            <div class = "retangulo">
-            <img src="img/logotipo-do-gmail.png" alt="foto gmail">
-            </div>
-            <div class = "retangulo">
-            <img src="img/instagram.png" alt="foto do instagram">
 
-            </div>
-            <div class = "retangulo2">
-            <img src="img/mapa.png" alt = "foto do instagram">
-            </div>
-        </div>
-        <div class = "quinta-pagina-coluna-da-direita">
-            <button class = "quinta-pagina-coluna-da-direita-button">
-                <a  class = "quinta-pagina-coluna-da-direita-button-link" href="https://wa.me/554599930713?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20móveis%20planejados!" target="_blank" >
-                    <p>SOLICITE SEU ORÇAMENTO!</p>
-                </a>
-            </button>
-            <button class = "quinta-pagina-coluna-da-direita-button">
-                <a href="https://wa.me/554599930713?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento%20de%20móveis%20planejados!" target="_blank">
-                    <p class = "p-diferente">FALE COM NOSSOS ARQUITETOS</p>
-                </a>
-            </button>
-        </div>
-    </main>
-
-    <footer class = "quinta-pagina-rodape">
-    <p>2024 Scarbak</p>
-    </footer>
-
-</section>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      })
+  </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+.pagina-projetos {
+    background-color: #ffffff; 
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.titulo-projetos {
+    font-size: 1.7rem;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    padding: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    margin-top: -2em;
+    border-top: 2px solid black; /* Linha em cima do texto */
+    border-bottom: 2px solid black; /* Linha embaixo do texto */
+    padding: 5px 0; /* Espaçamento entre as linhas e o texto */
+}
+
+.galeria-projetos {
+  margin-top: 2em;
+}
+
+.swiper-wrapper img {
+width: 100%;
+border-radius: 1em;
+margin-top: 0.5em;
+position: relative; /* Necessário para o posicionamento do texto */
+overflow: hidden; /* Esconde qualquer parte da imagem que saia do contêiner */
+height: 100%;
+}
+
+.texto{
+    position: absolute; /* Posicionamento absoluto em relação ao contêiner */
+    bottom: 1px; /* Mantém o texto na parte inferior da imagem */
+    left: 50%; /* Ajustado para 50% para centralizar */
+    transform: translateX(-50%); /* Centraliza o texto horizontalmente */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    font-size: 1.3rem;
+    border-radius: 20px;
+    padding: 5px; /* Adiciona um pouco de espaço ao redor do texto */ 
+ }
+
+ .botao-orcamento2{
+    white-space: nowrap;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 1.5rem;
+    background-color: gray;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    
+}
+
+@media screen and (max-width:375px ){
+
+    .titulo-projetos {
+        font-size: 1.rem;
+        color: rgb(0, 0, 0);
+        align-items: center;
+        padding: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        margin-top: -2em;
+        border-top: 2px solid black; /* Linha em cima do texto */
+        border-bottom: 2px solid black; /* Linha embaixo do texto */
+        padding: 5px 0; /* Espaçamento entre as linhas e o texto */
+        margin-left: -0.5em;
+        width: 135%; /* Aumenta o comprimento da linha */
+        
+    }
+    
+    .swiper{
+        left: 15px;
+        width: 120%; /* Largura total do swiper */
+
+    }
+
+    .swiper-wrapper img {
+        width: 100%;
+        border-radius: 1em;
+        margin-top: 0.5em;
+        position: relative; /* Necessário para o posicionamento do texto */
+        overflow: hidden; /* Esconde qualquer parte da imagem que saia do contêiner */
+        height: 100%;
+        }
+
+
+        .botao-orcamento2 {
+            white-space: nowrap;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 1.5rem;
+            background-color: gray;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.3rem;
+            margin-top: 2em;
+            margin-left: 0.7em;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+}
+
+
+
+
+@media screen and (max-width: 320px) {
+    .titulo-projetos {
+        color: rgb(0, 0, 0);
+        align-items: center;
+        padding: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        margin-top: -2em;
+        border-top: 2px solid black; /* Linha em cima do texto */
+        border-bottom: 2px solid black; /* Linha embaixo do texto */
+        padding: 5px 0; /* Espaçamento entre as linhas e o texto */
+        margin-left: -1.3em;
+        width: 130%; /* Aumenta o comprimento da linha */
+        font-size: 1.3em;
+    }
+
+    .swiper{
+        width: 120%; /* Largura total do swiper */
+        left: -1em;
+    }
+
+    .botao-orcamento2 {
+        white-space: nowrap;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        padding: 1.5rem;
+        background-color: gray;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1rem;
+        margin-top: 2em;
+        position: relative;
+        right: 2em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
