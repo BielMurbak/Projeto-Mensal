@@ -1,0 +1,65 @@
+.quarta-pagina-titulo{
+    font-size: 2.5rem;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding:5px 0 ;
+    width: 93%; /* Aumenta o comprimento da linha */
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.quarta-pagina-principal {
+    padding: 2px;
+    display: flex;
+    flex-wrap: wrap; /* Quebra a linha após 3 itens */
+    gap: 50px;
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+.quarta-pagina-principal-cliente {
+    width: 500px; /* Largura de cada retângulo */
+    height: auto; /* Altura ajustável com base no conteúdo */
+    background-color:#D9D9D9;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quarta-pagina-principal-cliente-topo-cliente{
+    display: flex;
+    align-items: center; /* Alinhar itens verticalmente */
+    gap: 15px; /* Espaço entre imagem e o texto */
+}
+
+.quarta-pagina-principal-cliente-topo-cliente img {
+    width: 80px; /* Largura da imagem */
+    height: 80px; /* Altura da imagem */
+    border-radius: 50%; /* Faz a imagem ficar redonda */
+}
+
+.quarta-pagina-principal-cliente-topo-cliente h3 {
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 1.3rem;
+}
+
+.quarta-pagina-principal-avaliacao{
+    color: rgb(255, 217, 0);
+    font-size: 1rem;
+}
+
+.quarta-pagina-principal-cliente p {
+    font-size: 0.9rem;
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
