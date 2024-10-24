@@ -1,0 +1,60 @@
+.quarta-pagina-titulo{
+    font-size: 2.5rem;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2em;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding:5px 0 ;
+    width: 93%; /
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.quarta-pagina-principal {
+    position: relative;
+}
+
+.carrosel-clientes {
+    display: flex;
+    overflow: hidden; /* Esconde os clientes fora da visão */
+    transition: transform 0.5s ease; /* Transição suave ao mover */
+    background-color: gray;
+    border-radius: 1rem;
+}
+
+.cliente {
+    min-width: 33.33%; /* Cada cliente ocupa 1/3 da largura do carrossel */
+    box-sizing: border-box; /* Para incluir padding e border no cálculo da largura */
+    padding: 10px; /* Espaçamento interno */
+    display: none; /* Inicialmente oculta todos os clientes */
+}
+
+.quarta-pagina-principal-avaliacao{
+    color:yellow;
+}
+
+.cliente.active {
+    display: block; /* Apenas o cliente ativo é exibido */
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(241, 13, 13, 0.8); /* Cor de fundo semi-transparente */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.prev{
+    left: 0.1em;
+}
+
+.next{
+    right:0.1em;
+}
