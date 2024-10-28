@@ -26,7 +26,7 @@
     overflow: hidden;
     width: 25em;
     position: relative;
-    right: 2em;
+    right: 1em;
 }
 
 .carrosel-imagem {
@@ -40,7 +40,7 @@
     display: block;
 }
 
-.prev, .next{
+.next2{
     position: absolute;
     top: 60%;
     transform: translateY(-50%);
@@ -52,12 +52,24 @@
     background-color: transparent;
 }
 
-
-.prev{
-    left: 0.1em;
+.next{
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: transparent;
 }
 
 .next{
+    right:0.1em;
+}
+
+
+.next2{
     right:0.1em;
 }
 
@@ -88,13 +100,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2em;
+    margin-top: -2em
     
 }
 
-.nav-telas-maiores{
-display:none;
-}
 
 @media screen and (max-width:375px ){
 
@@ -176,3 +185,91 @@ display:none;
     }
 }
 
+@media screen and (min-width: 768px){
+
+    .galeria-projetos{
+     display: grid;
+     grid-template-columns:50% 50%;
+     gap:3px;
+     width: 100%;
+    position: relative;
+    right: 0.8em;
+    left: 1.5em;
+    
+    }
+
+
+    .titulo-projetos{
+      width: 100%;
+     
+    }
+
+    .botao-orcamento2{
+        white-space: nowrap;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        padding: 1.5rem;
+        background-color: gray;
+        color: rgb(0, 0, 0);
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -2em
+        
+    }
+
+    .titulo-projetos {
+        color: rgb(0, 0, 0);
+        align-items: center;
+        padding: 0.3em;
+        white-space: nowrap;
+        margin-left: -1.3em;
+        width: 80%; /* Aumenta o comprimento da linha */
+        font-size: 1.3em;
+        font-size: 2em;
+        margin-left: 2em;
+    }
+
+    .botao-orcamento2 {
+    width: 40%;
+    margin-left:12em;
+    padding: 1.5em;
+    color: #ffffff;
+    }
+
+}
+
+@media screen and (min-width:800px ){
+
+
+    .galeria-projetos{
+        width: 105%;
+       
+       }
+}
+
+@media screen and (max-width:834px ){
+
+
+    .galeria-projetos{
+        width: 100%;
+       }
+
+       .carrosel img{
+        width: 93%;
+        
+        }
+
+        .carrosel {
+            width: 105%;
+            }
+
+           
+            
+            .next2{
+                right:2em;
+            }
+}

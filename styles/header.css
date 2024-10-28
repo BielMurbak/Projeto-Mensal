@@ -88,6 +88,11 @@
     display: none;
 }
 
+.nav-telas-maiores{
+    
+    display: none;
+}
+
 @media screen and (max-width: 320px) {
 
 .hamburguer {

@@ -18,7 +18,11 @@
     border-top: 2px solid black; /* Linha em cima do texto */
     border-bottom: 2px solid black; /* Linha embaixo do texto */
     padding: 5px 0; /* Espaçamento entre as linhas e o texto */
-    margin-top: -1em;
+    margin-top: 2em;
+}
+
+.negrito{
+color:bold;
 }
 
 .terceira-pagina-principal {
@@ -120,4 +124,45 @@ right: 160px;
     .secunda-parte-paragrafo{
         font-size: 1.5em;
     }
+ }
+
+ @media screen and (min-width: 768px){
+
+    .terceira-pagina-subtitulo {
+        width: 70%;
+        margin-left: 3em;
+    }
+
+    .terceira-pagina-primeira-parte-do-principal{
+        word-wrap: break-word;
+        max-width: 118%;
+    margin-left: -0.7em;
+    }
+
+    
+.terceira-pagina-primeira-parte-do-principal-paragrafo {
+    font-size: 1.8rem;
+    color: black;
+
+}
+
+.trescaixas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        margin-left: 7em;
+}
+
+.banheiro img{
+    width: 20em;
+    margin-right: 13em;
+    }
+
+    .negrito{
+        color:bold;
+        }
+
+
+
  }

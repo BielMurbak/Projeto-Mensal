@@ -1,5 +1,5 @@
-//carrosel imagens
-function moveCarousel(carouselId, direction) {
+// Carrossel de imagens
+function moveImageCarousel(carouselId, direction) {
     const carousel = document.getElementById(carouselId);
     const images = carousel.getElementsByClassName('carrosel-imagem');
     let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
@@ -18,35 +18,24 @@ function moveCarousel(carouselId, direction) {
     images[currentIndex].classList.add('active');
 }
 
+//carrosel clientes
 
-
-
-//clientes carrosel
-let currentIndex = {
-    clientes1: 0,
-    clientes2: 0,
-};
-
-function moveCarousel(direction, carouselId) {
+function moveComentarioCarousel(carouselId, direction) {
     const carousel = document.getElementById(carouselId);
-    const clientes = carousel.getElementsByClassName("cliente");
-    const totalClientes = clientes.length;
+    const comentarios = carousel.getElementsByClassName('comentario');
+    let currentIndex = Array.from(comentarios).findIndex(comment => comment.classList.contains('active'));
 
-    // Atualiza o índice atual com base na direção do movimento
-    currentIndex[carouselId] += direction;
+    // Remove a classe 'active' do comentário atual
+    comentarios[currentIndex].classList.remove('active');
 
-    // Verifica se o índice está fora dos limites e ajusta
-    if (currentIndex[carouselId] < 0) {
-        currentIndex[carouselId] = totalClientes - 1; // Vai para o último
-    } else if (currentIndex[carouselId] >= totalClientes) {
-        currentIndex[carouselId] = 0; // Volta para o primeiro
+    // Atualiza o índice com base na direção
+    if (direction === 1) {
+        currentIndex = (currentIndex + 1) % comentarios.length; // Próximo comentário
+    } else {
+        currentIndex = (currentIndex - 1 + comentarios.length) % comentarios.length; // Comentário anterior
     }
 
-    // Esconde todos os clientes
-    for (let i = 0; i < totalClientes; i++) {
-        clientes[i].classList.remove("active");
-    }
-
-    // Mostra o cliente atual
-    clientes[currentIndex[carouselId]].classList.add("active");
+    // Adiciona a classe 'active' ao novo comentário
+    comentarios[currentIndex].classList.add('active');
 }
+
