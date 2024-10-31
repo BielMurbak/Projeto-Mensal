@@ -1,0 +1,303 @@
+.secao-contato {
+    padding: 1%;
+    margin-top: -0.2%;
+    background-color: gray;
+    margin-top: 25px;
+}
+
+.secao-contato-titulo {
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 5px 0;
+    width: 14em;
+}
+
+.rodape-opcoes {
+    display: flex;
+    justify-content: center;
+}
+
+.rodape-menu {
+    text-align: center;
+    white-space: nowrap;
+    gap: 220px;
+    display: flex;
+}
+
+.rodape-menu a {
+    font-size: 1.7rem;
+    padding: 1px 0;
+}
+
+.secao-contato-conteudo {
+    margin-top: 2%;
+    flex-direction: row;
+}
+
+.coluna-principal-contato {
+    justify-content: space-between;
+    width: 70%;
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 5%;
+    position: relative;
+    left: -2em;
+}
+
+.coluna-principal-contato img {
+    width: 50%;
+    display: block;
+}
+
+.contato-info {
+    white-space: nowrap;
+    width: 105%;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 5px 20px;
+    background-color: gray;
+    color: black;
+    font-size: 3rem;
+}
+
+.contato-info img {
+    width: 15%;
+}
+
+.mapa-contato {
+    white-space: nowrap;
+    border: 2px solid rgb(0, 0, 0);
+    width: 55%;
+    position: relative;
+    border-radius: 10px;
+    left: 1px;
+    padding: 30px 100px;
+    background-color: gray;
+    color: black;
+    font-size: 4rem;
+    margin-top: 25px;
+}
+
+.mapa-contato img {
+    width: 52%;
+    position: relative;
+    left: -55%;
+}
+
+.botao-contato {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    padding: 30px 165px;
+    background-color: gray;
+    color: black;
+    font-size: 4rem;
+    margin-top: 5px;
+}
+
+.link-botao-contato p {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    position: relative;
+    left: -6.6em;
+}
+
+@media (max-width: 500px) {
+    .secao-contato-titulo {
+        width: 100%;
+    }
+
+    .rodape-menu {
+        gap: 10px;
+    }
+
+    .rodape-menu a {
+        font-size: 1.2rem;
+    }
+
+    .contato-info {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .mapa-contato {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .mapa-contato img {
+        width: 90%;
+        left: 0;
+    }
+
+    .botao-contato {
+        padding: 15px 40px;
+        font-size: 1.5rem;
+    }
+
+    .link-botao-contato p {
+        left: 0;
+        text-align: center;
+    }
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 768px) {
+    .rodape-menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .rodape-menu a {
+        font-size: 1.4rem;
+    }
+
+    .coluna-principal-contato {
+        width: 100%;
+        left: 0;
+    }
+
+    .contato-info img {
+        width: 25%;
+    }
+
+    .mapa-contato img {
+        width: 70%;
+        left: -50%;
+    }
+
+    .botao-contato {
+        padding: 20px 80px;
+        font-size: 2rem;
+    }
+
+    .link-botao-contato p {
+        left: 0;
+        text-align: center;
+    }
+}
+
+
+/* Layout para telas maiores (PC) */
+@media screen and (min-width: 1440px) {
+    
+    .pagina-contato{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color:gray;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .menu-rodape{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    font-size:2rem;
+    margin-top: 8em;
+    }
+
+    .pagina-contato-titulo{
+        display:flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pagina-contatato-h2{
+     font-size:4rem;
+     border-bottom: 2px solid black;
+     border-top: 2px solid black;
+     padding:5px 0;
+     width: 70%;
+     margin-top: 5px;
+     color:rgb(0, 0, 0);
+     white-space: nowrap;
+    }
+
+    .pagina-contatato-h3{
+        font-size:3rem;
+        border-bottom: 2px solid black;
+        padding:5px 0;
+        width: 30%;
+        margin-top: 0.5em;
+        color:rgb(0, 0, 0);
+       }
+
+       .contato-item{
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       }
+
+       .contato-img{
+        width: 20%;
+        position: relative;
+        right: 5em;
+       }
+       .mapa-img{
+        width: 30%;
+        position: relative;
+        right: 5em;
+        
+       }
+        .contato-item-button{
+            width: 70%;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 20px 80px; /* Ajuste o padding conforme necessário */
+            background-color: gray;
+            color: black;
+            text-decoration: none;
+            font-size: 2rem;
+            margin-top: 60px;
+        }
+
+        .contato-item-button2{
+            width: 70%;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 40px 80px; /* Ajuste o padding conforme necessário */
+            background-color: gray;
+            color: black;
+            text-decoration: none;
+            font-size: 2rem;
+            margin-top: 60px;
+        }
+
+        .pagina-solicite{
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pagina-contato-botao{
+            width: 90%;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 15px;
+            padding: 30px 80px; /* Ajuste o padding conforme necessário */
+            background-color: gray;
+            color: black;
+            text-decoration: none;
+            font-size: 2rem;
+            margin-top: 60px;
+            white-space: nowrap;
+        }
+
+        .quinta-contato-rodape{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 20px;
+        position: relative;
+        left: 600px;
+        }
+        
+        
+}

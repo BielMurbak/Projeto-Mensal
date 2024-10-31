@@ -1,0 +1,355 @@
+.quarta-pagina-titulo{
+font-size: 2.2rem;
+color:black;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: -2em;
+border-top: 2px solid black;
+border-bottom: 2px solid black;
+padding:5px 0 ;
+width: 93%; 
+margin-left : 10px;
+white-space: nowrap;
+}
+
+.next{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translateY(-50%);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    background-color:transparent;
+}
+
+.next{
+    right:0.1em;
+}
+
+.carrosel-comentarios {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.comentario {
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.comentario.active {
+    display: block;
+}
+
+button.prev, button.next {
+    color: rgb(0, 0, 0);
+   
+}
+
+#carroselComentarios3{
+display:none;
+}
+
+#carroselComentarios4{
+    display:none;
+    }
+
+    #carroselComentarios5{
+        display:none;
+        }
+
+        #carroselComentarios6{
+            display:none;
+            }
+
+
+.quarta-pagina-principal-avaliacao{
+color:yellow;
+}
+
+.cliente.active {
+ display: block; /* Apenas o cliente ativo é exibido */
+}
+
+.quarta-pagina-principal-cliente-topo-cliente{
+display: flex;
+align-items: center; /* Alinhar itens verticalmente */
+gap: 15px; /* Espaço entre imagem e o texto */
+}
+    
+.quarta-pagina-principal-cliente-topo-cliente img {
+ width: 80px; /* Largura da imagem */
+height: 70px; /* Altura da imagem */
+border-radius: 50%; /* Faz a imagem ficar redonda */
+}
+
+.comentario {
+    background-color: gray;
+    border-radius: 0.5em;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 20%;
+    max-width:20%;
+    margin-top: 10px;
+   
+}
+
+.menu-fale-conosco{
+display:flex;
+justify-content: space-around;
+flex-direction: row;
+gap:30px;
+}
+
+@media screen and (min-width:320px){
+    .quarta-pagina-titulo{
+        font-size: 1.7rem;
+        color:black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -2em;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        padding:5px 0 ;
+        width: 93%; 
+        margin-left : 10px;
+        white-space: nowrap;
+        }
+        
+}  
+
+
+@media screen and (min-width: 768px) and (max-width:805px) {
+
+    .quarta-pagina-titulo{
+        padding:5px 0 ;
+        width: 60%; 
+        margin-left : 5em;
+        white-space: nowrap;
+    }
+
+    #carroselComentarios5{
+        display:block;
+        position: relative;
+            margin-left: 30em;
+            bottom:9em;
+        }
+
+        #carroselComentarios6{
+            display:block;
+            position: relative;
+            margin-left: 30em;
+            bottom:27em;
+            }
+
+
+    
+        .carrosel-comentarios {
+            display: flex; /* Use Flexbox */
+            flex-wrap: wrap; /* Allow wrapping into two rows */
+            justify-content: space-between; /* Space between items */
+            width: 47%; /* Full width of the container */
+            gap: 20px; /* Space between comments */
+        }
+    
+        .comentario {
+            width: 48%; 
+            background-color: gray;
+            border-radius: 0.5em;
+            padding: 1rem;
+            box-sizing: border-box; /* Include padding in the width */
+            margin-top: 10px;
+        }
+
+        .next{
+            position: absolute;
+            top: 60%;
+            left: 90%;
+            transform: translateY(-50%);
+            color: rgb(255, 255, 255);
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            background-color:transparent;
+        }
+
+    }
+
+    @media screen and (min-width: 820px) and (max-width:840px) {
+
+        .quarta-pagina-titulo{
+            padding:5px 0 ;
+            width: 60%; 
+            margin-left : 5em;
+            white-space: nowrap;
+        }
+    
+        #carroselComentarios5{
+            display:block;
+            position: relative;
+                margin-left: 32em;
+                bottom:9em;
+            }
+    
+            #carroselComentarios6{
+                display:block;
+                position: relative;
+                margin-left: 32em;
+                bottom:27em;
+                }
+    
+    
+        
+            .carrosel-comentarios {
+                display: flex; /* Use Flexbox */
+                flex-wrap: wrap; /* Allow wrapping into two rows */
+                justify-content: space-between; /* Space between items */
+                width: 47%; /* Full width of the container */
+                gap: 20px; /* Space between comments */
+            }
+        
+            .comentario {
+                width: 48%; 
+                background-color: gray;
+                border-radius: 0.5em;
+                padding: 1rem;
+                box-sizing: border-box; /* Include padding in the width */
+                margin-top: 10px;
+            }
+    
+            .next{
+                position: absolute;
+                top: 60%;
+                left: 90%;
+                transform: translateY(-50%);
+                color: rgb(255, 255, 255);
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                z-index: 10;
+                background-color:transparent;
+            }
+
+
+
+    }
+    
+    @media screen and (min-width:1440px ){
+
+        .quarta-pagina-titulo{
+            font-size: 3rem;
+            color:black;
+            padding:5px 0 ;
+            width: 43%; 
+            margin-left : 10px;
+            white-space: nowrap;
+            position: relative;
+            bottom:7em;
+            left: 10em;
+            }
+
+            .carrosel-comentarios {
+                position: relative;
+                width: 30%;
+                overflow: hidden;
+                
+               
+            }
+            
+            .comentario {
+                display: none;
+                transition: opacity 0.5s ease;
+                box-sizing: border-box; 
+               padding:40px;
+               background-color: rgba(128, 128, 128, 0.836);
+              
+            }
+            #carroselComentarios6{
+                display:block;
+               left: 79em;
+               bottom:70.3em;
+                }
+            #carroselComentarios5{
+                display:block;
+                left: 79em;
+                bottom:70.3em;
+            }
+
+                    #carroselComentarios4{
+                        display: block;
+                        left: 40em;
+                        bottom:45.2em;
+                    }
+
+                    #carroselComentarios3{
+                        display: block;
+                        left: 40em;
+                        bottom:45.2em;
+                    }
+                    #carroselComentarios2{
+                        display: block;
+                        left: 1.5em;
+                        bottom:20em;
+                    }
+                    #carroselComentarios1{
+                        display: block;
+                        left: 1.5em;
+                        bottom:20em;
+    
+                        
+                    }
+
+            
+
+                    .quarta-pagina-principal-cliente-topo-cliente{
+                        display: flex;
+                        align-items: center; 
+                      
+                    }
+
+                    .quarta-pagina-principal-avaliacao{
+                        color:yellow;
+                        font-size: 2rem;
+                        }
+                        .comentario h3{
+                       font-size:1.3rem;
+                        }
+
+                        .carrosel-paragrafo{ 
+                         font-size: 1.3rem;
+                        }
+
+                        .next{
+                            position: absolute;
+                            top: 60%;
+                            left: 90%;
+                            transform: translateY(-50%);
+                            color: rgb(255, 255, 255);
+                            border: none;
+                            font-size: 24px;
+                            cursor: pointer;
+                            z-index: 10;
+                            background-color:transparent;
+                        }
+                        
+                        .next{
+                            right:0.1em;
+                        }
+                        
+                        .ajudante{
+                          margin-top: -60em;
+                        }
+
+                   
+    }
+
+
+
+
+
