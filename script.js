@@ -39,3 +39,17 @@ function moveComentarioCarousel(carouselId, direction) {
     comentarios[currentIndex].classList.add('active');
 }
 
+ // Abre o modal e exibe a imagem em tela cheia
+ function openModal(imageSrc) {
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image");
+    modalImage.src = imageSrc; // Define a imagem no modal
+    modal.classList.add("active"); // Exibe o modal
+}
+
+// Fecha o modal
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("active"); // Oculta o modal
+}
+
