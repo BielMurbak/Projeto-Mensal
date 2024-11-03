@@ -151,172 +151,161 @@
         width: 60%;
         position: relative;
         margin-left: 1em;
-    }
+       }
+       
+       .pagina-inicial-topo-titulo {
+           font-size: 1.8rem;
+       }
+       
+       .pagina-inicial-principal-titulo{
+       font-size:4.2em;
+       margin-left: -0.3em;
+       margin-top: -1.5em;
+       }
+       
+       .botao-orcamento {
+           margin-left:-6em;
+       }
+       
+       .menu-principal-lista {
+           padding: 0.8rem;
+       }
+       
+       .seta {
+           margin-top: 4.5px;
+           margin-left: -1.2em;
+       }
+       .nav-telas-maiores{
+        display:none;
+         }
+       }
 
-    .hamburguer {
-        margin-left: 3em;
-    }
+       @media screen and (max-width: 375px) {
+        .hamburguer {
+            margin-left: 1em;
+           }
+           
+           .pagina-inicial-topo-titulo {
+               font-size: 1.8rem;
+           }
+           
+           .pagina-inicial-principal-titulo{
+           font-size:4.2em;
+           margin-left: -0.3em;
+           margin-top: -1.5em;
+           }
+           
+           .botao-orcamento {
+               margin-left:-6em;
+           }
+           
+           .menu-principal-lista {
+               padding: 1rem;
+           }
+           
+           .seta {
+               margin-top: 4.5px;
+               margin-left: -1.2em;
+           }
+           .nav-telas-maiores{
+            display:none;
+             }
+           }
 
-    .menu-principal-lista {
-        width: 50%;
-        padding: 1em;
-        margin-left: 19em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
-        bottom: 2em;
-    }
+           @media screen and (max-width: 390px) {
+            .hamburguer {
+                margin-left: 1em;
+               }
+               
+               .pagina-inicial-topo-titulo {
+                   font-size: 1.8rem;
+               }
+               
+               .pagina-inicial-principal-titulo{
+               font-size:4.2em;
+               margin-left: -0.3em;
+               margin-top: -1.5em;
+               }
+               
+               .botao-orcamento {
+                   margin-left:-6em;
+               }
+               
+               .menu-principal-lista {
+                   padding: 1rem;
+                   margin-left:-0.3em;
+               }
+               
+               .seta {
+                   margin-top: 4.5px;
+                   margin-left: -1.2em;
+               }
+               .nav-telas-maiores{
+                display:none;
+                 }
+               }
 
-    .input-hamburguer:checked ~ nav .menu-principal {
-        display: flex; 
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
+               @media screen and (max-width: 414px) {
+                .hamburguer {
+                    margin-left: 1em;
+                   }
+                   
+                   .pagina-inicial-topo-titulo {
+                       font-size: 1.8rem;
+                   }
+                   
+                   .pagina-inicial-principal-titulo{
+                   font-size:4.2em;
+                   margin-left: -0.3em;
+                   margin-top: -1.5em;
+                   }
+                   
+                   .botao-orcamento {
+                       margin-left:-6em;
+                   }
+                   
+                   .menu-principal-lista {
+                       padding: 1.15rem;
+                   }
+                   
+                   .seta {
+                       margin-top: 4.5px;
+                       margin-left: -1.2em;
+                   }
+                   .nav-telas-maiores{
+                    display:none;
+                     }
+                   }
+        
 
-/* Media Query para telas a partir de 400px */
-@media screen and (min-width: 400px) {
-    .menu-principal-lista {
-        padding: 1.2rem;
-        background-color: rgb(99, 97, 97);
-        position: relative;
-        right: 5px;
-    }
-
-    .seta {
-        position: relative;
-        right: 2.3em;
-        bottom: 5px;
-    }
-}
-
-/* Media Query para telas entre 768px e 850px */
-@media screen and (min-width: 768px) and (max-width: 850px) {
-    .hamburguer {
-        display: none; /* Esconde ícone do menu hambúrguer */
-    }
-
-    .nav-telas-maiores {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2em;
-        width: 100%;
-        margin-top: 10px;
-        margin-left: 4em;
-    }
-
-    .nav-telas-maiores a {
-        color: black;
-        font-size: 1.2rem;
-    }
-
-    .pagina-inicial-principal h1 {
-        font-size: 7rem;
-        margin-left: 0.7em;
-        color: rgb(184, 115, 26);
-    }
-}
-
-/* Media Query para telas entre 850px e 1030px */
-@media screen and (min-width: 850px) and (max-width: 1030px) {
-    .hamburguer {
+@media screen and (min-width: 768px){
+    .hamburguer{
         display: none;
     }
+    .nav-telas-maiores{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 35px;
+    margin-right: 35px;
+    font-size: 1.5rem;
+    }
+
+    .nav-telas-maiores a{
+        color: black;
+        margin-top: 0.4em;
+        }
+
+    .pagina-inicial-principal-titulo {
+        font-size: 8rem; 
+        position: relative;
+    left: -1em;
+    }
+
+    .pagina-inicial-topo-titulo{
+    font-size: 2em;
+    }
+}
     
-    .nav-telas-maiores {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2em;
-        width: 100%;
-        margin-top: 10px;
-        margin-left: 12.5em;
-    }
 
-    .nav-telas-maiores a {
-        color: black;
-        font-size: 1.2rem;
-    }
-
-    .pagina-inicial-principal h1 {
-        font-size: 7rem;
-        margin-left: 0.7em;
-        color: rgb(184, 115, 26);
-    }
-}
-
-/* Media Query para telas a partir de 1440px */
-/* CSS para dropdown e controle de idiomas */
-@media screen and (min-width: 1440px) {
-    .hamburguer {
-        display: none;
-    }
-    
-    .nav-telas-maiores {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 3em;
-        width: 100%;
-        margin-top: 10px;
-        margin-right: 6em;
-    }
-
-    .nav-telas-maiores a {
-        color: black;
-        font-size: 1.2rem;
-    }
-
-    /* Estilos para ocultar o checkbox */
-    .input-lingua {
-        display: none;
-    }
-
-    /* Estilo para o label "PT" que abre o dropdown */
-    .lingua-label {
-        cursor: pointer;
-        color: black;
-        font-size: 1.2rem;
-    }
-
-    /* Esconde o conteúdo do dropdown inicialmente */
-    .dropdown-content {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        background-color: white;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 10px;
-        border-radius: 5px;
-        top: 2.5em;
-        right: 6em;
-        gap: 0.5em;
-    }
-
-    /* Exibe o dropdown quando o checkbox estiver marcado */
-    .input-lingua:checked + .lingua-label + .dropdown-content {
-        display: flex;
-    }
-
-    /* Estilo dos links dentro do dropdown */
-    .dropdown-content a {
-        color: black;
-        text-decoration: none;
-        font-size: 1rem;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
-}
 
 

@@ -54,6 +54,7 @@ function closeModal() {
 }
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const languageSelector = document.getElementById("language-selector");
     const languageOptions = document.getElementById("language-options");
@@ -82,4 +83,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
