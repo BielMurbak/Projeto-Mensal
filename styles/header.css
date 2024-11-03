@@ -1,0 +1,322 @@
+/* ===== Estilos Gerais da Página Inicial ===== */
+
+.pagina-inicial {
+    width: 105%; /* Largura ajustada para cobrir totalmente a tela */
+    background-image: url("../img/cozinha-clara.png"); /* Define imagem de fundo */
+    background-size: cover; /* Cobre a área inteira sem distorção */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Impede repetição da imagem */
+}
+
+/* ===== Seção do Topo da Página Inicial ===== */
+
+.pagina-inicial-topo {
+    display: flex;
+    flex-direction: row; /* Elementos alinhados em linha */
+    padding: 2rem; /* Espaçamento ao redor dos elementos */
+    justify-content: space-between; /* Espaçamento igual entre itens */
+    align-items: center; /* Alinhamento vertical ao centro */
+}
+
+/* ===== Conteúdo Principal da Página Inicial ===== */
+
+.pagina-inicial-principal {
+    display: flex;
+    flex-direction: column; /* Alinha elementos em coluna */
+    padding: 10rem; /* Espaçamento interno */
+}
+
+.pagina-inicial-principal-titulo { 
+    position: relative;
+    right: 2em; /* Ajusta posição do título */
+}
+
+.pagina-inicial-principal h1 {
+    font-size: 4.5rem; /* Tamanho grande para o título */
+}
+
+/* ===== Estilos do Botão de Orçamento ===== */
+
+.botao-orcamento {
+    white-space: nowrap; /* Impede quebra de linha */
+    border: 2px solid rgb(0, 0, 0); /* Define borda preta */
+    border-radius: 10px; /* Arredonda bordas */
+    padding: 1.5rem; /* Espaçamento interno */
+    background-color: gray; /* Cor de fundo */
+    color: rgb(0, 0, 0); /* Cor do texto */
+    cursor: pointer; /* Mostra cursor de ponteiro ao passar o mouse */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 1.5rem;
+    margin-top: 2em; /* Espaçamento superior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Ajuste de Link Dentro da Seção Principal ===== */
+
+.pagina-inicial-principal a {
+    width: 10em;
+    position: relative;
+    right: 5em;
+}
+
+/* ===== Estilos de Títulos e Ícones ===== */
+
+.pagina-inicial-topo-titulo {
+    font-size: 1.5rem;
+    white-space: nowrap;
+    color: rgb(0, 0, 0);
+}
+
+.hamburguer {
+    width: 2.5em;
+    height: 2.5em;
+    position: relative;
+    right: 1em;
+    cursor: pointer;
+}
+
+/* ===== Menu Principal para Dispositivos Móveis ===== */
+
+.menu-principal {
+    display: none; /* Esconde menu principal inicialmente */
+    position: absolute;
+    top: 7.5em;
+    right: 8.5em;
+    left: 0.1em;
+    font-size: 0.85em;
+}
+
+.input-hamburguer:checked ~ nav .menu-principal {
+    display: flex;
+    flex-direction: row; /* Mostra menu principal quando ativado */
+}
+
+.seta {
+    position: relative;
+    right: 1.5em;
+    bottom: 5px;
+}
+
+.menu-principal-lista {
+    padding: 1.3rem;
+    background-color: rgb(99, 97, 97); /* Fundo cinza escuro */
+    position: relative;
+    right: 5px;
+}
+
+.input-hamburguer {
+    display: none; /* Esconde checkbox do menu hamburguer */
+}
+
+/* Menu para Telas Maiores */
+
+.nav-telas-maiores {
+    display: none; /* Esconde menu para telas maiores */
+}
+
+/* ===== Media Queries para Responsividade ===== */
+
+/* Media Query para telas entre 320px e 390px */
+@media screen and (min-width: 320px) and (max-width: 390px) {
+
+    .pagina-inicial {
+        width: 105%;
+    }
+
+    .pagina-inicial-topo {
+        width: 100%;
+        position: relative;
+        right: 1.5em;
+    }
+
+    .pagina-inicial-topo-titulo {
+        font-size: 1.5rem;
+    } 
+
+    .pagina-inicial-principal h1 {
+        font-size: 4rem; 
+        position: relative;
+        right: 1.4em;
+    }
+
+    .pagina-inicial-principal {
+        width: 100%;
+        position: relative;
+        right: 3em;
+    }
+
+    .pagina-inicial-principal a {
+        width: 60%;
+        position: relative;
+        margin-left: 1em;
+    }
+
+    .hamburguer {
+        margin-left: 3em;
+    }
+
+    .menu-principal-lista {
+        width: 50%;
+        padding: 1em;
+        margin-left: 19em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        bottom: 2em;
+    }
+
+    .input-hamburguer:checked ~ nav .menu-principal {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Media Query para telas a partir de 400px */
+@media screen and (min-width: 400px) {
+    .menu-principal-lista {
+        padding: 1.2rem;
+        background-color: rgb(99, 97, 97);
+        position: relative;
+        right: 5px;
+    }
+
+    .seta {
+        position: relative;
+        right: 2.3em;
+        bottom: 5px;
+    }
+}
+
+/* Media Query para telas entre 768px e 850px */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .hamburguer {
+        display: none; /* Esconde ícone do menu hambúrguer */
+    }
+
+    .nav-telas-maiores {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 4em;
+    }
+
+    .nav-telas-maiores a {
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    .pagina-inicial-principal h1 {
+        font-size: 7rem;
+        margin-left: 0.7em;
+        color: rgb(184, 115, 26);
+    }
+}
+
+/* Media Query para telas entre 850px e 1030px */
+@media screen and (min-width: 850px) and (max-width: 1030px) {
+    .hamburguer {
+        display: none;
+    }
+    
+    .nav-telas-maiores {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 12.5em;
+    }
+
+    .nav-telas-maiores a {
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    .pagina-inicial-principal h1 {
+        font-size: 7rem;
+        margin-left: 0.7em;
+        color: rgb(184, 115, 26);
+    }
+}
+
+/* Media Query para telas a partir de 1440px */
+/* CSS para dropdown e controle de idiomas */
+@media screen and (min-width: 1440px) {
+    .hamburguer {
+        display: none;
+    }
+    
+    .nav-telas-maiores {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 3em;
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 6em;
+    }
+
+    .nav-telas-maiores a {
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    /* Estilos para ocultar o checkbox */
+    .input-lingua {
+        display: none;
+    }
+
+    /* Estilo para o label "PT" que abre o dropdown */
+    .lingua-label {
+        cursor: pointer;
+        color: black;
+        font-size: 1.2rem;
+    }
+
+    /* Esconde o conteúdo do dropdown inicialmente */
+    .dropdown-content {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        top: 2.5em;
+        right: 6em;
+        gap: 0.5em;
+    }
+
+    /* Exibe o dropdown quando o checkbox estiver marcado */
+    .input-lingua:checked + .lingua-label + .dropdown-content {
+        display: flex;
+    }
+
+    /* Estilo dos links dentro do dropdown */
+    .dropdown-content a {
+        color: black;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+}
+
+

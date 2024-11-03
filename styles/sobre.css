@@ -1,0 +1,308 @@
+.terceira-pagina {
+    background-color: #ffffff; /* Cor de fundo da terceira página */
+    padding: 100px 75px;
+    text-align: center;
+}
+
+.terceira-pagina-topo {
+    padding: 15px;
+    margin-top: -150px; /* Pode ser ajustado conforme necessário */
+}
+
+.terceira-pagina-subtitulo {
+    font-size: 2.4rem;
+    color: #000; /* Usando código hexadecimal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid black; /* Linha em cima do texto */
+    border-bottom: 2px solid black; /* Linha embaixo do texto */
+    padding: 5px 0; /* Espaçamento entre as linhas e o texto */
+    margin-top: 2em;
+    width: 30%;
+    margin-left:2em;
+}
+
+.negrito{
+color:bold;
+}
+
+.terceira-pagina-principal {
+    background-color: #fdfdfd; /* Cor de fundo da seção principal */
+}
+
+.terceira-pagina-primeira-parte-do-principal-paragrafo {
+    font-size: 1.7rem;
+    color: black;
+    margin-top: 1em;
+    text-align: left;
+    max-width: 100%; /* Limite para o texto se ajustar na página */
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+  position: relative;
+  right: 2em;
+
+}
+
+.terceira-pagina-primeira-parte-do-principal{
+   width: 140%;
+}
+
+
+.trescaixas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+}
+
+.banheiro img{
+width: 230px;
+height: 220px;
+position: relative;
+top:-210px;
+right: 160px;
+}
+
+.caixa {
+    border:2px solid rgb(0, 0, 0);
+    background-color: gray;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    border-radius: 25px;
+    margin-left: 10em;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 6em;
+    gap:15px;
+}
+
+.caixa p {
+    font-size: 1.7rem;
+}
+
+.secunda-parte {
+  width: 140%; 
+  margin-top: -10em;
+}
+
+.secunda-parte-paragrafo {
+    font-size: 1.7em;
+    color: black;
+   position: relative;
+   right: 2.2em;
+    text-align: left;
+    max-width: 100%; /* Limite para o texto se ajustar na página */
+    word-wrap: break-word;
+   
+}
+
+
+ @media screen and (min-width:320px) and (max-width:414px) {
+    .terceira-pagina-subtitulo {
+        font-size: 2.1rem;
+        color: #000; /* Usando código hexadecimal */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 2px solid black; /* Linha em cima do texto */
+        border-bottom: 2px solid black; /* Linha embaixo do texto */
+        padding: 5px 0; /* Espaçamento entre as linhas e o texto */
+        margin-top: 2em; white-space: nowrap;
+        position: relative;
+        bottom:2em;
+
+    }
+    
+    .terceira-pagina-primeira-parte-do-principal-paragrafo {
+        font-size: 1.5rem;
+         position: relative;
+         bottom: 2em;
+        width: 100%; /* Ajuste de largura total para ocupar o espaço */
+        padding: 0 1em; /* Espaçamento interno para facilitar leitura */
+        text-align: left;
+    }
+
+    .banheiro img{
+        width: 180px;
+        height: 220px;
+       position: relative;
+       margin-left: 5.5em;
+        }
+        
+
+        .secunda-parte-paragrafo {
+          
+            font-size: 1.8em;
+
+            width: 100%; /* Ajuste de largura total para ocupar o espaço */
+            padding: 0 1em; /* Espaçamento interno para facilitar leitura */
+            text-align: left;
+        }
+
+    
+ }
+
+ @media screen and (min-width: 768px ) and (max-width:1030px){
+
+    .terceira-pagina-subtitulo {
+        width: 70%;
+        margin-left: 3em;
+    }
+
+    .terceira-pagina-primeira-parte-do-principal{
+        word-wrap: break-word;
+        max-width: 62em;
+    margin-left: -0.7em;
+    }
+
+    
+.terceira-pagina-primeira-parte-do-principal-paragrafo {
+    font-size: 1.6rem;
+    color: black;
+
+}
+
+.trescaixas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2em;
+        margin-left: 7em;
+}
+
+.banheiro img{
+    width: 20em;
+    margin-right: 13em;
+    }
+
+    .negrito{
+        color:bold;
+        }
+        .secunda-parte-paragrafo {
+          
+            font-size: 1.8em;
+
+            width: 80%; /* Ajuste de largura total para ocupar o espaço */
+            padding: 0 1em; /* Espaçamento interno para facilitar leitura */
+            text-align: left;
+            position: relative;
+            right: 3em;
+        }
+
+ }
+
+ 
+
+    @media screen and (min-width: 1440px) {
+
+        .terceira-pagina-principal {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Duas colunas: texto e quadrados/imagem */
+            grid-template-rows: auto auto; /* Duas linhas: uma para o conteúdo principal e outra para o segundo texto */
+            column-gap: 30px; /* Espaço entre as colunas */
+            row-gap: 50px; /* Espaço entre as linhas */
+            align-items: start; /* Alinha o conteúdo no topo */
+            position: relative;
+            bottom: 2em;
+        }
+
+        .terceira-pagina-topo{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+        }
+    
+        .terceira-pagina-primeira-parte-do-principal {
+            grid-column: 1; /* O texto vai na primeira coluna */
+            grid-row: 1; /* Mantém o texto na primeira linha */
+        }
+    
+        .terceira-pagina-primeira-parte-do-principal-paragrafo {
+            font-size: 1.8rem;
+            max-width:76%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            margin-left: 0.5em;
+            
+        }
+
+        .terceira-pagina-subtitulo{
+            width: 30%;
+            position: relative;
+            bottom: 1.6em;
+            right: 2em;
+            font-size: 3em;
+           
+        }
+    
+        .trescaixas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            grid-column: 2; /* Coloca os quadrados na segunda coluna */
+            grid-row: 1; /* As caixas ficam alinhadas ao lado do texto, na primeira linha */
+            margin-top: 0; /* Remove qualquer espaçamento extra que empurre as caixas para baixo */
+            position: relative;
+            top:-16em;
+            
+            margin-left: 73em;
+           
+        }
+    
+        .banheiro {
+            grid-column: 2; /* Coloca a imagem na segunda coluna */
+            grid-row: 1; /* Imagem fica abaixo das caixas */
+            margin-top: 20px; /* Espaçamento para separar dos quadrados */
+            margin-right: 600px;
+        }
+    
+        .banheiro img {
+            width: 25em;
+            height: 21em;
+            position: relative;
+            right: 37em;
+            top:-20em;
+            margin-left: 4em;
+        }
+    
+        .caixa {
+            border: 2px solid rgb(0, 0, 0);
+            background-color: gray;
+            color: rgb(0, 0, 0);
+            padding: 35px;
+            border-radius: 25px;
+            width: 20%;
+            gap: 15px;
+        }
+    
+        .caixa p {
+            font-size: 1.7rem;
+        }
+    
+        .secunda-parte {
+            grid-column: 1 / span 2; /* O segundo texto ocupa as duas colunas, estendendo-se de uma ponta a outra */
+            grid-row: 2; /* Move o segundo texto para a segunda linha */
+            margin-top: 30px; /* Espaçamento acima do segundo texto */
+
+           
+            width: 76%;
+            margin-left:30em;
+            margin-top: -40em;
+        }
+    
+        .secunda-parte-paragrafo {
+            font-size: 1.7rem;
+            text-align: left;
+        }
+    }
+    
+
+
+
+ 
