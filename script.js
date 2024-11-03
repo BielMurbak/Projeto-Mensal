@@ -17,7 +17,7 @@ function moveImageCarousel(carouselId, direction) {
     // Adiciona a classe 'active' à nova imagem
     images[currentIndex].classList.add('active');
 }
-
+//
 //carrosel clientes
 
 function moveComentarioCarousel(carouselId, direction) {
