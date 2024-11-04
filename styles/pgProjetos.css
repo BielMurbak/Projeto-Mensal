@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+.modal{
+    display: none;
+}
+
 .titulo-projetos {
     font-size: 1.5rem;
     color: rgb(0, 0, 0);
@@ -239,6 +243,171 @@
     }
 }
 
+@media screen and (min-width: 450px) {
+    .carrosel-imagem {
+        display: none; /* Oculta as imagens inicialmente */
+        width: 100%; /* Largura das imagens */
+        border-radius: 1em; /* Cantos arredondados */
+    }
+
+    .texto {
+        position: absolute; 
+        bottom: 1px; 
+        left: 40%; /* Ajuste horizontal do texto */
+        transform: translateX(-50%); 
+        color: rgb(255, 255, 255); 
+        font-size: 1.3rem; 
+        border-radius: 20px; 
+        padding: 5px; 
+    }
+
+    .titulo-projetos {
+        font-size: 1.5em; /* Tamanho da fonte do título */
+        width: 14em; /* Largura do título */
+        position: relative; 
+        bottom: 2em; /* Ajuste vertical do título */
+        left:1px;
+    }
+
+    .botao-orcamento2 {
+        white-space: nowrap; /* Impede quebra de linha */
+        border: 2px solid rgb(0, 0, 0); /* Borda do botão */
+        border-radius: 10px; /* Cantos arredondados */
+        padding: 1.5rem; /* Preenchimento interno */
+        background-color: gray; /* Cor de fundo */
+        color: rgb(0, 0, 0); /* Cor do texto */
+        cursor: pointer; /* Cursor de ponteiro */
+        text-decoration: none; /* Remove sublinhado */
+        font-size: 1.1rem; /* Tamanho da fonte */
+        display: flex; /* Flexbox para centralizar conteúdo */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        width: 75%; /* Largura do botão */
+        position: relative; 
+        bottom: 6em; /* Ajuste vertical */
+        left: 20px; /* Ajuste horizontal */
+    }
+}
+
+/* Estilos para telas entre 768px e 819px */
+@media screen and (min-width: 768px) and (max-width: 819px) {
+    .titulo-projetos {
+        font-size: 2.5em; /* Aumenta o tamanho da fonte do título */
+        width: 14em; /* Largura do título */
+        position: relative; 
+        bottom: 2em; /* Ajuste vertical do título */
+        left: 2em; /* Ajuste horizontal */
+        width: 80%; 
+        border-top: 3px solid black; /* Linha em cima do texto */
+        border-bottom: 3px solid black; /* Linha embaixo do texto */
+    }
+
+    .galeria-projetos {
+        display: grid; /* Usa grid para layout */
+        grid-template-columns: 1fr 1fr; /* Duas colunas de igual largura */
+        position: relative; 
+        margin-left: 2em; /* Margem à esquerda */
+        gap: 10px; /* Espaçamento entre os itens */
+    }
+
+    .carrosel-imagem {
+        display: none; /* Oculta as imagens inicialmente */
+        width: 100%; /* Largura das imagens */
+        border-radius: 1em; /* Cantos arredondados */
+    }
+
+    .texto {
+        position: absolute; 
+        bottom: 1px; 
+        left: 53%; /* Ajuste horizontal do texto */
+        transform: translateX(-50%); 
+        color: rgb(255, 255, 255); 
+        font-size: 1.3rem; 
+        border-radius: 20px; 
+        padding: 5px; 
+    }
+
+    .next2 {
+        position: absolute; 
+        top: 60%; 
+        left: 90%; /* Ajuste à direita */
+        transform: translateY(-50%); 
+        color: rgb(255, 255, 255); 
+        border: none; /* Remove borda */
+        font-size: 24px; /* Tamanho da fonte */
+        cursor: pointer; /* Cursor de ponteiro */
+        z-index: 10; /* Camada superior */
+        background-color: transparent; /* Fundo transparente */
+    }
+
+    .botao-orcamento2 {
+        white-space: nowrap; /* Impede quebra de linha */
+        border: 2px solid rgb(0, 0, 0); /* Borda do botão */
+        border-radius: 10px; /* Cantos arredondados */
+        padding: 1.5rem; /* Preenchimento interno */
+        background-color: gray; /* Cor de fundo */
+        color: rgb(0, 0, 0); /* Cor do texto */
+        cursor: pointer; /* Cursor de ponteiro */
+        text-decoration: none; /* Remove sublinhado */
+        font-size: 1.1rem; /* Tamanho da fonte */
+        display: flex; /* Flexbox para centralizar conteúdo */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        width: 50%; /* Largura do botão */
+        position: relative; 
+        bottom: 6em; /* Ajuste vertical */
+        left: 200px; /* Ajuste horizontal */
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .carrosel-imagem {
+        display: none; /* Oculta as imagens inicialmente */
+        width: 90%; /* Largura das imagens */
+        border-radius: 1em; /* Cantos arredondados */
+        position: relative;
+        left: 2em;
+    }
+
+    .texto {
+        position: absolute; 
+        bottom: 1px; 
+        left: 40%; /* Ajuste horizontal do texto */
+        transform: translateX(-50%); 
+        color: rgb(255, 255, 255); 
+        font-size: 1.3rem; 
+        border-radius: 20px; 
+        padding: 5px; 
+    }
+
+    .titulo-projetos {
+        font-size: 1.5em; /* Tamanho da fonte do título */
+        width: 14em; /* Largura do título */
+        position: relative; 
+        bottom: 2em; /* Ajuste vertical do título */
+        left:40px;
+    }
+
+    .botao-orcamento2 {
+        white-space: nowrap; /* Impede quebra de linha */
+        border: 2px solid rgb(0, 0, 0); /* Borda do botão */
+        border-radius: 10px; /* Cantos arredondados */
+        padding: 1.5rem; /* Preenchimento interno */
+        background-color: gray; /* Cor de fundo */
+        color: rgb(0, 0, 0); /* Cor do texto */
+        cursor: pointer; /* Cursor de ponteiro */
+        text-decoration: none; /* Remove sublinhado */
+        font-size: 1.1rem; /* Tamanho da fonte */
+        display: flex; /* Flexbox para centralizar conteúdo */
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        width: 75%; /* Largura do botão */
+        position: relative; 
+        bottom: 6em; /* Ajuste vertical */
+        left: 20px; /* Ajuste horizontal */
+    }
+}
+
 /* Estilos para telas entre 768px e 819px */
 @media screen and (min-width: 768px) and (max-width: 819px) {
     .titulo-projetos {
@@ -357,7 +526,7 @@
 }
 
 /* Estilos para telas com largura mínima de 1440px */
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1200px) {
     .titulo-projetos {
         font-size: 2.5em; /* Tamanho da fonte do título */
         width: 14em; /* Largura do título */
@@ -380,6 +549,8 @@
         display: none; /* Oculta as imagens inicialmente */
         width: 100%; /* Largura das imagens */
         border-radius: 1em; /* Cantos arredondados */
+        position: relative;
+        left: 2px;
     }
 
     .botao-orcamento2 {

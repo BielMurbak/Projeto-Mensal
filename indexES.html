@@ -14,50 +14,59 @@
 <body>
     <section class="pagina-inicial" id="home">
         <header class="pagina-inicial-topo">
-            <h2 class="pagina-inicial-topo-titulo">CONOZCA NUESTROS PROYECTOS</h2>
-    
+            <h2 class="pagina-inicial-topo-titulo">Muebles a Medida</h2>
+            
             <!-- O input hamburguer -->
             <input type="checkbox" id="menu" class="input-hamburguer">
             <label for="menu">
-                <img src="img/menu.svg" class="hamburguer" alt="Menu">
+                <img src="img/logos/menu.svg" class="hamburguer" alt="Menu">
             </label>
-            
-            <!-- Menu that appears when clicking the hamburger -->
-            <nav class = "navbar-menu-principal">
+<!--Mudei aqui-->
+            <!-- O menu que aparecerá ao clicar no hamburguer -->
+                       <nav class="navbar-menu-principal">
                 <ul class="menu-principal">
                     <li class="menu-principal-lista"><a href="#home">Inicio</a></li>
                     <li class="menu-principal-lista"><a href="#servicos">Servicios</a></li>
                     <li class="menu-principal-lista"><a href="#sobre-nos">Sobre Nosotros</a></li>
-                    <li class="menu-principal-lista"><a href="#fale-conosco">Contáctenosa></li>
-                    <li class="menu-principal-lista"><a href="#">ES</a>
+                    <li class="menu-principal-lista"><a href="#fale-conosco">Contáctenos</a></li>                    
+
+                    <!-- Dropdown de idioma -->
+                    <li class="menu-principal-lista">
+                        <input type="checkbox" id="pt" class="input-lingua">
+                        <label for="pt" class="lingua-label">ES</label>
+                        <div class="dropdown-content">
+                            <a href="index.html" data-lang="pt">PT</a>
+                            <a href="indexEN.html" data-lang="en">EN</a>
+                            <a href="indexES.html" data-lang="es">ES</a>
+                        </div>
                     </li>
-                    <img src = "img/SETA.svg"  class = "seta">
+                    <img src="img/armazem/SETA.svg" class="seta">
                 </ul>
             </nav>
 
-        <nav class="nav-telas-maiores">
-            <a href="#home">Inicio</a>
-            <a href="#servicos">Servicios</a>
-            <a href="#sobre-nos">Sobre Nosotros</a>
-            <a href="#fale-conosco">Contáctenos</a>
-
-            <!-- Checkbox para controle do dropdown -->
-            <input type="checkbox" id="pt" class="input-lingua">
-            <label for="pt" class="lingua-label">ES</label>
+            <nav class="nav-telas-maiores">
+                <a href="#home">Inicio</a>
+                <a href="#servicos">Servicios</a>
+                <a href="#sobre-nos">Sobre Nosotros</a>
+                <a href="#fale-conosco">Contáctenos</a>
             
-            <!-- Dropdown com opções de idioma -->
-            <div class="dropdown-content" id="language-options">
-                <a href="index.html" data-lang="pt">PT</a>
-                <a href="indexEN.html" data-lang="en">EN</a>
-                <a href="indexES.html" data-lang="es">ES</a>
-            </div>
-        </nav>
-    </header>
+                <!-- Checkbox para controle do dropdown -->
+                <input type="checkbox" id="language-toggle" class="input-lingua">
+                <label for="language-toggle" class="lingua-label">ES</label>
+                
+                <!-- Dropdown com opções de idioma -->
+                <div class="dropdown-content" id="language-options">
+                    <a href="index.html" data-lang="pt">PT</a>
+                    <a href="indexEN.html" data-lang="en">EN</a>
+                    <a href="indexES.html" data-lang="es">ES</a>
+                </div>
+            </nav>
+        </header>
 
     
         
         <main class="pagina-inicial-principal">
-            <h1 class="pagina-inicial-principal-titulo">Scarbak <br>Planejados</h1>
+            <h1 class="pagina-inicial-principal-titulo">Scarbak <br>Personalizados</h1>
             <a href="https://wa.me/554599930713?text=Hola,%20me%20gustaría%20solicitar%20un%20presupuesto%20para%20muebles%20personalizados!" target="_blank" class="botao-orcamento">Solicite su presupuesto</a>
         </main>
         </section>
@@ -68,10 +77,10 @@
     
             <main class="galeria-projetos">
                 <div class="carrosel" id="carrosel1">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">DORMITORIOS</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel1', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -80,10 +89,10 @@
                 </div>
     
                 <div class="carrosel" id="carrosel2">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">COCINA</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel2', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -92,10 +101,10 @@
                 </div>
     
                 <div class="carrosel" id="carrosel3">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">SALA DE ESTAR</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel3', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -104,10 +113,10 @@
                 </div>
     
                 <div class="carrosel" id="carrosel4">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">CORPORATIVO</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel4', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -116,10 +125,10 @@
                 </div>
     
                 <div class="carrosel" id="carrosel5">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">HOME OFFICE</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel5', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -128,10 +137,10 @@
                 </div>
     
                 <div class="carrosel" id="carrosel6">
-                    <img src="img/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <img src="img/dormitorio2.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
-                    <span class="texto">DORMITÓRIOS</span>
+                    <img src="img/dormitorios/dormitorio1.png" alt="Dormitório 1" class="carrosel-imagem active" onclick="openModal(this.src)">
+                <img src="img/dormitorios/dormitorio2.png" alt="Dormitório 2" class="carrosel-imagem" onclick="openModal(this.src)">
+                <img src="img/dormitorios/dormitorio3.png" alt="Dormitório 3" class="carrosel-imagem" onclick="openModal(this.src)">
+                    <span class="texto">LAVANDERÍA</span>
                     <button class="next2" onclick="moveImageCarousel('carrosel6', 1)">→</button>
                 </div>
                 <div class="modal" id="modal">
@@ -175,7 +184,7 @@
                     </div>
                 </div>
                 <div class="banheiro">
-                    <img src="img/banheiro.png">
+                    <img src="img/armazem/banheiro.png">
                 </div>
             </div>
             <div class="secunda-parte">
@@ -199,7 +208,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios1">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-joana.png" alt="Foto do Cliente">
                 <div>
                     <h3>Joana de Costa Caron</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -210,7 +219,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/CLIENTE.png" alt="Foto do Cliente">
                 <div>
                     <h3>Bianca de Souza</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -221,7 +230,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-rafael.png" alt="Foto do Cliente">
                 <div>
                     <h3>Rafael dos Santos</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -236,7 +245,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios2">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (10).png" alt="Foto do Cliente">
                 <div>
                     <h3>Lucas Ferreira</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -247,7 +256,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-joana.png" alt="Foto do Cliente">
                 <div>
                     <h3>Mariana Silva</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -258,7 +267,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (10).png" alt="Foto do Cliente">
                 <div>
                     <h3>Carlos Eduardo</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -274,7 +283,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios3">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (8).png" alt="Foto do Cliente">
                 <div>
                     <h3>Lucas Ferreira</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -285,7 +294,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-joana.png" alt="Foto do Cliente">
                 <div>
                     <h3>Mariana Silva</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -296,7 +305,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (10).png" alt="Foto do Cliente">
                 <div>
                     <h3>Carlos Eduardo</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -312,7 +321,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios4">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-joana.png" alt="Foto do Cliente">
                 <div>
                     <h3>Lucas Ferreira</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -323,7 +332,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (10).png" alt="Foto do Cliente">
                 <div>
                     <h3>Mariana Silva</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -334,7 +343,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-rafael.png" alt="Foto do Cliente">
                 <div>
                     <h3>Carlos Eduardo</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -350,7 +359,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios5">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-rafael.png" alt="Foto do Cliente">
                 <div>
                     <h3>Lucas Ferreira</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -361,7 +370,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-joana.png" alt="Foto do Cliente">
                 <div>
                     <h3>Mariana Silva</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -372,7 +381,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (8).png" alt="Foto do Cliente">
                 <div>
                     <h3>Carlos Eduardo</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -389,7 +398,7 @@
     <div class="carrosel-comentarios" id="carroselComentarios6">
         <div class="comentario active">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/image (9).png" alt="Foto do Cliente">
                 <div>
                     <h3>Lucas Ferreira</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -400,7 +409,7 @@
         
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/CLIENTE.png" alt="Foto do Cliente">
                 <div>
                     <h3>Mariana Silva</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -408,10 +417,10 @@
             </div>
             <p class = "carrosel-paragrafo">Calidad excelente y precio competitivo. Felicitaciones a Scarbak Muebles.</p>
         </div>
-        <!---->
+        
         <div class="comentario">
             <div class="quarta-pagina-principal-cliente-topo-cliente">
-                <img src="img/cliente.png" alt="Foto do Cliente">
+                <img src="img/clientes/cliente-rafael.png" alt="Foto do Cliente">
                 <div>
                     <h3>Carlos Eduardo</h3>
                     <div class="quarta-pagina-principal-avaliacao">★★★★★</div> 
@@ -445,14 +454,14 @@
                 <a href="#">
                     <div class="contato-item">
                         <button class="contato-item-button">
-                            <img class="contato-img" src="img/silhueta-de-alca-de-telefone.png" alt="foto teléfono">
+                            <img class="contato-img" src="img/logos/silhueta-de-alca-de-telefone.png" alt="foto teléfono">
                         </button>
                     </div>
                 </a>
                 <a href="#">
                     <div class="contato-item">
                         <button class="contato-item-button">
-                            <img class="contato-img" src="img/logotipo-do-gmail.png" alt="foto gmail">
+                            <img class="contato-img" src="img/logos/logotipo-do-gmail.png" alt="foto gmail">
                         </button>
                     </div>
                 </a>
@@ -460,7 +469,7 @@
                 <a href="#">
                     <div class="contato-item">
                         <button class="contato-item-button">
-                            <img class="contato-img" src="img/instagram.png" alt="foto de instagram">
+                            <img class="contato-img" src="img/logos/instagram.png" alt="foto de instagram">
                         </button>
                     </div>
                 </a>
@@ -468,7 +477,7 @@
                 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Bonito+Lindo,+575,+Portal+Fa+Foz,+Foz+do+Iguacu">
                     <div class="contato-item">
                         <button class="contato-item-button2">
-                            <img class="mapa-img" src="img/mapa.png" alt="foto mapa">
+                            <img class="mapa-img" src="img/logos/mapa.png" alt="foto mapa">
                         </button>
                     </div>
                 </a>

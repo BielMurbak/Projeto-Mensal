@@ -17,7 +17,7 @@ function moveImageCarousel(carouselId, direction) {
     // Adiciona a classe 'active' à nova imagem
     images[currentIndex].classList.add('active');
 }
-//
+
 //carrosel clientes
 
 function moveComentarioCarousel(carouselId, direction) {
@@ -54,7 +54,6 @@ function closeModal() {
 }
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const languageSelector = document.getElementById("language-selector");
     const languageOptions = document.getElementById("language-options");
@@ -83,5 +82,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
 
