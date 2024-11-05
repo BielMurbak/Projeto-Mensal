@@ -27,6 +27,7 @@
 }
 
 .pagina-inicial-principal-titulo { 
+    padding-left: 30px;
     position: relative;
     right: 2em; /* Ajusta posição do título */
 }
