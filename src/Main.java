@@ -28,7 +28,26 @@ public class Main {
 
             switch (aux) {
                 case 1:
-
+                    System.out.println("Cliente Atacado?");
+                    auxB = scanner.nextLine();
+                    if(auxB.equalsIgnoreCase("Sim")){
+                        scanner.nextLine();  // Clear the buffer after nextInt()
+                        System.out.println("Digite seu nome de login: ");
+                        String nomeLoginAtacado = scanner.nextLine();
+                        System.out.println("Digite sua senha de login: ");
+                        int senhaLoginAtacado = scanner.nextInt();
+                        login.setNomeLogin(nomeLoginAtacado);
+                        login.setSenhaLogin(senhaLoginAtacado);
+                        login.realizarLoginClienteAtacado(clienteAtacado);
+                    }else{scanner.nextLine();  // Clear the buffer after nextInt()
+                        System.out.println("Digite seu nome de login: ");
+                        String nomeLoginAtacado = scanner.nextLine();
+                        System.out.println("Digite sua senha de login: ");
+                        int senhaLoginAtacado = scanner.nextInt();
+                        login.setNomeLogin(nomeLoginAtacado);
+                        login.setSenhaLogin(senhaLoginAtacado);
+                        login.realizarLoginCliente(clienteAtacado);
+                    }
                     break;
                 case 2:
                     System.out.println("Cliente Atacado?");
@@ -43,10 +62,20 @@ public class Main {
                         int senhaLoginAtacado = scanner.nextInt();
                         login.setNomeLogin(nomeLoginAtacado);
                         login.setSenhaLogin(senhaLoginAtacado);
-                        login.realizarLogin(clienteAtacado);
+                        login.realizarLoginClienteAtacado(clienteAtacado);
                     }
                     cliente.cadastrarCliente(scanner);
                     ///cliente cadastrado.
+                    scanner.nextLine();  // Clear the buffer after nextInt()
+                    System.out.println("Digite seu nome de login: ");
+                    String nomeLoginAtacado = scanner.nextLine();
+                    System.out.println("Digite sua senha de login: ");
+                    int senhaLoginAtacado = scanner.nextInt();
+                    login.setNomeLogin(nomeLoginAtacado);
+                    login.setSenhaLogin(senhaLoginAtacado);
+                    login.realizarLoginCliente(clienteAtacado);
+                    SistemaUsuario sU = new SistemaUsuario();
+                    sU.sistemaUsuario();
                     break;
                 case 3:
                     System.out.println("Programa Encerrado com sucesso.");
@@ -58,5 +87,4 @@ public class Main {
         }while(aux != 1 && aux !=2); //close the do
 
     }//close the function main
-
 }//close the main

@@ -1,5 +1,7 @@
 package src.Cliente;
 
+import src.SistemaUsuario;
+
 public class Login {
     private String nomeLogin;
     private int  senhaLogin;
@@ -21,10 +23,27 @@ public class Login {
     }
 
     //metodo
-    public void realizarLogin( ClientedeAtacado clienteAtacado) {
+    public void realizarLoginClienteAtacado( ClientedeAtacado clienteAtacado) {
 
         if (clienteAtacado.getNome().equals(nomeLogin)) {
             if(clienteAtacado.getSenha()==(senhaLogin)){
+                System.out.println("login realizado com sucesso!");
+                SistemaUsuario sU = new SistemaUsuario();
+                sU.sistemaUsuario();
+            }else{
+                System.out.println("Erro! Essa senha nao foi encotrada!");
+            }
+        }else{
+            System.out.println("Erro! Esse nome nao foi encotrado!");
+        }
+
+    }//close the realizarLoginClienteAtacado
+
+
+    public void realizarLoginCliente( Cliente cliente) {
+
+        if (cliente.getNome().equals(nomeLogin)) {
+            if(cliente.getSenha()==(senhaLogin)){
                 System.out.println("login realizado com sucesso!");
             }else{
                 System.out.println("Erro! Essa senha nao foi encotrada!");
@@ -33,7 +52,7 @@ public class Login {
             System.out.println("Erro! Esse nome nao foi encotrado!");
         }
 
-    }//close the realizarLogin
+    }//close the realizarLoginCliente
 
 
 }//close the class
