@@ -1,8 +1,8 @@
-package src.components.Cliente;
+package src.Cliente;
 
 import java.util.Scanner;
 
-public class ClientedeAtacado extends src.components.Cliente.Cliente {
+public class ClientedeAtacado extends Cliente {
     private double descontoEspecial;
     private String cnpj;
 

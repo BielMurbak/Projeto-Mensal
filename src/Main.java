@@ -1,8 +1,8 @@
-package src.components;
+package src;
 
-import src.components.Cliente.Cliente;
-import src.components.Cliente.ClientedeAtacado;
-import src.components.Cliente.Login;
+import src.Cliente.Cliente;
+import src.Cliente.ClientedeAtacado;
+import src.Cliente.Login;
 
 import java.util.Scanner;
 
@@ -58,4 +58,5 @@ public class Main {
         }while(aux != 1 && aux !=2); //close the do
 
     }//close the function main
+
 }//close the main

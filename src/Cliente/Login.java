@@ -1,4 +1,4 @@
-package src.components.Cliente;
+package src.Cliente;
 
 public class Login {
     private String nomeLogin;
@@ -21,7 +21,7 @@ public class Login {
     }
 
     //metodo
-    public void realizarLogin( src.components.Cliente.ClientedeAtacado clienteAtacado) {
+    public void realizarLogin( ClientedeAtacado clienteAtacado) {
 
         if (clienteAtacado.getNome().equals(nomeLogin)) {
             if(clienteAtacado.getSenha()==(senhaLogin)){
