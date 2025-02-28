@@ -45,6 +45,8 @@ public class Login {
         if (cliente.getNome().equals(nomeLogin)) {
             if(cliente.getSenha()==(senhaLogin)){
                 System.out.println("login realizado com sucesso!");
+                SistemaUsuario sU = new SistemaUsuario();
+                sU.sistemaUsuario();
             }else{
                 System.out.println("Erro! Essa senha nao foi encotrada!");
             }

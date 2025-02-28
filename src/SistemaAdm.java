@@ -2,7 +2,7 @@ package src;
 
 import java.util.Scanner;
 
-public class sistemaAdm {
+public class SistemaAdm {
     public void sistemaAdm() {
 
         Scanner scanner = new Scanner(System.in);
