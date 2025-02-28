@@ -60,7 +60,7 @@ public class SistemaUsuario {
                     System.out.println("\nPolítica de Privacidade: \n- Nós respeitamos a sua privacidade e não compartilhamos seus dados com terceiros...");
                     break;
                 case 2:
-                  //alterar senha
+                 //
                     break;
                 case 3:
                     //configuracoes de seguranca

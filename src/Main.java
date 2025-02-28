@@ -53,6 +53,7 @@ public class Main {
                     System.out.println("Cliente Atacado?");
                     auxB = scanner.nextLine();
                     if(auxB.equalsIgnoreCase("Sim")){
+
                         clienteAtacado.cadastrarCliente(scanner);
                         ///clienteAtacado cadastrado.
                         scanner.nextLine();  // Clear the buffer after nextInt()
@@ -68,14 +69,12 @@ public class Main {
                     ///cliente cadastrado.
                     scanner.nextLine();  // Clear the buffer after nextInt()
                     System.out.println("Digite seu nome de login: ");
-                    String nomeLoginAtacado = scanner.nextLine();
+                    String nomeLoginCliente = scanner.nextLine();
                     System.out.println("Digite sua senha de login: ");
-                    int senhaLoginAtacado = scanner.nextInt();
-                    login.setNomeLogin(nomeLoginAtacado);
-                    login.setSenhaLogin(senhaLoginAtacado);
-                    login.realizarLoginCliente(clienteAtacado);
-                    SistemaUsuario sU = new SistemaUsuario();
-                    sU.sistemaUsuario();
+                    int senhaLoginCliente = scanner.nextInt();
+                    login.setNomeLogin(nomeLoginCliente);
+                    login.setSenhaLogin(senhaLoginCliente);
+                    login.realizarLoginCliente(cliente);
                     break;
                 case 3:
                     System.out.println("Programa Encerrado com sucesso.");
