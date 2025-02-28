@@ -20,7 +20,7 @@ public class sistemaAdm {
 
             switch (auxI) {
                 case 1:
-                    //Cadastrar Produtos
+                    cadastrarProduto(scanner);
                     break;
                 case 2:
                     //Remover Produtos
@@ -43,18 +43,22 @@ public class sistemaAdm {
         int escolhaCadatro = 0;
 
             System.out.println("\n--- Cadastro de Produtos ---");
-            System.out.print("Digite o nome do produto: ");
+            System.out.print("Nome do tênis: ");
             String nome = scanner.nextLine();
 
-            System.out.print("Digite o código do produto: ");
+            System.out.print("Preço: R$ ");
+            double preco = scanner.nextDouble();
+
+            System.out.print("Código: ");
             int codigo = scanner.nextInt();
 
-            System.out.print("Digite a quantidade: ");
+            System.out.print("Quantidade em estoque: ");
             int quantidade = scanner.nextInt();
+            scanner.nextLine(); // Limpar buffer
 
-            System.out.print("Digite o preço: R$ ");
-            double preco = scanner.nextDouble();
-            scanner.nextLine();
+            // Criando o objeto e adicionando no ArrayList
+            //catalogo.add(new Tenis(nome, preco, codigo, quantidade));
+            System.out.println("✅ Tênis cadastrado com sucesso!");
 
             escolhaCadatro = scanner.nextInt();
     }

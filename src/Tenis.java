@@ -1,12 +1,14 @@
 package src;
+import java.util.ArrayList;
 
 public class Tenis {
-    String nome;
-    int codigo;
-    int quantidade;
-    double preco;
+    private String nome;
+    private int codigo;
+    private int quantidade;
+    private double preco;
+    static ArrayList<Tenis> catalogo = new ArrayList<>();
 
-    public Tenis() {
+    public Tenis(String nome, int codigo, int quantidade, double preco) {
         this.nome = nome;
         this.codigo = codigo;
         this.quantidade = quantidade;
