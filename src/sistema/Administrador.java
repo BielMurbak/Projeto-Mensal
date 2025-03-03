@@ -1,9 +1,5 @@
 package src.sistema;
 
-import src.cliente.Cliente;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Administrador {
     protected String nome;

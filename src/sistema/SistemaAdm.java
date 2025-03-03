@@ -34,17 +34,21 @@ public class SistemaAdm {
                 case 4:
                   adicionarAdm(scanner);
                 case 5:
-                    System.exit(0);
+                    SistemaUsuario sU = new SistemaUsuario();
+                    sU.sistemaUsuario();
                 default:
                     System.out.println("Erro! numero digitado é invalido");
             }
-        } while (auxI >= 6 || auxI <= 0);
+        } while (auxI != 5);
     }
 
-    public void cadastrarProduto(Scanner scanner){
+    public void cadastrarProduto(Scanner scanner) {
+        int continuarCadastro =0;
 
+        do {
             System.out.println("\n--- Cadastro de Produtos ---");
             System.out.print("Nome do tênis: ");
+            scanner.nextLine(); // Limpar buffer
             String nome = scanner.nextLine();
 
             System.out.print("Preço: R$ ");
@@ -55,23 +59,27 @@ public class SistemaAdm {
 
             System.out.print("Quantidade em estoque: ");
             int quantidade = scanner.nextInt();
-            scanner.nextLine(); // Limpar buffer
+            scanner.nextLine();
 
-            Tenis novoTenis = new Tenis(nome,codigo,quantidade,preco);
+            Tenis novoTenis = new Tenis(nome, codigo, quantidade, preco);
             Tenis.catalogo.add(novoTenis);
 
             System.out.println("✅ Tênis cadastrado com sucesso!");
 
+            System.out.println("Deseja cadastrar outro tênis? 1 - Sim / 2 - Não");
+            continuarCadastro = scanner.nextInt();
 
+        } while (continuarCadastro == 1);
     }
 
     public void removerProduto(Scanner scanner){
 
-        System.out.println("\n--- Remover Produto ---");
-        System.out.print("Nome do tênis: ");
-        String nomeRemover = scanner.nextLine();
-        removerProduto(scanner);
+        /// precisa trocar pelo codigo int
 
+        System.out.println("\n--- Remover Produto ---");
+        System.out.print("Digite codigo do tenis: ");
+        String  codigoRemover = scanner.nextLine();
+        removerProduto(scanner);
 
     }
 

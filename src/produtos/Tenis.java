@@ -8,6 +8,8 @@ public class Tenis {
     private double preco;
     public static ArrayList<Tenis> catalogo = new ArrayList<>();
 
+
+
     public Tenis(String nome, int codigo, int quantidade, double preco) {
         this.nome = nome;
         this.codigo = codigo;
@@ -42,6 +44,8 @@ public class Tenis {
     }
 
     //metodo removerProduto
+
+    /// precisa trocar pelo codigo int
     public static boolean removerProduto(String nomeRemover) {
         for (Tenis tenis : catalogo) {
             if (tenis.nome.equalsIgnoreCase(nomeRemover)) {
@@ -53,4 +57,35 @@ public class Tenis {
         System.out.println("✅ Tênis nao foi encotrado!");
         return false;
     }
-}
+
+    public static void exibirCatalogo() {
+        if (catalogo.isEmpty()) {
+            System.out.println("O catálogo está vazio.");
+        } else {
+            System.out.println("Catálogo de Tênis:");
+            for (Tenis tenis : catalogo) {
+                System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n",tenis.nome, tenis.codigo, tenis.quantidade, tenis.preco);
+            }
+        }
+
+    }
+
+    public void condicionaisDeCompra(int codigoProduto,int quantidadeProduto ,double total) {
+
+            switch (codigoProduto){
+                case 1:
+                case 2:
+                case 3:
+                    if(quantidadeProduto<quantidade){
+                        System.out.println("❌ Não há estoque suficiente para a quantidade solicitada!");
+                    }
+                    else{
+                        quantidade-=quantidadeProduto;
+                        total+=preco;
+                    }
+                    break;
+
+            }
+
+        }
+    }

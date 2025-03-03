@@ -6,7 +6,6 @@ public class ClientedeAtacado extends Cliente {
     private double descontoEspecial;
     private String cnpj;
 
-    /// get and sets
     public double getDescontoEspecial() {
         return descontoEspecial;
     }

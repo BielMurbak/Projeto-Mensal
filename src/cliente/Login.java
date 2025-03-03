@@ -1,5 +1,7 @@
 package src.cliente;
 
+import src.sistema.Administrador;
+import src.sistema.SistemaAdm;
 import src.sistema.SistemaUsuario;
 
 public class Login {
@@ -22,8 +24,8 @@ public class Login {
         this.senhaLogin = senhaLogin;
     }
 
-    //metodo
     public void realizarLoginClienteAtacado( ClientedeAtacado clienteAtacado) {
+
 
         if (clienteAtacado.getNome().equals(nomeLogin)) {
             if(clienteAtacado.getSenha()==(senhaLogin)){
@@ -37,7 +39,7 @@ public class Login {
             System.out.println("Erro! Esse nome nao foi encotrado!");
         }
 
-    }//close the realizarLoginClienteAtacado
+    }
 
 
     public void realizarLoginCliente( Cliente cliente) {
@@ -54,7 +56,16 @@ public class Login {
             System.out.println("Erro! Esse nome nao foi encotrado!");
         }
 
-    }//close the realizarLoginCliente
+    }
+
+    public void realizarloginAdm(Administrador adm) {
+
+        if(nomeLogin.equals("adm")){
+                SistemaAdm sA = new SistemaAdm();
+                sA.sistemaAdm();
+            }
+        }
+
+    }
 
 
-}//close the class

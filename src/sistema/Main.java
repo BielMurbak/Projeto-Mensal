@@ -13,20 +13,23 @@ public class Main {
         Cliente cliente = new Cliente();
         ClientedeAtacado clienteAtacado = new ClientedeAtacado();
         Login login = new Login();
+        Administrador  adm = new  Administrador();
 
         int aux = 0;
         String auxB;
         do {
+            System.out.println("\n");
             System.out.println("---Sistema e-commerce---");
             System.out.println("1 - Fazer login");
             System.out.println("2 - Cadastrar");
             System.out.println("3 - Encerrar programa");
             System.out.println("Escolha uma opção:");
             aux = scanner.nextInt();
-            scanner.nextLine();  // Clear the buffer after nextInt()
+            scanner.nextLine();
 
             switch (aux) {
-                case 1:  // Option for login
+                case 1:
+                    System.out.println("\n");
                     System.out.println("Escolha o tipo de usuário para login:");
                     System.out.println("1 - Cliente Varejo");
                     System.out.println("2 - Cliente Atacado");
@@ -61,6 +64,7 @@ public class Main {
                             int senhaLoginAdmin = scanner.nextInt();
                             login.setNomeLogin(nomeLoginAdmin);
                             login.setSenhaLogin(senhaLoginAdmin);
+                            login.realizarloginAdm(adm);
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente.");

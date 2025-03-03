@@ -1,12 +1,20 @@
 package src.sistema;
 
+import src.produtos.Tenis;
+
 import java.util.Scanner;
+
+import static src.produtos.Tenis.*;
 
 public class SistemaUsuario {
     public void sistemaUsuario() {
 
         Scanner scanner = new Scanner(System.in);
+        Tenis tenis = new Tenis(null, 0, 0, 0);
+
         int auxI = 0;
+        double total=0;
+        int continuarCadastro =0;
 
         do {
             System.out.println("Sistema E-commerce");
@@ -20,7 +28,20 @@ public class SistemaUsuario {
 
             switch (auxI) {
                 case 1:
-                    //produtos
+                    do{
+                    System.out.println(total);
+                    catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99));
+                    catalogo.add(new Tenis("Adidas Ultra Boost", 2, 5, 599.99));
+                    catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
+                    exibirCatalogo();
+                    System.out.println("Digite codigo do produto:");
+                    int codigoProduto = scanner.nextInt();
+                    System.out.println("Digite a quantidade:");
+                    int quantidadeProduto = scanner.nextInt();
+                    tenis.condicionaisDeCompra(codigoProduto,quantidadeProduto,total);
+                    System.out.println("Deseja cadastrar outro tênis? 1 - Sim / 2 - Não");
+                    continuarCadastro = scanner.nextInt();
+                   } while(continuarCadastro == 1);
                     break;
                 case 2:
                     //carrinho
