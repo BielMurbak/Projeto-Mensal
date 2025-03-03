@@ -1,6 +1,6 @@
-package src.Cliente;
+package src.cliente;
 
-import src.SistemaUsuario;
+import src.sistema.SistemaUsuario;
 
 public class Login {
     private String nomeLogin;

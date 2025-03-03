@@ -1,4 +1,4 @@
-package src;
+package src.produtos;
 import java.util.ArrayList;
 
 public class Tenis {
@@ -6,7 +6,7 @@ public class Tenis {
     private int codigo;
     private int quantidade;
     private double preco;
-    static ArrayList<Tenis> catalogo = new ArrayList<>();
+    public static ArrayList<Tenis> catalogo = new ArrayList<>();
 
     public Tenis(String nome, int codigo, int quantidade, double preco) {
         this.nome = nome;
@@ -40,5 +40,17 @@ public class Tenis {
             this.quantidade = 0;
         }
     }
-}
 
+    //metodo removerProduto
+    public static boolean removerProduto(String nomeRemover) {
+        for (Tenis tenis : catalogo) {
+            if (tenis.nome.equalsIgnoreCase(nomeRemover)) {
+                catalogo.remove(tenis);
+                System.out.println("✅ Tênis foi removido com sucesso!");
+                return true;
+            }
+        }
+        System.out.println("✅ Tênis nao foi encotrado!");
+        return false;
+    }
+}

@@ -1,5 +1,6 @@
-package src.Cliente;
+package src.cliente;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente {
@@ -7,6 +8,7 @@ public class Cliente {
     private int idade;
     private int cep;
     private int senha;
+    static ArrayList<Cliente> catalogoCliente = new ArrayList<>();
 
     //getters and setters
     public String getNome() {
@@ -57,7 +59,31 @@ public class Cliente {
 
         System.out.println("Cadastro do cliente realizado com sucesso");
 
+        // Cria um novo cliente com os dados informados
+        Cliente novoCliente = new Cliente();
+        novoCliente.setNome(nome);
+        novoCliente.setIdade(idade);
+        novoCliente.setCep(cep);
+        novoCliente.setSenha(senha);
+
+        catalogoCliente.add(novoCliente);
+
     }//close the cadastrarCliente
+
+
+    static boolean removerCliente(String nomeClienteRemover ,int senhaClienteRemover ){
+        for (Cliente cliente : catalogoCliente) {
+            if (cliente.nome.equalsIgnoreCase(nomeClienteRemover)) {
+                if(cliente.senha == senhaClienteRemover) {
+                    catalogoCliente.remove(cliente);
+                    System.out.println("✅ Cliente removido com sucesso!");
+                    return true;
+                }
+            }
+        }
+        System.out.println("✅ Cliente nao foi encotrado!");
+        return false;
+    }
 
 }//close the class Cliente
 
