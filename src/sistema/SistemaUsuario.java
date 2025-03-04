@@ -1,5 +1,6 @@
 package src.sistema;
 
+import src.pagamento.*;
 import src.produtos.Tenis;
 
 import java.util.Scanner;
@@ -11,10 +12,19 @@ public class SistemaUsuario {
 
         Scanner scanner = new Scanner(System.in);
         Tenis tenis = new Tenis(null, 0, 0, 0);
+        Pagamento pagamentoCredito = new CartaoDeCredito();
+        Pagamento pagamentoDebito = new CartaoDebito();
+        Pagamento pagamentoPix = new Pix();
+        Pagamento pagamentoDinheiro = new Dinheiro();
+
 
         int auxI = 0;
         double total=0;
         int continuarCadastro =0;
+
+        catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99));
+        catalogo.add(new Tenis("Adidas Ultra Boost", 2, 5, 599.99));
+        catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
 
         do {
             System.out.println("Sistema E-commerce");
@@ -29,25 +39,42 @@ public class SistemaUsuario {
             switch (auxI) {
                 case 1:
                     do{
-                    System.out.println(total);
-                    catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99));
-                    catalogo.add(new Tenis("Adidas Ultra Boost", 2, 5, 599.99));
-                    catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
                     exibirCatalogo();
                     System.out.println("Digite codigo do produto:");
                     int codigoProduto = scanner.nextInt();
                     System.out.println("Digite a quantidade:");
                     int quantidadeProduto = scanner.nextInt();
-                    tenis.condicionaisDeCompra(codigoProduto,quantidadeProduto,total);
-                    System.out.println("Deseja cadastrar outro tênis? 1 - Sim / 2 - Não");
-                    continuarCadastro = scanner.nextInt();
+                    tenis.condicionaisDeCompra(codigoProduto, quantidadeProduto, total);
+                        System.out.println("Deseja comprar outro tênis? 1 - Sim / 2 - Não");
+                        continuarCadastro = scanner.nextInt();
                    } while(continuarCadastro == 1);
                     break;
                 case 2:
-                    //carrinho
+                    for (Tenis t : catalogo) {
+                        System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n",t.getNome(),t.getCodigo(),t.getQuantidade(),t.getPreco());
+                        System.out.println("Total:"+total);
+                        System.out.println("---- Pagamento ----");
+                        System.out.println("1-Cartao de credito");
+                        System.out.println("2-Cartao de debito");
+                        System.out.println("3-Pix");
+                        System.out.println("4-Dinheiro");
+                        System.out.print("Digite sua opcao:");
+                        int opcaoPagamento = scanner.nextInt();
+                        if(opcaoPagamento==1){
+                            pagamentoCredito.realizarPagamento(total);
+                        }else if(opcaoPagamento==2){
+                            pagamentoDebito.realizarPagamento(total);
+                        } else if (opcaoPagamento==3) {
+                            pagamentoPix.realizarPagamento(total);
+                        }else if(opcaoPagamento==4){
+                            pagamentoDinheiro.realizarPagamento(total);
+                        }else{
+                            System.out.println("Erro! Número digitado é inválido.");
+                        }
+                    }
                     break;
                 case 3:
-                    //pedido
+                  //
                     break;
                 case 4:
                     mostrarSuporteAoCliente(scanner);

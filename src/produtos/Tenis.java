@@ -1,5 +1,7 @@
 package src.produtos;
+
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Tenis {
     private String nome;
@@ -9,12 +11,27 @@ public class Tenis {
     public static ArrayList<Tenis> catalogo = new ArrayList<>();
 
 
-
     public Tenis(String nome, int codigo, int quantidade, double preco) {
         this.nome = nome;
         this.codigo = codigo;
         this.quantidade = quantidade;
         this.preco = preco;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public double getPreco() {
+        return preco;
     }
 
     public void setNome(String nome) {
@@ -62,30 +79,32 @@ public class Tenis {
         if (catalogo.isEmpty()) {
             System.out.println("O catálogo está vazio.");
         } else {
+            catalogo.sort(Comparator.comparingInt(tenis -> tenis.codigo)); //codigo que ordena os codigos dos produtos em ordem crescente começando em cima
             System.out.println("Catálogo de Tênis:");
             for (Tenis tenis : catalogo) {
-                System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n",tenis.nome, tenis.codigo, tenis.quantidade, tenis.preco);
+                System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", tenis.nome, tenis.codigo, tenis.quantidade, tenis.preco);
             }
         }
 
     }
 
-    public void condicionaisDeCompra(int codigoProduto,int quantidadeProduto ,double total) {
+    public void condicionaisDeCompra(int codigoProduto, int quantidadeProduto, double total) {
 
-            switch (codigoProduto){
-                case 1:
-                case 2:
-                case 3:
-                    if(quantidadeProduto<quantidade){
-                        System.out.println("❌ Não há estoque suficiente para a quantidade solicitada!");
-                    }
-                    else{
-                        quantidade-=quantidadeProduto;
-                        total+=preco;
-                    }
-                    break;
+        for(Tenis tenis:catalogo){
+            if(tenis.codigo==codigoProduto){
+                if(tenis.quantidade>=quantidadeProduto){
+                    total=tenis.preco*quantidadeProduto;
+                    tenis.setQuantidade(tenis.quantidade - quantidadeProduto);
+                    System.out.println("✅ Compra realizada com sucesso!");
+                    System.out.println("Total:"+total);
 
+                }else{
+                    System.out.println("✅ Erro! Quantidade insuficiente em estoque!");
+
+                }
             }
-
         }
+        System.out.println("Produto não encontrado!");
+
     }
+}
