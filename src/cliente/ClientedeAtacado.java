@@ -23,16 +23,22 @@ public class ClientedeAtacado extends Cliente {
     }
 
     public void cadastrarCliente(Scanner scanner){
-        super.cadastrarCliente(scanner); //aqui chamo aquele metodo dos clientes
-        scanner.nextLine(); ///limpa o campo
+            super.cadastrarCliente(scanner);
+            scanner.nextLine(); // Limpa o buffer
 
-        System.out.print("Digite o seu CNPJ: ");
-        this.cnpj = scanner.nextLine();
+            if (getIdade() < 18) {
+                System.out.println("Erro! Idade não permitida. Retornando ao menu principal.");
+                return;
+            }
 
-        System.out.print("Digite o desconto especial: ");
-        this.descontoEspecial = scanner.nextDouble();
+            System.out.print("Digite o seu CNPJ: ");
+            this.cnpj = scanner.nextLine();
 
-        System.out.println("Cadastro de Cliente Atacado realizado com sucesso");
+            System.out.print("Digite o desconto especial: ");
+            this.descontoEspecial = scanner.nextDouble();
+        System.out.println("Cadastro de Cliente Atacado concluído.");
+
+        }
+
+
     }
-
-}

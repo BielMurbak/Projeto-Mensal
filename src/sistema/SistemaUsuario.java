@@ -1,7 +1,18 @@
 package sistema;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import pagamento.*;
 import produtos.Tenis;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import static produtos.Tenis.*;
@@ -11,6 +22,7 @@ public class SistemaUsuario {
 
         Scanner scanner = new Scanner(System.in);
         Tenis tenis = new Tenis(null, 0, 0, 0);
+        List<Tenis> carrinho = new ArrayList<>();
 
         Pagamento pagamentoCredito = new pagamento.CartaoDeCredito();
         Pagamento pagamentoDebito = new pagamento.CartaoDebito();
@@ -47,60 +59,73 @@ public class SistemaUsuario {
                         System.out.println("Digite a quantidade:");
                         int quantidadeProduto = scanner.nextInt();
                         tenis.condicionaisDeCompra(codigoProduto, quantidadeProduto, total);
+                        for (Tenis t : catalogo) {
+                            if (t.getCodigo() == codigoProduto) {
+                                // Criar um novo objeto Tenis apenas com a quantidade comprada
+                                Tenis compra = new Tenis(t.getNome(), t.getCodigo(), quantidadeProduto, t.getPreco());
+                                carrinho.add(compra);
+                            }
+                        }
                         System.out.println("Deseja comprar outro tênis? 1 - Sim / 2 - Não");
                         continuarCadastro = scanner.nextInt();
                     } while (continuarCadastro == 1);
-                    for (Tenis t : catalogo) {
-                        System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
-                        System.out.println("Total:" + total);
-                        System.out.println("---- Pagamento ----");
-                        System.out.println("1-Cartao de credito");
-                        System.out.println("2-Cartao de debito");
-                        System.out.println("3-Pix");
-                        System.out.println("4-Dinheiro");
-                        System.out.print("Digite sua opcao:");
-                        int opcaoPagamento = scanner.nextInt();
-                        if (opcaoPagamento == 1) {
-                            pagamentoCredito.realizarPagamento(total);
-                        } else if (opcaoPagamento == 2) {
-                            pagamentoDebito.realizarPagamento(total);
-                        } else if (opcaoPagamento == 3) {
-                            pagamentoPix.realizarPagamento(total);
-                        } else if (opcaoPagamento == 4) {
-                            pagamentoDinheiro.realizarPagamento(total);
+                    for (Tenis item : carrinho) {
+                        System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
+                    }
+                    System.out.println("Total:" + total);
+                    System.out.println("---- Pagamento ----");
+                    System.out.println("1-Cartao de credito");
+                    System.out.println("2-Cartao de debito");
+                    System.out.println("3-Pix");
+                    System.out.println("4-Dinheiro");
+                    System.out.print("Digite sua opcao:");
+                    int opcaoPagamento = scanner.nextInt();
+                    if (opcaoPagamento == 1) {
+                        apiCep(scanner);
+                        pagamentoCredito.realizarPagamento(total);
+                    } else if (opcaoPagamento == 2) {
+                        apiCep(scanner);
+                        pagamentoDebito.realizarPagamento(total);
+                    } else if (opcaoPagamento == 3) {
+                        apiCep(scanner);
+                        pagamentoPix.realizarPagamento(total);
+                    } else if (opcaoPagamento == 4) {
+                        pagamentoDinheiro.realizarPagamento(total);
+                        apiCep(scanner);
 
-                        } else {
-                            System.out.println("Erro! Número digitado é inválido.");
-                        }
+                    } else {
+                        System.out.println("Erro! Número digitado é inválido.");
                     }
                     break;
                 case 2:
-                    for (Tenis t : catalogo) {
-                        System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
-                        System.out.println("Total:" + total);
-                        System.out.println("---- Pagamento ----");
-                        System.out.println("1-Cartao de credito");
-                        System.out.println("2-Cartao de debito");
-                        System.out.println("3-Pix");
-                        System.out.println("4-Dinheiro");
-                        System.out.print("Digite sua opcao:");
-                        int opcaoPagamento = scanner.nextInt();
-                        if (opcaoPagamento == 1) {
-                            pagamentoCredito.realizarPagamento(total);
-                        } else if (opcaoPagamento == 2) {
-                            pagamentoDebito.realizarPagamento(total);
-                        } else if (opcaoPagamento == 3) {
-                            pagamentoPix.realizarPagamento(total);
-                        } else if (opcaoPagamento == 4) {
-                            pagamentoDinheiro.realizarPagamento(total);
-
-                        } else {
-                            System.out.println("Erro! Número digitado é inválido.");
-                        }
+                    for (Tenis item : carrinho) {
+                        System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
+                    }
+                    System.out.println("Total:" + total);
+                    System.out.println("---- Pagamento ----");
+                    System.out.println("1-Cartao de credito");
+                    System.out.println("2-Cartao de debito");
+                    System.out.println("3-Pix");
+                    System.out.println("4-Dinheiro");
+                    System.out.print("Digite sua opcao:");
+                    int opPagamento = scanner.nextInt();
+                    if (opPagamento == 1) {
+                        pagamentoCredito.realizarPagamento(total);
+                        apiCep(scanner);
+                    } else if (opPagamento == 2) {
+                        pagamentoDebito.realizarPagamento(total);
+                        apiCep(scanner);
+                    } else if (opPagamento == 3) {
+                        pagamentoPix.realizarPagamento(total);
+                    } else if (opPagamento == 4) {
+                        pagamentoDinheiro.realizarPagamento(total);
+                        apiCep(scanner);
+                    } else {
+                        System.out.println("Erro! Número digitado é inválido.");
                     }
                     break;
                 case 3:
-
+                    apiCep(scanner);
                     break;
                 case 4:
                     mostrarSuporteAoCliente(scanner);
@@ -195,68 +220,88 @@ public class SistemaUsuario {
             }
         } while (escolhaSuporte < 1 || escolhaSuporte > 4);
     }
-}
+    private void apiCep(Scanner scanner ){
+        System.out.println("---- Escolha a opção de recebimento ----");
+        System.out.println("1 - Entrega");
+        System.out.println("2 - Retirada na loja");
+        System.out.println("3 - Sair");
+        System.out.print("Digite sua opção: ");
+        int opcaoRecebimento = scanner.nextInt();
 
-    /*private void pedidoEntregaRetirada(Scanner scanner) {
-        System.out.println("---- Pedido ----");
-        System.out.println("1-Entrega");
-        System.out.println("2-Retirada");
-        System.out.print("Digite sua opcao:");
-        int op = scanner.nextInt();
-        if (op == 1) {
-            System.out.print("Digite seu cep");
-            int pedidoCep = scanner.nextInt();
-
-            String urlString = "https://viacep.com.br/ws/" + pedidoCep + "/json/";
+        if (opcaoRecebimento == 1) {
+            System.out.println("Informe o cep:");
+            scanner.nextLine(); // Consumir a quebra de linha
+            String cep = scanner.nextLine();
 
             try {
-                // Cria a URL
-                URL url = new URL(urlString);
+                // Faz a requisição para a API ViaCEP
+                String url = "https://viacep.com.br/ws/" + cep + "/json/";
+                HttpURLConnection conexao = (HttpURLConnection) new URL(url).openConnection();
+                conexao.setRequestMethod("GET");
 
-                // Abre a conexão
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(1000);
-                connection.setReadTimeout(1000);
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conexao.getInputStream()));
+                StringBuilder resposta = new StringBuilder();
+                String linha;
 
-                // Obtém o código de resposta
-                int status = connection.getResponseCode();
-                if (status == 200) {
-                    // Lê a resposta
-                    BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                    String inputLine;
-                    StringBuilder response = new StringBuilder();
-
-                    while ((inputLine = in.readLine()) != null) {
-                        response.append(inputLine);
-                    }
-                    in.close();
-
-                    // Usa o ObjectMapper para deserializar o JSON em um objeto Endereco
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    Endereco endereco = objectMapper.readValue(response.toString(), Endereco.class);
-
-                    // Exibe os dados do endereço
-                    System.out.println("Dados do Endereço: ");
-                    System.out.println("CEP: " + endereco.getCep());
-                    System.out.println("Logradouro: " + endereco.getLogradouro());
-                    System.out.println("Bairro: " + endereco.getBairro());
-                    System.out.println("Localidade: " + endereco.getLocalidade());
-                    System.out.println("UF: " + endereco.getUf());
-                } else {
-                    System.out.println("Erro na requisição: " + status);
+                while ((linha = reader.readLine()) != null) {
+                    resposta.append(linha);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }//acaba aqui
+                reader.close();
 
-        } else if (op == 2) {
-            /// nao sei
+                // Converte a resposta para um objeto JSON
+                JSONObject json = new JSONObject(resposta.toString());
+
+                // Verifica se o CEP é válido
+                if (json.has("erro")) {
+                    System.out.println("CEP inválido! Tente novamente.");
+                    return;
+                }
+
+                // Criando um objeto Endereco e preenchendo com os dados da API
+                Endereco endereco = new Endereco();
+                endereco.setLogradouro(json.getString("logradouro"));
+                endereco.setBairro(json.getString("bairro"));
+                endereco.setLocalidade(json.getString("localidade"));
+                endereco.setUf(json.getString("uf"));
+
+                // Exibir os dados do endereço
+                System.out.println("\nEndereço encontrado:");
+                System.out.println("Rua: " + endereco.getLogradouro());
+                System.out.println("Bairro: " + endereco.getBairro());
+                System.out.println("Cidade: " + endereco.getLocalidade() + " - " + endereco.getUf());
+
+            } catch (IOException e) {
+                System.err.println("Erro ao conectar na API: " + e.getMessage());
+            } catch (JSONException e) {
+                System.err.println("Erro ao processar a resposta da API: " + e.getMessage());
+            }
+
+            System.out.print("\nAs informações estão corretas? (1 - Sim / 2 - Não): ");
+            int confirmacao = scanner.nextInt();
+
+            if (confirmacao == 1) {
+                System.out.println("Endereço confirmado! O pedido será entregue.");
+            } else {
+                System.out.println("Por favor, digite o endereço manualmente.");
+                scanner.nextLine(); // Consumir a quebra de linha
+                System.out.print("Rua: ");
+                String ruaManual = scanner.nextLine();
+                System.out.print("Bairro: ");
+                String bairroManual = scanner.nextLine();
+                System.out.print("Cidade: ");
+                String cidadeManual = scanner.nextLine();
+                System.out.print("Estado (UF): ");
+                String estadoManual = scanner.nextLine();
+
+                System.out.println("Endereço atualizado! O pedido será entregue em: " + ruaManual + ", " + bairroManual + ", " + cidadeManual + " - " + estadoManual);
+                SistemaUsuario sU = new SistemaUsuario();
+                sU.sistemaUsuario();
+            }
+
+        }else if (opcaoRecebimento == 2) {
+            System.out.println("Seu pedido estará disponível para retirada na loja.");
         } else {
-            System.out.println("Erro! numero digitado é invalido");
+            System.out.println("Opção inválida!");
         }
-
-
     }
 }
-*/

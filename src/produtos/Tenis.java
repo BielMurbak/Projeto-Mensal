@@ -93,7 +93,7 @@ public class Tenis {
         for(Tenis tenis:catalogo){
             if(tenis.codigo==codigoProduto){
                 if(tenis.quantidade>=quantidadeProduto){
-                    total=tenis.preco*quantidadeProduto;
+                    total=getPreco()*quantidadeProduto;
                     tenis.setQuantidade(tenis.quantidade - quantidadeProduto);
                     System.out.println("✅ Compra realizada com sucesso!");
                     System.out.println("Total:"+total);

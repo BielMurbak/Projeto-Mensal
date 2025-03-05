@@ -57,8 +57,6 @@ public class Cliente {
         System.out.print("Digite sua senha (número): ");
         this.senha = scanner.nextInt();
 
-        System.out.println("Cadastro do cliente realizado com sucesso");
-
         // Cria um novo cliente com os dados informados
         Cliente novoCliente = new Cliente();
         novoCliente.setNome(nome);

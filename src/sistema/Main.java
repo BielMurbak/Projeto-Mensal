@@ -86,7 +86,6 @@ public class Main {
                             break;
                         case 2:  // Cliente Atacado registration
                             clienteAtacado.cadastrarCliente(scanner);
-                            System.out.println("Cadastro de Cliente Atacado concluído.");
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente.");
@@ -102,7 +101,8 @@ public class Main {
                     System.out.println("Erro! Número digitado é inválido.");
             }
 
-        } while (aux != 3);  // Keep looping until the user chooses to exit (option 3)
+        } while (aux != 3);
+
 
 
     }//fecha void main
