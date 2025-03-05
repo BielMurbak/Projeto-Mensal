@@ -8,6 +8,7 @@ public class Cliente {
     private int idade;
     private int cep;
     private int senha;
+    private int tipo = 1;
     static ArrayList<Cliente> catalogoCliente = new ArrayList<>();
 
     //getters and setters
@@ -43,6 +44,10 @@ public class Cliente {
         this.senha = senha;
     }
 
+    public int getTipo() {
+        return tipo;
+    }
+
     //metodo for cadastrar clientes
     public void cadastrarCliente(Scanner scanner){
         System.out.print("Digite seu nome: ");
@@ -63,8 +68,10 @@ public class Cliente {
         novoCliente.setIdade(idade);
         novoCliente.setCep(cep);
         novoCliente.setSenha(senha);
-
         catalogoCliente.add(novoCliente);
+
+
+
 
     }//close the cadastrarCliente
 

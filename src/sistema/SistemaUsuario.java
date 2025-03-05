@@ -1,5 +1,8 @@
 package sistema;
 
+import cliente.Cliente;
+import cliente.ClientedeAtacado;
+import cliente.Login;
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
@@ -28,8 +31,12 @@ public class SistemaUsuario {
         Pagamento pagamentoDebito = new pagamento.CartaoDebito();
         Pagamento pagamentoPix = new pagamento.Pix();
         Pagamento pagamentoDinheiro = new pagamento.Dinheiro();
+        Cliente cliente = new Cliente();
+        ClientedeAtacado clienteAtacado = new ClientedeAtacado();
 
+        Login login = new Login();
         sistema.Endereco Endereco = new Endereco();
+        Cliente novoCliente = new Cliente();
 
 
         int auxI = 0;
@@ -41,12 +48,22 @@ public class SistemaUsuario {
         catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
 
         do {
+            System.out.println("\n");
+
+            //if(cliente.getTipo()==1){
+              //  System.out.println("Nome:");
+              //  System.out.println("Tipo:Cliente Varejo");
+           // }else{
+             //   System.out.println("Nome:"+clienteAtacado.getNome());
+             //   System.out.println("Nome:"+clienteAtacado.getSenha());
+            //    System.out.println("Tipo:Cliente Atacado");
+           // }
             System.out.println("Sistema E-commerce");
             System.out.println("1-Nossos Produtos");
             System.out.println("2-Carrinho");
             System.out.println("3-Pedido");
             System.out.println("4-Suporte ao Cliente");
-            System.out.println("5-Suguraça e Privacidade");
+            System.out.println("5-Seguraça e Privacidade");
             System.out.println("6-Sair");
             auxI = scanner.nextInt();
 

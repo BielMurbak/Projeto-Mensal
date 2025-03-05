@@ -30,6 +30,7 @@ public class Login {
         if (clienteAtacado.getNome().equals(nomeLogin)) {
             if(clienteAtacado.getSenha()==(senhaLogin)){
                 System.out.println("login realizado com sucesso!");
+
                 SistemaUsuario sU = new SistemaUsuario();
                 sU.sistemaUsuario();
             }else{
@@ -61,11 +62,22 @@ public class Login {
     public void realizarloginAdm(Administrador adm) {
 
         if(nomeLogin.equals("adm")){
+            if(senhaLogin==2425){
                 SistemaAdm sA = new SistemaAdm();
                 sA.sistemaAdm();
+            }else{
+                System.out.println("Erro! Senha nao existe no nosso banco de dados.");
             }
+        }else{
+            if(senhaLogin==2425){
+                System.out.println("Erro! Nome nao existe no nosso banco de dados.");
+            }
+            System.out.println("Erro! Nome e senha nao existe no nosso banco de dados.");
         }
 
+
     }
+
+}
 
 
