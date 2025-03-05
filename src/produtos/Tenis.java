@@ -1,4 +1,4 @@
-package src.produtos;
+package produtos;
 
 import java.util.ArrayList;
 import java.util.Comparator;

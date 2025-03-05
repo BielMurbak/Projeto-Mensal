@@ -1,4 +1,4 @@
-package src.pagamento;
+package pagamento;
 
 import java.util.Scanner;
 

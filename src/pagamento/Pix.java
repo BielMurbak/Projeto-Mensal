@@ -1,4 +1,4 @@
-package src.pagamento;
+package pagamento;
 
 public class Pix extends Pagamento {
 

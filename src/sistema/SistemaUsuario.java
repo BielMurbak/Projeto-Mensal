@@ -1,29 +1,23 @@
-package src.sistema;
+package sistema;
 
-import src.pagamento.*;
-import src.produtos.Tenis;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
+import pagamento.*;
+import produtos.Tenis;
 import java.util.Scanner;
 
-import static src.produtos.Tenis.*;
+import static produtos.Tenis.*;
 
 public class SistemaUsuario {
     public void sistemaUsuario() {
 
         Scanner scanner = new Scanner(System.in);
         Tenis tenis = new Tenis(null, 0, 0, 0);
-        Pagamento pagamentoCredito = new CartaoDeCredito();
-        Pagamento pagamentoDebito = new CartaoDebito();
-        Pagamento pagamentoPix = new Pix();
-        Pagamento pagamentoDinheiro = new Dinheiro();
 
-        Endereco Endereco = new Endereco();
+        Pagamento pagamentoCredito = new pagamento.CartaoDeCredito();
+        Pagamento pagamentoDebito = new pagamento.CartaoDebito();
+        Pagamento pagamentoPix = new pagamento.Pix();
+        Pagamento pagamentoDinheiro = new pagamento.Dinheiro();
+
+        sistema.Endereco Endereco = new Endereco();
 
 
         int auxI = 0;
@@ -56,6 +50,29 @@ public class SistemaUsuario {
                         System.out.println("Deseja comprar outro tênis? 1 - Sim / 2 - Não");
                         continuarCadastro = scanner.nextInt();
                     } while (continuarCadastro == 1);
+                    for (Tenis t : catalogo) {
+                        System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
+                        System.out.println("Total:" + total);
+                        System.out.println("---- Pagamento ----");
+                        System.out.println("1-Cartao de credito");
+                        System.out.println("2-Cartao de debito");
+                        System.out.println("3-Pix");
+                        System.out.println("4-Dinheiro");
+                        System.out.print("Digite sua opcao:");
+                        int opcaoPagamento = scanner.nextInt();
+                        if (opcaoPagamento == 1) {
+                            pagamentoCredito.realizarPagamento(total);
+                        } else if (opcaoPagamento == 2) {
+                            pagamentoDebito.realizarPagamento(total);
+                        } else if (opcaoPagamento == 3) {
+                            pagamentoPix.realizarPagamento(total);
+                        } else if (opcaoPagamento == 4) {
+                            pagamentoDinheiro.realizarPagamento(total);
+
+                        } else {
+                            System.out.println("Erro! Número digitado é inválido.");
+                        }
+                    }
                     break;
                 case 2:
                     for (Tenis t : catalogo) {
@@ -178,8 +195,9 @@ public class SistemaUsuario {
             }
         } while (escolhaSuporte < 1 || escolhaSuporte > 4);
     }
+}
 
-    private void pedidoEntregaRetirada(Scanner scanner) {
+    /*private void pedidoEntregaRetirada(Scanner scanner) {
         System.out.println("---- Pedido ----");
         System.out.println("1-Entrega");
         System.out.println("2-Retirada");
@@ -241,3 +259,4 @@ public class SistemaUsuario {
 
     }
 }
+*/

@@ -1,8 +1,8 @@
-package src.cliente;
+package cliente;
 
-import src.sistema.Administrador;
-import src.sistema.SistemaAdm;
-import src.sistema.SistemaUsuario;
+import sistema.Administrador;
+import sistema.SistemaAdm;
+import sistema.SistemaUsuario;
 
 public class Login {
     private String nomeLogin;

@@ -1,6 +1,6 @@
-package src.pagamento;
+package pagamento;
 
-public class CartaoDebito extends Pagamento{
+public class CartaoDebito extends Pagamento {
 
     @Override
     public void realizarPagamento(double valor) {

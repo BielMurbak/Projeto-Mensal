@@ -1,4 +1,4 @@
-package src.pagamento;
+package pagamento;
 
 public abstract class Pagamento {
 

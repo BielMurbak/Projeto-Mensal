@@ -1,8 +1,8 @@
-package src.sistema;
+package sistema;
 
-import src.cliente.Cliente;
-import src.cliente.ClientedeAtacado;
-import src.cliente.Login;
+import cliente.Cliente;
+import cliente.ClientedeAtacado;
+import cliente.Login;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class Main {
         Cliente cliente = new Cliente();
         ClientedeAtacado clienteAtacado = new ClientedeAtacado();
         Login login = new Login();
-        Administrador  adm = new  Administrador();
+        sistema.Administrador adm = new sistema.Administrador();
 
         int aux = 0;
         String auxB;

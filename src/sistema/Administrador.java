@@ -1,4 +1,4 @@
-package src.sistema;
+package sistema;
 
 
 public class Administrador {

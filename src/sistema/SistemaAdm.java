@@ -1,6 +1,6 @@
-package src.sistema;
+package sistema;
 
-import src.produtos.Tenis;
+import produtos.Tenis;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ public class SistemaAdm {
                 case 4:
                   adicionarAdm(scanner);
                 case 5:
-                    SistemaUsuario sU = new SistemaUsuario();
+                    sistema.SistemaUsuario sU = new sistema.SistemaUsuario();
                     sU.sistemaUsuario();
                 default:
                     System.out.println("Erro! numero digitado é invalido");
