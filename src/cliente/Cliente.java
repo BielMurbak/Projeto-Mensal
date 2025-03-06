@@ -1,5 +1,8 @@
 package cliente;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,6 +92,28 @@ public class Cliente {
         System.out.println("✅ Cliente nao foi encotrado!");
         return false;
     }
+
+    //public void salvarCliente(){
+
+      //  Path path = Path.of("C:\\Users\\AdminUser\\Desktop\\Clientes Cadastrados\\Clientes Cadastrados.txt");
+
+       // try {
+          //  if(Files.notExists(path)) {
+        //        Files.createFile(path);
+          //}
+//
+ //for (Cliente cliente : catalogoCliente) {
+//
+            //}
+
+
+     //   } catch (
+                //IOException e) {
+              // e.printStackTrace();
+      //  }
+   // }
+
+   // }
 
 }//close the class Cliente
 

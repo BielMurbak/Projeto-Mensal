@@ -61,6 +61,8 @@ public class Login {
 
     public void realizarloginAdm(Administrador adm) {
 
+
+
         if(nomeLogin.equals("adm")){
             if(senhaLogin==2425){
                 SistemaAdm sA = new SistemaAdm();

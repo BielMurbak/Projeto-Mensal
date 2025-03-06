@@ -3,8 +3,11 @@ package sistema;
 import cliente.Cliente;
 import cliente.ClientedeAtacado;
 import cliente.Login;
+import produtos.Tenis;
 
 import java.util.Scanner;
+
+import static produtos.Tenis.catalogo;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,6 +17,10 @@ public class Main {
         ClientedeAtacado clienteAtacado = new ClientedeAtacado();
         Login login = new Login();
         sistema.Administrador adm = new sistema.Administrador();
+
+        catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99));
+        catalogo.add(new Tenis("Adidas Ultra Boost", 2, 5, 599.99));
+        catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
 
         int aux = 0;
         String auxB;

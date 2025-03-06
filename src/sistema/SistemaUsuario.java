@@ -44,10 +44,6 @@ public class SistemaUsuario {
         double total = 0;
         int continuarCadastro = 0;
 
-        catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99));
-        catalogo.add(new Tenis("Adidas Ultra Boost", 2, 5, 599.99));
-        catalogo.add(new Tenis("Puma RS-X", 3, 8, 349.99));
-
         do {
             System.out.println("\n");
 
@@ -253,6 +249,7 @@ public class SistemaUsuario {
         System.out.println("3 - Sair");
         System.out.print("Digite sua opção: ");
         int opcaoRecebimento = scanner.nextInt();
+        scanner.nextLine();  // Clear the buffer after nextInt()
 
         if (opcaoRecebimento == 1) {
             System.out.println("Informe o cep:");
@@ -304,6 +301,7 @@ public class SistemaUsuario {
 
             System.out.print("\nAs informações estão corretas? (1 - Sim / 2 - Não): ");
             int confirmacao = scanner.nextInt();
+            scanner.nextLine();  // Clear the buffer after nextInt()
 
             if (confirmacao == 1) {
                 System.out.println("Endereço confirmado! O pedido será entregue.");

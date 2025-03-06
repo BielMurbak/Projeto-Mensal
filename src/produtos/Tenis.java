@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class Tenis {
     private String nome;
-    private int codigo;
+    public int codigo;
     private int quantidade;
     private double preco;
     public static ArrayList<Tenis> catalogo = new ArrayList<>();
@@ -58,21 +58,6 @@ public class Tenis {
             System.out.println("Quantidade inválida! Definindo como 0.");
             this.quantidade = 0;
         }
-    }
-
-    //metodo removerProduto
-
-    /// precisa trocar pelo codigo int
-    public static boolean removerProduto(String nomeRemover) {
-        for (Tenis tenis : catalogo) {
-            if (tenis.nome.equalsIgnoreCase(nomeRemover)) {
-                catalogo.remove(tenis);
-                System.out.println("✅ Tênis foi removido com sucesso!");
-                return true;
-            }
-        }
-        System.out.println("✅ Tênis nao foi encotrado!");
-        return false;
     }
 
     public static void exibirCatalogo() {

@@ -5,6 +5,8 @@ import produtos.Tenis;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static produtos.Tenis.catalogo;
+
 public class SistemaAdm {
     public void sistemaAdm() {
 
@@ -12,12 +14,13 @@ public class SistemaAdm {
         int auxI = 0;
 
         do {
-            System.out.println("Sistema E-commerce");
-            System.out.println("1 - Cadastrar Produtos");
-            System.out.println("2 - Remover Produtos");
-            System.out.println("3 - Remover Clientes");
-            System.out.println("4 - Adicionar Administrador");
-            System.out.println("5 - Sair");
+            System.out.println("\nSistema E-commerce");
+            System.out.println("1 - Cadastrar Produtos");//feito
+            System.out.println("2 - Remover Produtos");//feito
+            System.out.println("3 - Remover Clientes");//feito?
+            System.out.println("4 - Adicionar Administrador");//...
+            System.out.println("5 - Listar Produtos");//feito
+            System.out.println("6 - Sair");//feito
 
             auxI = scanner.nextInt();
 
@@ -26,20 +29,53 @@ public class SistemaAdm {
                     cadastrarProduto(scanner);
                     break;
                 case 2:
-                    removerProduto(scanner);
+                    System.out.println("\n--- Remover Produto ---");
+                    System.out.print("Digite código do tênis: ");
+                    int codigoRemover = scanner.nextInt();
+                    removerProduto(codigoRemover);
                     break;
                 case 3:
                     removerCliente(scanner);
                     break;
                 case 4:
-                  adicionarAdm(scanner);
+                    adicionarAdm(scanner);
+                    break;
                 case 5:
+                    listarProdutos();
+                    break;
+                case 6:
                     sistema.SistemaUsuario sU = new sistema.SistemaUsuario();
                     sU.sistemaUsuario();
+                    break;
                 default:
-                    System.out.println("Erro! numero digitado é invalido");
+                    System.out.println("❌ Erro! Número digitado é inválido.");
             }
-        } while (auxI != 5);
+        } while (auxI != 6);
+
+    }
+
+    public void listarProdutos() {
+        System.out.println("\n--- Produtos Cadastrados ---");
+        for (Tenis t : catalogo) {
+            System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
+        }
+    }
+        public void removerProduto(int codigoRemover) {
+        boolean encontrado = false;
+
+            for(Tenis tenis: catalogo){
+                if(tenis.getCodigo()== codigoRemover){
+                    catalogo.remove(tenis);
+                    System.out.println("✅ Tênis removido com sucesso!");
+                    encontrado = true;
+                    break; // Para de procurar após remover
+                }
+
+            }
+
+        if (!encontrado) {
+            System.out.println("❌ Código não encontrado!");
+        }
     }
 
     public void cadastrarProduto(Scanner scanner) {
@@ -62,7 +98,7 @@ public class SistemaAdm {
             scanner.nextLine();
 
             Tenis novoTenis = new Tenis(nome, codigo, quantidade, preco);
-            Tenis.catalogo.add(novoTenis);
+            catalogo.add(novoTenis);
 
             System.out.println("✅ Tênis cadastrado com sucesso!");
 
@@ -72,16 +108,7 @@ public class SistemaAdm {
         } while (continuarCadastro == 1);
     }
 
-    public void removerProduto(Scanner scanner){
 
-        /// precisa trocar pelo codigo int
-
-        System.out.println("\n--- Remover Produto ---");
-        System.out.print("Digite codigo do tenis: ");
-        String  codigoRemover = scanner.nextLine();
-        removerProduto(scanner);
-
-    }
 
     public void removerCliente(Scanner scanner){
 
@@ -94,7 +121,8 @@ public class SistemaAdm {
     }
 
     public void adicionarAdm(Scanner scanner){
-         ArrayList<Administrador> listaAdm = new ArrayList<>();
+
+
 
         System.out.print("Digite seu nome: ");
         String nomeAdm = scanner.nextLine();

@@ -1,12 +1,14 @@
 package sistema;
 
 
+import java.util.ArrayList;
+
 public class Administrador {
     protected String nome;
     protected int idade;
     protected int cep;
     protected int senha;
-
+    public ArrayList<Administrador> listaAdm = new ArrayList<>();
 
     public int getSenha() {
         return senha;

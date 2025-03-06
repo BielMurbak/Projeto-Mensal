@@ -34,11 +34,13 @@ public class ClientedeAtacado extends Cliente {
             System.out.print("Digite o seu CNPJ: ");
             this.cnpj = scanner.nextLine();
 
-            System.out.print("Digite o desconto especial: ");
+            System.out.print("Digite o desconto especial em porcentagem: ");
             this.descontoEspecial = scanner.nextDouble();
-        System.out.println("Cadastro de Cliente Atacado concluído.");
+            System.out.println("Cadastro de Cliente Atacado concluído.");
 
         }
+
+
 
 
     }
