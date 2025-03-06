@@ -93,9 +93,11 @@ public class Tenis {
         for(Tenis tenis:catalogo){
             if(tenis.codigo==codigoProduto){
                 if(tenis.quantidade>=quantidadeProduto){
-                    total=getPreco()*quantidadeProduto;
+                    double valorCompra = tenis.getPreco() * quantidadeProduto;  // Calcula o valor total da compra
+                    total += valorCompra;  // Adiciona o valor da compra ao total
+
                     tenis.setQuantidade(tenis.quantidade - quantidadeProduto);
-                    System.out.println("✅ Compra realizada com sucesso!");
+                    System.out.println("✅ Adicionado ao carrinho!");
                     System.out.println("Total:"+total);
 
                 }else{
@@ -104,7 +106,5 @@ public class Tenis {
                 }
             }
         }
-        System.out.println("Produto não encontrado!");
-
     }
 }

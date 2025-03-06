@@ -1,5 +1,7 @@
 package pagamento;
 
+import sistema.SistemaUsuario;
+
 import java.util.Scanner;
 
 public class CartaoDeCredito extends Pagamento {
@@ -29,6 +31,8 @@ public class CartaoDeCredito extends Pagamento {
             valor = valor * 0.5;
             System.out.printf("Total com %d parcelas:%.2f",parcelas,valor);
         }
+        SistemaUsuario sistema = new SistemaUsuario();
+        sistema.sistemaUsuario();
     }
 
 }

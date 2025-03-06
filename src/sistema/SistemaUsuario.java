@@ -3,6 +3,7 @@ package sistema;
 import cliente.Cliente;
 import cliente.ClientedeAtacado;
 import cliente.Login;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
@@ -71,18 +72,24 @@ public class SistemaUsuario {
                 case 1:
                     do {
                         exibirCatalogo();
-                        System.out.println("Digite codigo do produto:");
+                        System.out.println("Digite código do produto:");
                         int codigoProduto = scanner.nextInt();
                         System.out.println("Digite a quantidade:");
                         int quantidadeProduto = scanner.nextInt();
+
                         tenis.condicionaisDeCompra(codigoProduto, quantidadeProduto, total);
+
                         for (Tenis t : catalogo) {
                             if (t.getCodigo() == codigoProduto) {
                                 // Criar um novo objeto Tenis apenas com a quantidade comprada
                                 Tenis compra = new Tenis(t.getNome(), t.getCodigo(), quantidadeProduto, t.getPreco());
                                 carrinho.add(compra);
+
+                                // Atualizar o total com a multiplicação do preço pela quantidade
+                                total += compra.getPreco() * quantidadeProduto;
                             }
                         }
+
                         System.out.println("Deseja comprar outro tênis? 1 - Sim / 2 - Não");
                         continuarCadastro = scanner.nextInt();
                     } while (continuarCadastro == 1);
@@ -129,9 +136,11 @@ public class SistemaUsuario {
                     if (opPagamento == 1) {
                         pagamentoCredito.realizarPagamento(total);
                         apiCep(scanner);
+
                     } else if (opPagamento == 2) {
                         pagamentoDebito.realizarPagamento(total);
                         apiCep(scanner);
+
                     } else if (opPagamento == 3) {
                         pagamentoPix.realizarPagamento(total);
                     } else if (opPagamento == 4) {
@@ -314,6 +323,7 @@ public class SistemaUsuario {
                 SistemaUsuario sU = new SistemaUsuario();
                 sU.sistemaUsuario();
             }
+
 
         }else if (opcaoRecebimento == 2) {
             System.out.println("Seu pedido estará disponível para retirada na loja.");

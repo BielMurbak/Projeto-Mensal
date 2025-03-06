@@ -1,5 +1,7 @@
 package pagamento;
 
+import sistema.SistemaUsuario;
+
 public class CartaoDebito extends Pagamento {
 
     @Override
@@ -7,6 +9,7 @@ public class CartaoDebito extends Pagamento {
 
         valor = valor * 0.3;
 
-        System.out.printf("Total com cartao de debito:%.2f",valor);
+        SistemaUsuario sistema = new SistemaUsuario();
+        sistema.sistemaUsuario();
     }
 }
