@@ -1,8 +1,5 @@
 package cliente;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +9,7 @@ public class Cliente {
     private int cep;
     private int senha;
     private int tipo = 1;
-    static ArrayList<Cliente> catalogoCliente = new ArrayList<>();
+    public static ArrayList<Cliente> catalogoCliente = new ArrayList<>();
 
     //getters and setters
     public String getNome() {
@@ -67,14 +64,12 @@ public class Cliente {
 
         // Cria um novo cliente com os dados informados
         Cliente novoCliente = new Cliente();
+
         novoCliente.setNome(nome);
         novoCliente.setIdade(idade);
         novoCliente.setCep(cep);
         novoCliente.setSenha(senha);
         catalogoCliente.add(novoCliente);
-
-
-
 
     }//close the cadastrarCliente
 
@@ -93,27 +88,5 @@ public class Cliente {
         return false;
     }
 
-    //public void salvarCliente(){
-
-      //  Path path = Path.of("C:\\Users\\AdminUser\\Desktop\\Clientes Cadastrados\\Clientes Cadastrados.txt");
-
-       // try {
-          //  if(Files.notExists(path)) {
-        //        Files.createFile(path);
-          //}
-//
- //for (Cliente cliente : catalogoCliente) {
-//
-            //}
-
-
-     //   } catch (
-                //IOException e) {
-              // e.printStackTrace();
-      //  }
-   // }
-
-   // }
-
-}//close the class Cliente
+}
 

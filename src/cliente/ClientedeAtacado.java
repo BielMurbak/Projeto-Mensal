@@ -1,10 +1,12 @@
 package cliente;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ClientedeAtacado extends Cliente {
     private double descontoEspecial;
     private String cnpj;
+    public static ArrayList<ClientedeAtacado> catalogoClienteAtacado = new ArrayList<>();
 
     public double getDescontoEspecial() {
         return descontoEspecial;
@@ -37,6 +39,16 @@ public class ClientedeAtacado extends Cliente {
             System.out.print("Digite o desconto especial em porcentagem: ");
             this.descontoEspecial = scanner.nextDouble();
             System.out.println("Cadastro de Cliente Atacado concluído.");
+
+        ClientedeAtacado novoClienteAtacado = new ClientedeAtacado();
+
+        novoClienteAtacado.setNome(getNome());
+        novoClienteAtacado.setIdade(getIdade());
+        novoClienteAtacado.setCep(getCep());
+        novoClienteAtacado.setSenha(getSenha());
+        novoClienteAtacado.setCnpj(cnpj);
+        novoClienteAtacado.setDescontoEspecial(descontoEspecial);
+        catalogoClienteAtacado.add(novoClienteAtacado);
 
         }
 

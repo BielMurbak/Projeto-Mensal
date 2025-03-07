@@ -170,9 +170,8 @@ public class SistemaUsuario {
             System.out.println("\n--- Segurança e Privacidade ---");
             System.out.println("1 - Exibir política de privacidade");
             System.out.println("2 - Alterar senha");
-            System.out.println("3 - Configurações de segurança");
-            System.out.println("4 - Logout");
-            System.out.println("5 - Voltar ao menu principal");
+            System.out.println("3 - Logout");
+            System.out.println("4 - Voltar ao menu principal");
             System.out.print("Escolha uma opção: ");
             escolhaSegurancaPrivacidade = scanner.nextInt();
 
@@ -181,16 +180,18 @@ public class SistemaUsuario {
                     System.out.println("\nPolítica de Privacidade: \n- Nós respeitamos a sua privacidade e não compartilhamos seus dados com terceiros...");
                     break;
                 case 2:
-                    //
-                    break;
+               //loica de alterar senha
+                    return;
                 case 3:
-                    //configuracoes de seguranca
+                    System.out.println("🔐 Logout realizado com sucesso!");
+               //logica de logout
+                    Main principal = new Main();
+                    principal.main(null);
                     break;
                 case 4:
+                    System.out.println("🔙 Voltando ao menu principal...");
                     break;
-                case 5:
-                    System.out.println("Voltando...");
-                    break;
+
                 default:
                     System.out.println("Erro! digite uma opcao valida!");
 

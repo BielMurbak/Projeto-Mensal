@@ -24,8 +24,6 @@ public class Main {
 
         int aux = 0;
         String auxB;
-        int contador = 0;
-        int contadorAtacado = 0;
         int tipo= 0;
         do {
             System.out.println("\n");
@@ -50,8 +48,8 @@ public class Main {
 
                     switch (tipoUsuario) {
                         case 1:
-                            if (contador == 0) {
-                                System.out.println("Erro! Voce quer logar sem ter feito nenhum cadastro de cliente");
+                            if (cliente.getNome().isEmpty()) {
+                                System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue;
                             }
 
@@ -64,9 +62,8 @@ public class Main {
                             login.realizarLoginCliente(cliente);
                             break;
                         case 2:  // Cliente Atacado login
-
-                            if (contadorAtacado == 0) {
-                                System.out.println("Erro! Voce quer logar sem ter feito nenhum cadastro de cliente Atacado");
+                            if (clienteAtacado.getCnpj().isEmpty()) {
+                                System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue;
                             }
 
@@ -96,6 +93,7 @@ public class Main {
                     System.out.println("Escolha o tipo de cadastro:");
                     System.out.println("1 - Cliente Varejo");
                     System.out.println("2 - Cliente Atacado");
+                    System.out.println("3-Sair");
                     System.out.print("Digite a opção desejada: ");
                     int tipoCadastro = scanner.nextInt();
                     scanner.nextLine();
@@ -103,14 +101,10 @@ public class Main {
                     switch (tipoCadastro) {
                         case 1:  // Cliente Varejo registration
                             cliente.cadastrarCliente(scanner);
-
                             System.out.println("Cadastro de Cliente Varejo concluído.");
-
-                            contador++;
                             break;
                         case 2:  // Cliente Atacado registration
                             clienteAtacado.cadastrarCliente(scanner);
-                            contadorAtacado= contadorAtacado+1;
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente.");

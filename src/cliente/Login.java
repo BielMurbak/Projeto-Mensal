@@ -61,6 +61,18 @@ public class Login {
 
     public void realizarloginAdm(Administrador adm) {
 
+       Administrador admRealizarLogin = new Administrador();
+
+       if(nomeLogin.equals(admRealizarLogin.getNome())){
+           if(senhaLogin==admRealizarLogin.getSenha()){
+               SistemaAdm sA = new SistemaAdm();
+               sA.sistemaAdm();
+           }else{
+               System.out.println("Erro! Senha nao existe no nosso banco de dados.");
+           }
+       }else{
+           System.out.println("Erro! Nome nao existe no nosso banco de dados.");
+       }
 
 
         if(nomeLogin.equals("adm")){

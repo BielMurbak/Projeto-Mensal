@@ -1,8 +1,10 @@
+
 package sistema;
 
+import cliente.Cliente;
+import cliente.ClientedeAtacado;
 import produtos.Tenis;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import static produtos.Tenis.catalogo;
@@ -11,18 +13,28 @@ public class SistemaAdm {
     public void sistemaAdm() {
 
         Scanner scanner = new Scanner(System.in);
+        Administrador adm = new Administrador();
+        Cliente cliente = new Cliente();
+        ClientedeAtacado clienteAtacado = new ClientedeAtacado();
         int auxI = 0;
 
         do {
-            System.out.println("\nSistema E-commerce");
-            System.out.println("1 - Cadastrar Produtos");//feito
-            System.out.println("2 - Remover Produtos");//feito
-            System.out.println("3 - Remover Clientes");//feito?
-            System.out.println("4 - Adicionar Administrador");//...
-            System.out.println("5 - Listar Produtos");//feito
-            System.out.println("6 - Sair");//feito
+            System.out.println("\n=== Sistema E-commerce ===");
+            System.out.println("1 - Cadastrar Produto");
+            System.out.println("2 - Remover Produto");
+            System.out.println("3 - Remover Cliente");
+            System.out.println("4 - Adicionar Administrador");
+            System.out.println("5 - Remover Administrador");
+            System.out.println("6 - Listar Administradores");
+            System.out.println("7 - Listar Produtos");
+            System.out.println("8 - Acessar Sistema de Usuário");
+            System.out.println("9 - Cadastrar Cliente");
+            System.out.println("10 - Listar Clientes");
+            System.out.println("11 - Sair");
+            System.out.print("Escolha uma opção: ");
 
             auxI = scanner.nextInt();
+            scanner.nextLine(); // Consumir quebra de linha
 
             switch (auxI) {
                 case 1:
@@ -30,7 +42,7 @@ public class SistemaAdm {
                     break;
                 case 2:
                     System.out.println("\n--- Remover Produto ---");
-                    System.out.print("Digite código do tênis: ");
+                    System.out.print("Digite o código do produto: ");
                     int codigoRemover = scanner.nextInt();
                     removerProduto(codigoRemover);
                     break;
@@ -38,19 +50,90 @@ public class SistemaAdm {
                     removerCliente(scanner);
                     break;
                 case 4:
-                    adicionarAdm(scanner);
+                    adm.adicionarAdm(scanner);
                     break;
                 case 5:
-                    listarProdutos();
+                    System.out.println("\n--- Remover Administrador ---");
+                    System.out.print("Nome do Administrador: ");
+                    String nomeAdmRemover = scanner.nextLine();
+                    System.out.print("Senha do Administrador: ");
+                    int senhaAdmRemover = scanner.nextInt();
+                    scanner.nextLine(); // Consumir quebra de linha
+
+                    boolean encontrado = false;
+                    for (Administrador direcao : adm.listaAdm) {
+                        if (direcao.getNome().equals(nomeAdmRemover) && direcao.getSenha() == senhaAdmRemover) {
+                            adm.listaAdm.remove(direcao);
+                            System.out.println("✅ Administrador removido com sucesso!");
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        System.out.println("❌ Erro! Administrador não encontrado ou senha incorreta.");
+                    }
                     break;
                 case 6:
+                    System.out.println("\n=== Lista de Administradores ===");
+                    if (adm.listaAdm.isEmpty()) {
+                        System.out.println("Nenhum administrador cadastrado.");
+                    } else {
+                        for (Administrador d : adm.listaAdm) {
+                            System.out.printf("Nome: %s | Senha: %s | Cep: %s | Idade: %d%n",
+                                    d.getNome(), d.getSenha(), d.getCep(), d.getIdade());
+                        }
+                    }
+                    break;
+                case 7:
+                    listarProdutos();
+                    break;
+                case 8:
                     sistema.SistemaUsuario sU = new sistema.SistemaUsuario();
                     sU.sistemaUsuario();
                     break;
+                case 9:
+                    System.out.println("\n--- Cadastro de Cliente ---");
+                    System.out.println("1 - Cliente Varejo");
+                    System.out.println("2 - Cliente Atacado");
+                    System.out.println("3 - Voltar");
+                    System.out.print("Escolha uma opção: ");
+                    int tipoCadastro = scanner.nextInt();
+                    scanner.nextLine(); // Consumir quebra de linha
+
+                    switch (tipoCadastro) {
+                        case 1:
+                            cliente.cadastrarCliente(scanner);
+                            System.out.println("✅ Cadastro de Cliente Varejo concluído.");
+                            break;
+                        case 2:
+                            clienteAtacado.cadastrarCliente(scanner);
+                            System.out.println("✅ Cadastro de Cliente Atacado concluído.");
+                            break;
+                        case 3:
+                            System.out.println("Voltando ao menu...");
+                            break;
+                        default:
+                            System.out.println("❌ Opção inválida! Escolha 1, 2 ou 3.");
+                    }
+                    break;
+                case 10:
+                    System.out.println("\n=== Lista de Clientes ===");
+                    for (Cliente c : Cliente.catalogoCliente) {
+                        System.out.println("Nome: " + c.getNome() + " | Idade: " + c.getIdade() + " | CEP: " + c.getCep());
+                    }
+                    for (ClientedeAtacado ca : ClientedeAtacado.catalogoClienteAtacado) {
+                        System.out.println("Nome: " + ca.getNome() + " | Idade: " + ca.getIdade() +  " | CEP: " + ca.getCep() + " | CNPJ: " + ca.getCnpj() + " | Desconto especial: " + ca.getDescontoEspecial());
+                    }
+                    break;
+                case 11:
+                    System.out.println("Saindo do sistema...");
+                    break;
                 default:
-                    System.out.println("❌ Erro! Número digitado é inválido.");
+                    System.out.println("❌ Opção inválida! Escolha um número entre 1 e 11.");
             }
-        } while (auxI != 6);
+        } while (auxI != 11);
+
 
     }
 
@@ -60,18 +143,18 @@ public class SistemaAdm {
             System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
         }
     }
-        public void removerProduto(int codigoRemover) {
+    public void removerProduto(int codigoRemover) {
         boolean encontrado = false;
 
-            for(Tenis tenis: catalogo){
-                if(tenis.getCodigo()== codigoRemover){
-                    catalogo.remove(tenis);
-                    System.out.println("✅ Tênis removido com sucesso!");
-                    encontrado = true;
-                    break; // Para de procurar após remover
-                }
-
+        for(Tenis tenis: catalogo){
+            if(tenis.getCodigo()== codigoRemover){
+                catalogo.remove(tenis);
+                System.out.println("✅ Tênis removido com sucesso!");
+                encontrado = true;
+                break; // Para de procurar após remover
             }
+
+        }
 
         if (!encontrado) {
             System.out.println("❌ Código não encontrado!");
@@ -118,35 +201,6 @@ public class SistemaAdm {
         System.out.print("Senha do cliente: ");
         int senhaClienteRemover = scanner.nextInt();
         removerCliente(scanner);
-    }
-
-    public void adicionarAdm(Scanner scanner){
-
-
-
-        System.out.print("Digite seu nome: ");
-        String nomeAdm = scanner.nextLine();
-
-        System.out.print("Digite sua idade: ");
-        int idadeAdm = scanner.nextInt();
-
-        System.out.print("Digite seu CEP: ");
-        int cepAdm = scanner.nextInt();
-
-        System.out.print("Digite sua senha (número): ");
-        int senhaAdm = scanner.nextInt();
-
-        System.out.println("Cadastro do Administrador realizado com sucesso");
-
-        Administrador novoAdm = new Administrador();
-
-        novoAdm.setNome(nomeAdm);
-        novoAdm.setIdade(idadeAdm);
-        novoAdm.setCep(cepAdm);
-        novoAdm.setSenha(senhaAdm);
-
-        listaAdm.add(novoAdm);
-
     }
 
 }
