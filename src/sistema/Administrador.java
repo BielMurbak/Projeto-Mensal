@@ -11,6 +11,7 @@ public class Administrador {
     protected int senha;
     public ArrayList<Administrador> listaAdm = new ArrayList<>();
 
+
     public int getSenha() {
         return senha;
     }

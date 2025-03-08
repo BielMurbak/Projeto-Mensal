@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ClientedeAtacado extends Cliente {
     private double descontoEspecial;
-    private String cnpj;
+    private long cnpj;
     public static ArrayList<ClientedeAtacado> catalogoClienteAtacado = new ArrayList<>();
 
     public double getDescontoEspecial() {
@@ -16,11 +16,11 @@ public class ClientedeAtacado extends Cliente {
         this.descontoEspecial = descontoEspecial;
     }
 
-    public String getCnpj() {
+    public long getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public void setCnpj(long cnpj) {
         this.cnpj = cnpj;
     }
 
@@ -34,7 +34,7 @@ public class ClientedeAtacado extends Cliente {
             }
 
             System.out.print("Digite o seu CNPJ: ");
-            this.cnpj = scanner.nextLine();
+            this.cnpj = scanner.nextLong();
 
             System.out.print("Digite o desconto especial em porcentagem: ");
             this.descontoEspecial = scanner.nextDouble();

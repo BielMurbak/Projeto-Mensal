@@ -74,22 +74,30 @@ public class Tenis {
     }
 
     public void condicionaisDeCompra(int codigoProduto, int quantidadeProduto, double total) {
+        boolean codigoErrado = false;
+        boolean produtoEncontrado = false;
 
-        for(Tenis tenis:catalogo){
-            if(tenis.codigo==codigoProduto){
-                if(tenis.quantidade>=quantidadeProduto){
-                    double valorCompra = tenis.getPreco() * quantidadeProduto;  // Calcula o valor total da compra
-                    total += valorCompra;  // Adiciona o valor da compra ao total
+        for (Tenis tenis : catalogo) {
+            if (tenis.getCodigo() == codigoProduto) {
+                produtoEncontrado = true;
 
-                    tenis.setQuantidade(tenis.quantidade - quantidadeProduto);
+                if (tenis.getQuantidade() >= quantidadeProduto) {
+                    double valorCompra = tenis.getPreco() * quantidadeProduto;
+                    total += valorCompra;
+
+                    tenis.setQuantidade(tenis.getQuantidade() - quantidadeProduto);
                     System.out.println("✅ Adicionado ao carrinho!");
-                    System.out.println("Total:"+total);
+                    System.out.println("Total: R$ " + total);
 
-                }else{
-                    System.out.println("✅ Erro! Quantidade insuficiente em estoque!");
-
+                } else {
+                    System.out.println("❌ Erro! Quantidade insuficiente em estoque!");
                 }
+                break;
             }
+        }
+        if (!produtoEncontrado && !codigoErrado) {
+            System.out.println("❌ Erro! Código digitado é inválido!");
+            codigoErrado = true;  // Marca que um erro aconteceu
         }
     }
 }

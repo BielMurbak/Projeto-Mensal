@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente {
-    private String nome;
+   private String nome;
     private int idade;
     private int cep;
     private int senha;
@@ -87,6 +87,42 @@ public class Cliente {
         System.out.println("✅ Cliente nao foi encotrado!");
         return false;
     }
+
+    public static boolean alterarSenha(String nomeCliente, int senhaAtual, int novaSenha) {
+        for (Cliente cliente : catalogoCliente) {
+            if (cliente.getNome().equalsIgnoreCase(nomeCliente)) {
+                if (cliente.getSenha() == senhaAtual) {
+                    cliente.setSenha(novaSenha);
+                    System.out.println("Senha alterada com sucesso!");
+                    return true;
+                } else {
+                    System.out.println("Senha atual incorreta.");
+                    return false;
+                }
+            }
+        }
+        System.out.println("Cliente não encontrado.");
+        return false;
+    }
+
+
+    public static boolean alterarNome(String nomeCliente, int senhaAtual, String novoNome) {
+        for (Cliente cliente : catalogoCliente) {
+            if (cliente.getNome().equalsIgnoreCase(nomeCliente)) {
+                if (cliente.getSenha() == senhaAtual) {
+                    cliente.setNome(novoNome);
+                    System.out.println("Nome alterada com sucesso!");
+                    return true;
+                } else {
+                    System.out.println("Nome atual incorreta.");
+                    return false;
+                }
+            }
+        }
+        System.out.println("Cliente não encontrado.");
+        return false;
+    }
+
 
 }
 

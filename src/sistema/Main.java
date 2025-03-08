@@ -48,7 +48,7 @@ public class Main {
 
                     switch (tipoUsuario) {
                         case 1:
-                            if (cliente.getNome().isEmpty()) {
+                            if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
                                 System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue;
                             }
@@ -62,7 +62,7 @@ public class Main {
                             login.realizarLoginCliente(cliente);
                             break;
                         case 2:  // Cliente Atacado login
-                            if (clienteAtacado.getCnpj().isEmpty()) {
+                            if (clienteAtacado.getCnpj()==0) {
                                 System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue;
                             }
@@ -105,6 +105,9 @@ public class Main {
                             break;
                         case 2:  // Cliente Atacado registration
                             clienteAtacado.cadastrarCliente(scanner);
+                            break;
+                        case 3:
+                            System.out.println("Saindo...");
                             break;
                         default:
                             System.out.println("Opção inválida. Tente novamente.");
