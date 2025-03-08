@@ -50,12 +50,10 @@ public class SistemaUsuario {
             System.out.println("\n");
 
             System.out.println("Sistema E-commerce");
-            System.out.println("1-Nossos Produtos");
-            System.out.println("2-Carrinho");
-            System.out.println("3-Pedido");
-            System.out.println("4-Suporte ao Cliente");
-            System.out.println("5-Seguraça e Privacidade");
-            System.out.println("6-Sair");
+            System.out.println("1 - Nossos Produtos");
+            System.out.println("2 - Suporte ao Cliente");
+            System.out.println("3 - Seguraça e Privacidade");
+            System.out.println("4 - Sair");
             auxI = scanner.nextInt();
 
             switch (auxI) {
@@ -110,8 +108,7 @@ public class SistemaUsuario {
                     } else {
                         System.out.println("Erro! Número digitado é inválido.");
                     }
-                    break;
-                case 2:
+
                     if (total <= 0) {
                         System.out.println("❌Erro! Você não fez nenhuma compra.");
                         sistemaUsuario();
@@ -146,19 +143,11 @@ public class SistemaUsuario {
                         System.out.println("Erro! Número digitado é inválido.");
                     }
                     break;
-                case 3:
-                    if (total <= 0) {
-                        System.out.println("❌Erro! Você não fez nenhuma compra.");
-                        sistemaUsuario();
-                        break;
-                    }
-                    apiCep(scanner);
-                    break;
-                case 4:
+                case 2:
                     mostrarSuporteAoCliente(scanner);
-                case 5:
+                case 3:
                     mostrarSegurancaPrivacidade(scanner);
-                case 6:
+                case 4:
                     System.out.println("Programa foi encerrado com sucesso!");
                     System.exit(0);
                 default:
@@ -202,10 +191,13 @@ public class SistemaUsuario {
                     boolean senhaAlterada = Cliente.alterarSenha(nomeCliente, senhaAtual, novaSenha);
                     if (senhaAlterada) {
                         System.out.println("A senha foi alterada com sucesso.");
+                        Main principal = new Main();
+                        principal.main(null);
                     } else {
                         System.out.println("Falha ao alterar a senha.");
+                        mostrarSegurancaPrivacidade(scanner);
                     }
-                    mostrarSegurancaPrivacidade(scanner);
+
                     break;
 
                 case 3:
@@ -222,6 +214,8 @@ public class SistemaUsuario {
                     boolean nomeAlterada = Cliente.alterarNome(nomeCliente2, senhaAtual2, novoNome);
                     if (nomeAlterada) {
                         System.out.println("O nome foi alterado com sucesso.");
+                        Main principal = new Main();
+                        principal.main(null);
                     } else {
                         System.out.println("Falha ao alterar o nome.");
                     }
@@ -256,6 +250,7 @@ public class SistemaUsuario {
 
                 case 5:
                     System.out.println("🔙 Voltando ao menu principal...");
+                    sistemaUsuario();
                     break;
 
                 default:
@@ -396,6 +391,7 @@ public class SistemaUsuario {
 
         }else if (opcaoRecebimento == 2) {
             System.out.println("Seu pedido estará disponível para retirada na loja.");
+            sistemaUsuario();
         } else {
             System.out.println("Opção inválida!");
         }
