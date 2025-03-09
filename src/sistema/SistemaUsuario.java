@@ -3,12 +3,15 @@ package sistema;
 import cliente.Cliente;
 import cliente.ClientedeAtacado;
 import cliente.Login;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
 import pedidos.StatusPedido;
 import produtos.Tenis;
+import frete.Frete;
+import frete.FretePadrao;
+import frete.FreteExpresso;
+import frete.SeguroFrete;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,6 +28,9 @@ import static cliente.ClientedeAtacado.catalogoClienteAtacado;
 import static produtos.Tenis.*;
 
 public class SistemaUsuario {
+
+    private double total = 0;
+
     public void sistemaUsuario() {
 
         Scanner scanner = new Scanner(System.in);
@@ -43,11 +49,8 @@ public class SistemaUsuario {
         sistema.Endereco Endereco = new Endereco();
         Cliente novoCliente = new Cliente();
 
-
         int auxI = 0;
-        double total = 0;
         int continuarCadastro = 0;
-
 
         do {
             System.out.println("\n");
@@ -381,8 +384,7 @@ public class SistemaUsuario {
             scanner.nextLine();  // Clear the buffer after nextInt()
 
             if (confirmacao == 1) {
-                statusPedido = StatusPedido.ENVIADO;
-                System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
+                System.out.println("Endereco confirmado!");
             } else {
                 System.out.println("Por favor, digite o endereço manualmente.");
                 System.out.print("Rua: ");
@@ -393,12 +395,45 @@ public class SistemaUsuario {
                 String cidadeManual = scanner.nextLine();
                 System.out.print("Estado (UF): ");
                 String estadoManual = scanner.nextLine();
-                System.out.println("Endereço atualizado! O pedido será entregue em: " + ruaManual + ", " + bairroManual + ", " + cidadeManual + " - " + estadoManual);
-                SistemaUsuario sU = new SistemaUsuario();
+                System.out.println("Endereço atualizado! " + ruaManual + ", " + bairroManual + ", " + cidadeManual + " - " + estadoManual);
 
-                sU.sistemaUsuario();
             }
 
+            System.out.println("Escolha o método de frete:");
+            System.out.println("1 - Frete Padrão");
+            System.out.println("2 - Frete Expresso");
+            int opcaoFrete = scanner.nextInt();
+            scanner.nextLine();
+
+            Frete frete;
+            double custoSeguro = 0.0;
+
+            if (opcaoFrete == 1) {
+                frete = new FretePadrao();
+            } else if (opcaoFrete == 2) {
+                frete = new FreteExpresso();
+                System.out.println("Deseja contratar um seguro ao frete de 2% do valor do produto? (1 - Sim / 2 - Não)");
+                int opcaoSeguro = scanner.nextInt();
+
+                if (opcaoSeguro == 1 && frete instanceof SeguroFrete) {
+                    SeguroFrete freteComSeguro = (SeguroFrete) frete;
+                    custoSeguro = freteComSeguro.calcularSeguro(this.total);
+                }
+
+            } else {
+                System.out.println("Opção inválida. Usando frete padrão.");
+                frete = new FretePadrao();
+            }
+
+            double custoFrete = frete.calcularFrete(this.total);
+            total += custoFrete;
+            total += custoSeguro;
+            statusPedido = StatusPedido.ENVIADO;
+            System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
+            System.out.println("Custo do frete (com seguro se houver): R$ " + custoFrete);
+            System.out.println("Valor total do pedido: R$ " + total);
+            this.total = 0.0;
+            sistemaUsuario();
 
         }else if (opcaoRecebimento == 2) {
             statusPedido = StatusPedido.SEPARADO;
