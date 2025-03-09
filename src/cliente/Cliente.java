@@ -3,7 +3,7 @@ package cliente;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cliente {
+public class Cliente{
    private String nome;
     private int idade;
     private int cep;
@@ -71,6 +71,8 @@ public class Cliente {
         novoCliente.setSenha(senha);
         catalogoCliente.add(novoCliente);
 
+
+
     }//close the cadastrarCliente
 
 
@@ -84,7 +86,7 @@ public class Cliente {
                 }
             }
         }
-        System.out.println("✅ Cliente nao foi encotrado!");
+        System.out.println(" Cliente nao foi encotrado!");
         return false;
     }
 

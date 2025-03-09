@@ -50,6 +50,7 @@ public class Login {
                 System.out.println("login realizado com sucesso!");
                 SistemaUsuario sU = new SistemaUsuario();
                 sU.sistemaUsuario();
+
             }else{
                 System.out.println("Erro! Essa senha nao foi encotrada!");
             }
@@ -61,35 +62,28 @@ public class Login {
 
     public void realizarloginAdm(Administrador adm) {
 
-       Administrador admRealizarLogin = new Administrador();
+        Administrador admRealizarLogin = new Administrador();
 
-       if(nomeLogin.equals(admRealizarLogin.getNome())){
-           if(senhaLogin==admRealizarLogin.getSenha()){
-               SistemaAdm sA = new SistemaAdm();
-               sA.sistemaAdm();
-           }else{
-               System.out.println("Erro! Senha nao existe no nosso banco de dados.");
-           }
-       }else{
-           System.out.println("Erro! Nome nao existe no nosso banco de dados.");
-       }
-
-
-        if(nomeLogin.equals("adm")){
-            if(senhaLogin==2425){
+        if (nomeLogin.equals(admRealizarLogin.getNome())) {
+            if (senhaLogin == admRealizarLogin.getSenha()) {
                 SistemaAdm sA = new SistemaAdm();
                 sA.sistemaAdm();
-            }else{
+            } else {
                 System.out.println("Erro! Senha nao existe no nosso banco de dados.");
             }
-        }else{
-            if(senhaLogin==2425){
-                System.out.println("Erro! Nome nao existe no nosso banco de dados.");
+        } else {
+
+            if (nomeLogin.equals("adm")) {
+                if (senhaLogin == 2425) {
+                    SistemaAdm sA = new SistemaAdm();
+                    sA.sistemaAdm();
+                } else {
+                    System.out.println("Erro! Senha nao existe no nosso banco de dados.");
+                }
+            } else {
+                System.out.println("Erro! Nome e senha nao existe no nosso banco de dados.");
             }
-            System.out.println("Erro! Nome e senha nao existe no nosso banco de dados.");
         }
-
-
     }
 
 }

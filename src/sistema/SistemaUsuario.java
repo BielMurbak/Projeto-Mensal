@@ -7,7 +7,6 @@ import cliente.Login;
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
-import pedidos.Pedido;
 import pedidos.StatusPedido;
 import produtos.Tenis;
 
@@ -49,9 +48,13 @@ public class SistemaUsuario {
         double total = 0;
         int continuarCadastro = 0;
 
+
         do {
             System.out.println("\n");
-
+                for (Cliente cliente2 : catalogoCliente) {
+                    System.out.println("Nome: " + cliente2.getNome());
+                    System.out.println("Senha: " + cliente2.getSenha());
+                }
             System.out.println("Sistema E-commerce");
             System.out.println("1 - Nossos Produtos");
             System.out.println("2 - Suporte ao Cliente");
@@ -148,8 +151,10 @@ public class SistemaUsuario {
                     break;
                 case 2:
                     mostrarSuporteAoCliente(scanner);
+                    break;
                 case 3:
                     mostrarSegurancaPrivacidade(scanner);
+                    break;
                 case 4:
                     System.out.println("Programa foi encerrado com sucesso!");
                     System.exit(0);
@@ -193,9 +198,9 @@ public class SistemaUsuario {
 
                     boolean senhaAlterada = Cliente.alterarSenha(nomeCliente, senhaAtual, novaSenha);
                     if (senhaAlterada) {
-                        System.out.println("A senha foi alterada com sucesso.");
-                        Main principal = new Main();
-                        principal.main(null);
+
+                        sistemaUsuario();
+                        return;
                     } else {
                         System.out.println("Falha ao alterar a senha.");
                         mostrarSegurancaPrivacidade(scanner);
@@ -217,12 +222,13 @@ public class SistemaUsuario {
                     boolean nomeAlterada = Cliente.alterarNome(nomeCliente2, senhaAtual2, novoNome);
                     if (nomeAlterada) {
                         System.out.println("O nome foi alterado com sucesso.");
-                        Main principal = new Main();
-                        principal.main(null);
+                        sistemaUsuario();
+                      break;
+
                     } else {
                         System.out.println("Falha ao alterar o nome.");
+                        mostrarSegurancaPrivacidade(scanner);
                     }
-                    mostrarSegurancaPrivacidade(scanner);
                     break;
 
                 case 4:

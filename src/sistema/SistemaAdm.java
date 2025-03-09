@@ -16,7 +16,10 @@ public class SistemaAdm {
         Administrador adm = new Administrador();
         Cliente cliente = new Cliente();
         ClientedeAtacado clienteAtacado = new ClientedeAtacado();
+        Tenis tenis = new Tenis(null, 0, 0, 0);
+
         int auxI = 0;
+        int contador = 0;
 
         do {
             System.out.println("\n=== Sistema E-commerce ===");
@@ -30,7 +33,7 @@ public class SistemaAdm {
             System.out.println("8 - Acessar Sistema de Usuário");
             System.out.println("9 - Cadastrar Cliente");
             System.out.println("10 - Listar Clientes");
-            System.out.println("11 - Sair");
+            System.out.println("11 - Encerrar Programa");
             System.out.print("Escolha uma opção: ");
 
             auxI = scanner.nextInt();
@@ -41,18 +44,30 @@ public class SistemaAdm {
                     cadastrarProduto(scanner);
                     break;
                 case 2:
+                    if (tenis.getNome() == null || tenis.getNome().isEmpty()) {
+                        System.out.println("Nenhum produto foi cadastrado.");
+                        break;
+                    }
                     System.out.println("\n--- Remover Produto ---");
                     System.out.print("Digite o código do produto: ");
                     int codigoRemover = scanner.nextInt();
                     removerProduto(codigoRemover);
                     break;
                 case 3:
+                    if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
+                        System.out.println("Nenhum cliente foi criado.");
+                        break;
+                    }
                     removerCliente(scanner);
                     break;
                 case 4:
                     adm.adicionarAdm(scanner);
                     break;
                 case 5:
+                    if (adm.getNome() == null || adm.getNome().isEmpty()) {
+                        System.out.println("Nenhum adm foi criado.");
+                        break;
+                    }
                     System.out.println("\n--- Remover Administrador ---");
                     System.out.print("Nome do Administrador: ");
                     String nomeAdmRemover = scanner.nextLine();
@@ -76,6 +91,7 @@ public class SistemaAdm {
                     break;
                 case 6:
                     System.out.println("\n=== Lista de Administradores ===");
+
                     if (adm.listaAdm.isEmpty()) {
                         System.out.println("Nenhum administrador cadastrado.");
                     } else {
@@ -119,15 +135,20 @@ public class SistemaAdm {
                     break;
                 case 10:
                     System.out.println("\n=== Lista de Clientes ===");
+                    if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
+                        System.out.println("Nenhum cliente foi cadastrado.");
+                        break;
+                    }
                     for (Cliente c : Cliente.catalogoCliente) {
                         System.out.println("Nome: " + c.getNome() + " | Idade: " + c.getIdade() + " | CEP: " + c.getCep());
                     }
                     for (ClientedeAtacado ca : ClientedeAtacado.catalogoClienteAtacado) {
-                        System.out.println("Nome: " + ca.getNome() + " | Idade: " + ca.getIdade() +  " | CEP: " + ca.getCep() + " | CNPJ: " + ca.getCnpj() + " | Desconto especial: " + ca.getDescontoEspecial());
+                        System.out.println("Nome: " + ca.getNome() + " | Idade: " + ca.getIdade() + " | CEP: " + ca.getCep() + " | CNPJ: " + ca.getCnpj() + " | Desconto especial: " + ca.getDescontoEspecial());
                     }
                     break;
                 case 11:
-                    System.out.println("Saindo do sistema...");
+                    System.out.println("Encerrando programa..");
+                    System.exit(0);
                     break;
                 default:
                     System.out.println("❌ Opção inválida! Escolha um número entre 1 e 11.");
@@ -143,11 +164,12 @@ public class SistemaAdm {
             System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", t.getNome(), t.getCodigo(), t.getQuantidade(), t.getPreco());
         }
     }
+
     public void removerProduto(int codigoRemover) {
         boolean encontrado = false;
 
-        for(Tenis tenis: catalogo){
-            if(tenis.getCodigo()== codigoRemover){
+        for (Tenis tenis : catalogo) {
+            if (tenis.getCodigo() == codigoRemover) {
                 catalogo.remove(tenis);
                 System.out.println("✅ Tênis removido com sucesso!");
                 encontrado = true;
@@ -162,12 +184,11 @@ public class SistemaAdm {
     }
 
     public void cadastrarProduto(Scanner scanner) {
-        int continuarCadastro =0;
+        int continuarCadastro = 0;
 
         do {
             System.out.println("\n--- Cadastro de Produtos ---");
             System.out.print("Nome do tênis: ");
-            scanner.nextLine(); // Limpar buffer
             String nome = scanner.nextLine();
 
             System.out.print("Preço: R$ ");
@@ -175,6 +196,22 @@ public class SistemaAdm {
 
             System.out.print("Código: ");
             int codigo = scanner.nextInt();
+
+            boolean codigoExistente = false;
+
+            for (Tenis tenis : catalogo) {
+                if (tenis.getCodigo() == codigo) {
+                    codigoExistente = true;
+                    break;
+                }
+            }
+
+            if (codigoExistente) {
+                System.out.println("Erro! código igual a um produto já existente");
+                System.out.println("Codigos usados:1,2,3");
+                return;
+            }
+
 
             System.out.print("Quantidade em estoque: ");
             int quantidade = scanner.nextInt();
