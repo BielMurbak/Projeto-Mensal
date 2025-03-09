@@ -7,6 +7,8 @@ import cliente.Login;
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
+import pedidos.Pedido;
+import pedidos.StatusPedido;
 import produtos.Tenis;
 
 import java.io.BufferedReader;
@@ -29,6 +31,7 @@ public class SistemaUsuario {
         Scanner scanner = new Scanner(System.in);
         Tenis tenis = new Tenis(null, 0, 0, 0);
         List<Tenis> carrinho = new ArrayList<>();
+        StatusPedido statusPedido = StatusPedido.PROCESSANDO;
 
         Pagamento pagamentoCredito = new pagamento.CartaoDeCredito();
         Pagamento pagamentoDebito = new pagamento.CartaoDebito();
@@ -309,7 +312,7 @@ public class SistemaUsuario {
             }
         } while (escolhaSuporte < 1 || escolhaSuporte > 4);
     }
-    private void apiCep(Scanner scanner ){
+    private void apiCep(Scanner scanner){
         System.out.println("\n");
         System.out.println("---- Escolha a opção de recebimento ----");
         System.out.println("1 - Entrega");
@@ -318,6 +321,7 @@ public class SistemaUsuario {
         System.out.print("Digite sua opção: ");
         int opcaoRecebimento = scanner.nextInt();
         scanner.nextLine();  // Clear the buffer after nextInt()
+        StatusPedido statusPedido = StatusPedido.PROCESSANDO;
 
         if (opcaoRecebimento == 1) {
             System.out.print("Informe o cep:");
@@ -371,7 +375,8 @@ public class SistemaUsuario {
             scanner.nextLine();  // Clear the buffer after nextInt()
 
             if (confirmacao == 1) {
-                System.out.println("Endereço confirmado! O pedido será entregue.");
+                statusPedido = StatusPedido.ENVIADO;
+                System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
             } else {
                 System.out.println("Por favor, digite o endereço manualmente.");
                 System.out.print("Rua: ");
@@ -382,15 +387,16 @@ public class SistemaUsuario {
                 String cidadeManual = scanner.nextLine();
                 System.out.print("Estado (UF): ");
                 String estadoManual = scanner.nextLine();
-
                 System.out.println("Endereço atualizado! O pedido será entregue em: " + ruaManual + ", " + bairroManual + ", " + cidadeManual + " - " + estadoManual);
                 SistemaUsuario sU = new SistemaUsuario();
+
                 sU.sistemaUsuario();
             }
 
 
         }else if (opcaoRecebimento == 2) {
-            System.out.println("Seu pedido estará disponível para retirada na loja.");
+            statusPedido = StatusPedido.SEPARADO;
+            System.out.println("Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
             sistemaUsuario();
         } else {
             System.out.println("Opção inválida!");
