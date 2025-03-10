@@ -1,17 +1,16 @@
 package sistema;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Administrador {
-    protected String nome;
-    protected int idade;
-    protected int cep;
-    protected int senha;
-    public ArrayList<Administrador> listaAdm = new ArrayList<>();
+    protected String nome;        // Nome do administrador
+    protected int idade;          // Idade do administrador
+    protected int cep;            // CEP do administrador
+    protected int senha;          // Senha do administrador
+    public ArrayList<Administrador> listaAdm = new ArrayList<>();  // Lista de administradores cadastrados
 
-
+    // Métodos Getters e Setters para cada atributo
     public int getSenha() {
         return senha;
     }
@@ -44,9 +43,9 @@ public class Administrador {
         this.nome = nome;
     }
 
-
-    public void adicionarAdm(Scanner scanner){
-
+    // Método para adicionar um novo administrador
+    public void adicionarAdm(Scanner scanner) {
+        // Solicita ao usuário que insira os dados do administrador
         System.out.print("Digite seu nome: ");
         String nomeAdm = scanner.nextLine();
 
@@ -61,14 +60,14 @@ public class Administrador {
 
         System.out.println("Cadastro do Administrador realizado com sucesso");
 
+        // Cria um novo objeto de Administrador e preenche os dados fornecidos
         Administrador novoAdm = new Administrador();
-
         novoAdm.setNome(nomeAdm);
         novoAdm.setIdade(idadeAdm);
         novoAdm.setCep(cepAdm);
         novoAdm.setSenha(senhaAdm);
+
+        // Adiciona o novo administrador à lista de administradores
         listaAdm.add(novoAdm);
-
     }
-
 }

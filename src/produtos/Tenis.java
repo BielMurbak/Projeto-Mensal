@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Tenis {
-    private String nome;
-    public int codigo;
-    private int quantidade;
-    private double preco;
-    public static ArrayList<Tenis> catalogo = new ArrayList<>();
+    private String nome;          // Nome do tênis
+    public int codigo;            // Código único para o tênis
+    private int quantidade;       // Quantidade disponível no estoque
+    private double preco;         // Preço do tênis
+    public static ArrayList<Tenis> catalogo = new ArrayList<>();  // Lista estática de tênis (catálogo)
 
-
+    // Construtor para inicializar o tênis
     public Tenis(String nome, int codigo, int quantidade, double preco) {
         this.nome = nome;
         this.codigo = codigo;
@@ -18,6 +18,7 @@ public class Tenis {
         this.preco = preco;
     }
 
+    // Getters e setters para cada atributo
     public String getNome() {
         return nome;
     }
@@ -43,7 +44,7 @@ public class Tenis {
             this.preco = preco;
         } else {
             System.out.println("Preço inválido! Definindo como R$ 0.00.");
-            this.preco = 0.00;
+            this.preco = 0.00;  // Se o preço for inválido, define o preço como R$ 0.00
         }
     }
 
@@ -56,45 +57,49 @@ public class Tenis {
             this.quantidade = quantidade;
         } else {
             System.out.println("Quantidade inválida! Definindo como 0.");
-            this.quantidade = 0;
+            this.quantidade = 0;  // Se a quantidade for inválida (negativa), define como 0
         }
     }
 
+    // Método estático para exibir o catálogo de tênis
     public static void exibirCatalogo() {
         if (catalogo.isEmpty()) {
             System.out.println("O catálogo está vazio.");
         } else {
-            catalogo.sort(Comparator.comparingInt(tenis -> tenis.codigo)); //codigo que ordena os codigos dos produtos em ordem crescente começando em cima
+            catalogo.sort(Comparator.comparingInt(tenis -> tenis.codigo));  // Ordena os tênis por código (crescente)
             System.out.println("Catálogo de Tênis:");
             for (Tenis tenis : catalogo) {
                 System.out.printf("Nome: %-20s | Código: %-10s | Quantidade: %-5d | Preço: R$ %.2f\n", tenis.nome, tenis.codigo, tenis.quantidade, tenis.preco);
             }
         }
-
     }
 
+    // Método para tratar a compra do tênis com base no código e na quantidade desejada
     public void condicionaisDeCompra(int codigoProduto, int quantidadeProduto, double total) {
-        boolean codigoErrado = false;
-        boolean produtoEncontrado = false;
+        boolean codigoErrado = false;     // Para verificar se o código é errado
+        boolean produtoEncontrado = false;  // Para verificar se o produto foi encontrado
 
+        // Percorre o catálogo de tênis para procurar o produto
         for (Tenis tenis : catalogo) {
-            if (tenis.getCodigo() == codigoProduto) {
+            if (tenis.getCodigo() == codigoProduto) {  // Verifica se o código do tênis corresponde ao código digitado
                 produtoEncontrado = true;
 
-                if (tenis.getQuantidade() >= quantidadeProduto) {
-                    double valorCompra = tenis.getPreco() * quantidadeProduto;
-                    total += valorCompra;
+                if (tenis.getQuantidade() >= quantidadeProduto) {  // Verifica se há estoque suficiente
+                    double valorCompra = tenis.getPreco() * quantidadeProduto;  // Calcula o valor da compra
+                    total += valorCompra;  // Soma ao total da compra
 
-                    tenis.setQuantidade(tenis.getQuantidade() - quantidadeProduto);
+                    tenis.setQuantidade(tenis.getQuantidade() - quantidadeProduto);  // Atualiza a quantidade no estoque
                     System.out.println("✅ Adicionado ao carrinho!");
-                    System.out.println("Total: R$ " + total);
+                    System.out.println("Total: R$ " + total);  // Exibe o valor total da compra
 
                 } else {
-                    System.out.println("❌ Erro! Quantidade insuficiente em estoque!");
+                    System.out.println("❌ Erro! Quantidade insuficiente em estoque!");  // Mensagem de erro caso não haja estoque suficiente
                 }
-                break;
+                break;  // Encerra o loop assim que o produto é encontrado
             }
         }
+
+        // Se o produto não foi encontrado e o código está errado, exibe uma mensagem de erro
         if (!produtoEncontrado && !codigoErrado) {
             System.out.println("❌ Erro! Código digitado é inválido!");
             codigoErrado = true;  // Marca que um erro aconteceu
