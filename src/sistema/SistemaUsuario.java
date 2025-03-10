@@ -106,12 +106,18 @@ public class SistemaUsuario {
                         apiCep(scanner);
                     } else if (opcaoPagamento == 2) {
                         pagamentoDebito.realizarPagamento(total);
+                        Extrato extrato = new Extrato(pagamentoDebito, total);
+                        extrato.exibirExtrato(opcaoPagamento,total);
                         apiCep(scanner);
                     } else if (opcaoPagamento == 3) {
                         pagamentoPix.realizarPagamento(total);
+                        Extrato extrato = new Extrato(pagamentoPix, total);
+                        extrato.exibirExtrato(opcaoPagamento,total);
                         apiCep(scanner);
                     } else if (opcaoPagamento == 4) {
                         pagamentoDinheiro.realizarPagamento(total);
+                        Extrato extrato = new Extrato(pagamentoDinheiro, total);
+                        extrato.exibirExtrato(opcaoPagamento,total);
                         apiCep(scanner);
 
                     } else {
@@ -135,18 +141,23 @@ public class SistemaUsuario {
                     System.out.println("4-Dinheiro");
                     System.out.print("Digite sua opcao:");
                     int opPagamento = scanner.nextInt();
-                    if (opPagamento == 1) {
+                    if (opcaoPagamento == 1) {
                         pagamentoCredito.realizarPagamento(total);
                         apiCep(scanner);
-
-                    } else if (opPagamento == 2) {
+                    } else if (opcaoPagamento == 2) {
                         pagamentoDebito.realizarPagamento(total);
+                        Extrato extrato = new Extrato(pagamentoDebito, total);
+                        extrato.exibirExtrato(opPagamento,total);
                         apiCep(scanner);
-
-                    } else if (opPagamento == 3) {
+                    } else if (opcaoPagamento == 3) {
                         pagamentoPix.realizarPagamento(total);
-                    } else if (opPagamento == 4) {
+                        Extrato extrato = new Extrato(pagamentoPix, total);
+                        extrato.exibirExtrato(opPagamento,total);
+                        apiCep(scanner);
+                    } else if (opcaoPagamento == 4) {
                         pagamentoDinheiro.realizarPagamento(total);
+                        Extrato extrato = new Extrato(pagamentoDinheiro, total);
+                        extrato.exibirExtrato(opPagamento,total);
                         apiCep(scanner);
                     } else {
                         System.out.println("Erro! Número digitado é inválido.");
@@ -409,35 +420,42 @@ public class SistemaUsuario {
             double custoSeguro = 0.0;
 
             if (opcaoFrete == 1) {
-                frete = new FretePadrao();
+                frete = new FretePadrao(7);
             } else if (opcaoFrete == 2) {
-                frete = new FreteExpresso();
+                frete = new FreteExpresso(0.02,5);
                 System.out.println("Deseja contratar um seguro ao frete de 2% do valor do produto? (1 - Sim / 2 - Não)");
                 int opcaoSeguro = scanner.nextInt();
 
                 if (opcaoSeguro == 1 && frete instanceof SeguroFrete) {
+                    frete = new FreteExpresso(0.02,5);
                     SeguroFrete freteComSeguro = (SeguroFrete) frete;
                     custoSeguro = freteComSeguro.calcularSeguro(this.total);
                 }
 
             } else {
                 System.out.println("Opção inválida. Usando frete padrão.");
-                frete = new FretePadrao();
+                frete = new FretePadrao(7);
             }
 
+            frete = new FreteExpresso(5);
+
             double custoFrete = frete.calcularFrete(this.total);
+
+            custoFrete += custoSeguro;
             total += custoFrete;
-            total += custoSeguro;
+
             statusPedido = StatusPedido.ENVIADO;
             System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
-            System.out.println("Custo do frete (com seguro se houver): R$ " + custoFrete);
-            System.out.println("Valor total do pedido: R$ " + total);
+            System.out.printf("Custo do frete (com seguro se houver): R$ %.2f\n", custoFrete);
+            System.out.println("O pedido sera entrega em " + frete.getTempoDeEntrega() + " dias!");
+            System.out.printf("Valor total do pedido: R$ %.2f\n", total);
             this.total = 0.0;
             sistemaUsuario();
 
         }else if (opcaoRecebimento == 2) {
             statusPedido = StatusPedido.SEPARADO;
             System.out.println("Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
+            this.total = 0.0;
             sistemaUsuario();
         } else {
             System.out.println("Opção inválida!");

@@ -1,6 +1,24 @@
 package frete;
 
 public class FreteExpresso implements Frete, SeguroFrete {
+
+    private double taxa;
+    private int tempoDeEntrega;
+
+    @Override
+    public int getTempoDeEntrega() {
+        return tempoDeEntrega;
+    }
+
+    public FreteExpresso(double taxa, int tempoDeEntrega) {
+        this.tempoDeEntrega = tempoDeEntrega;
+        this.taxa = taxa;
+    }
+
+    public FreteExpresso(int tempoDeEntrega) {
+        this.tempoDeEntrega = tempoDeEntrega;
+    }
+
     @Override
     public double calcularFrete(double total) {
         if(total < 500.0) {
@@ -11,6 +29,6 @@ public class FreteExpresso implements Frete, SeguroFrete {
 
     @Override
     public double calcularSeguro(double valor) {
-        return valor * 0.02; // Seguro 2% do valor
+        return valor * taxa; // Seguro 2% do valor
     }
 }

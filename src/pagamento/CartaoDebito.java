@@ -1,9 +1,6 @@
 package pagamento;
 
 import cliente.ClientedeAtacado;
-import sistema.SistemaUsuario;
-
-
 
 public class CartaoDebito extends Pagamento {
 
@@ -19,12 +16,6 @@ public class CartaoDebito extends Pagamento {
 
             System.out.printf("Total no pix com desconto de %d%%: %.2f",      novoClienteAtacado.getDescontoEspecial(), valor);
         }
-
-        valor = valor * 0.3;
-
-        System.out.printf("Total com cartaoDebito:%.2f",valor);
-
-
 
     }
 }

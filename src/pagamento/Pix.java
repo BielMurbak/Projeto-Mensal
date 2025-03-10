@@ -20,12 +20,8 @@ public class Pix extends Pagamento{
 
             System.out.printf("Total no pix com desconto de %d%%: %.2f",      novoClienteAtacado.getDescontoEspecial(), valor);
         }
-        double aux = 0;
-          aux = valor;
-         aux = valor * 0.10;
-         valor-=aux;
 
-        System.out.printf("Total no pix:%.2f",valor);
+
 
     }
 }
