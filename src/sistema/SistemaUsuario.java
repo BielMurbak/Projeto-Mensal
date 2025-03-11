@@ -37,6 +37,7 @@ public class SistemaUsuario {
         List<Tenis> carrinho = new ArrayList<>(); // Lista para armazenar os tênis no carrinho de compras
         StatusPedido statusPedido = StatusPedido.PROCESSANDO; // Status do pedido (inicialmente PROCESSANDO)
 
+
         // Instâncias de pagamento para diferentes métodos
         Pagamento pagamentoCredito = new pagamento.CartaoDeCredito();
         Pagamento pagamentoDebito = new pagamento.CartaoDebito();
@@ -58,6 +59,7 @@ public class SistemaUsuario {
             for (Cliente cliente2 : catalogoCliente) {
                 System.out.println("Nome: " + cliente2.getNome());
                 System.out.println("Senha: " + cliente2.getSenha());
+                break;
             }
             // Menu principal
             System.out.println("Sistema E-commerce");
@@ -76,86 +78,90 @@ public class SistemaUsuario {
                         System.out.println("Digite a quantidade: ");
                         int quantidadeProduto = scanner.nextInt();
 
-                        tenis.condicionaisDeCompra(codigoProduto, quantidadeProduto, total); // Condicionais de compra do produto
+                        // Atualiza o total usando o retorno da função
+                        double novoTotal = tenis.condicionaisDeCompra(codigoProduto, quantidadeProduto, total);
 
-                        // Laço para adicionar o produto escolhido ao carrinho e atualizar o total
-                        for (Tenis t : catalogo) {
-                            if (t.getCodigo() == codigoProduto) {
-                                // Criar um novo objeto Tenis com a quantidade comprada
-                                Tenis compra = new Tenis(t.getNome(), t.getCodigo(), quantidadeProduto, t.getPreco());
-                                carrinho.add(compra); // Adiciona o tênis ao carrinho
+                        // Se a compra foi válida (não retornou o mesmo total sem alteração)
+                        if (novoTotal != total) {
+                            total = novoTotal; // Atualiza o total geral corretamente
 
-                                // Atualiza o total com a multiplicação do preço pela quantidade
-                                total += compra.getPreco() * quantidadeProduto;
+                            // Adiciona o produto ao carrinho
+                            for (Tenis t : catalogo) {
+                                if (t.getCodigo() == codigoProduto) {
+                                    Tenis compra = new Tenis(t.getNome(), t.getCodigo(), quantidadeProduto, t.getPreco());
+                                    carrinho.add(compra);
+                                    break; // Sai do loop assim que adicionar
+                                }
                             }
                         }
 
                         // Pergunta se o usuário deseja comprar mais produtos
                         System.out.println("Deseja comprar outro tênis? 1 - Sim / 2 - Não");
                         continuarCadastro = scanner.nextInt();
-                    } while (continuarCadastro == 1); // Continuação até o usuário escolher parar de comprar
+                    } while (continuarCadastro == 1);
+
 
                     // Exibe todos os produtos no carrinho
-                    for (Tenis item : carrinho) {
-                        System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
-                    }
-                    System.out.println("Total:" + total);
-                    System.out.println("---- Pagamento ----");
-                    // Menu de opções de pagamento
-                    System.out.println("1-Cartao de Credito");
-                    System.out.println("2-Cartao de Debito");
-                    System.out.println("3-Pix");
-                    System.out.println("4-Dinheiro");
-                    System.out.print("Digite sua opcao:");
-                    int opcaoPagamento = scanner.nextInt();
+            for (Tenis item : carrinho) {
+                System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
+            }
+            System.out.println("Total:" + total);
+            System.out.println("---- Pagamento ----");
+            // Menu de opções de pagamento
+            System.out.println("1-Cartao de Credito");
+            System.out.println("2-Cartao de Debito");
+            System.out.println("3-Pix");
+            System.out.println("4-Dinheiro");
+            System.out.print("Digite sua opcao:");
+            int opcaoPagamento = scanner.nextInt();
 
-                    // Processamento do pagamento conforme a opção escolhida
-                    if (opcaoPagamento == 1) {
-                        pagamentoCredito.realizarPagamento(total); // Realiza pagamento com Cartão de Crédito
-                        apiCep(scanner); // Chama a API de CEP para obter o endereço de entrega
-                    } else if (opcaoPagamento == 2) {
-                        pagamentoDebito.realizarPagamento(total); // Realiza pagamento com Cartão de Débito
-                        Extrato extrato = new Extrato(pagamentoDebito, total);
-                        extrato.exibirExtrato(opcaoPagamento, total); // Exibe o extrato
-                        apiCep(scanner); // Chama a API de CEP
-                    } else if (opcaoPagamento == 3) {
-                        pagamentoPix.realizarPagamento(total); // Realiza pagamento via Pix
-                        Extrato extrato = new Extrato(pagamentoPix, total);
-                        extrato.exibirExtrato(opcaoPagamento, total);
-                        apiCep(scanner);
-                    } else if (opcaoPagamento == 4) {
-                        pagamentoDinheiro.realizarPagamento(total); // Realiza pagamento em Dinheiro
-                        Extrato extrato = new Extrato(pagamentoDinheiro, total);
-                        extrato.exibirExtrato(opcaoPagamento, total);
-                        apiCep(scanner);
-                    } else {
-                        System.out.println("Erro! Número digitado é inválido.");
-                    }
+            // Processamento do pagamento conforme a opção escolhida
+            if (opcaoPagamento == 1) {
+                total = pagamentoCredito.realizarPagamento(total); // Realiza pagamento com Cartão de Crédito
+                apiCep(scanner); // Chama a API de CEP para obter o endereço de entrega
+            } else if (opcaoPagamento == 2) {
+                total = pagamentoDebito.realizarPagamento(total); // Realiza pagamento com Cartão de Débito
+                Extrato extrato = new Extrato(pagamentoDebito, total);
+                total = extrato.exibirExtrato(opcaoPagamento, total); // Exibe o extrato
+                apiCep(scanner); // Chama a API de CEP
+            } else if (opcaoPagamento == 3) {
+                total = pagamentoPix.realizarPagamento(total); // Realiza pagamento via Pix
+                Extrato extrato = new Extrato(pagamentoPix, total);
+                total = extrato.exibirExtrato(opcaoPagamento, total);
+                apiCep(scanner);
+            } else if (opcaoPagamento == 4) {
+                total = pagamentoDinheiro.realizarPagamento(total); // Realiza pagamento em Dinheiro
+                Extrato extrato = new Extrato(pagamentoDinheiro, total);
+                total = extrato.exibirExtrato(opcaoPagamento, total);
+                apiCep(scanner);
+            } else {
+                System.out.println("Erro! Número digitado é inválido.");
+            }
 
-                    // Verifica se o total é válido
-                    if (total <= 0) {
-                        System.out.println("❌Erro! Você não fez nenhuma compra.");
-                        sistemaUsuario(); // Reinicia o sistema caso o total seja zero ou negativo
-                        break;
-                    }
+            // Verifica se o total é válido
+            if (total <= 0) {
+                System.out.println("❌Erro! Você não fez nenhuma compra.");
+                sistemaUsuario(); // Reinicia o sistema caso o total seja zero ou negativo
+                break;
+            }
 
-                    // Exibe os detalhes finais da compra
-                    for (Tenis item : carrinho) {
-                        System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
-                    }
-                    System.out.println("Total:" + total);
-                    break;
-                case 2:
-                    mostrarSuporteAoCliente(scanner); // Exibe a seção de suporte ao cliente
-                    break;
-                case 3:
-                    mostrarSegurancaPrivacidade(scanner); // Exibe a seção de segurança e privacidade
-                    break;
-                case 4:
-                    System.out.println("Programa foi encerrado com sucesso!"); // Finaliza o programa
-                    System.exit(0);
-                default:
-                    System.out.println("Erro! número digitado é invalido"); // Mensagem de erro caso a opção escolhida não seja válida
+            // Exibe os detalhes finais da compra
+            for (Tenis item : carrinho) {
+                System.out.println("Produto: " + item.getNome() + " | Código: " + item.getCodigo() + " | Quantidade: " + item.getQuantidade() + " | Preço Unitário: R$ " + item.getPreco());
+            }
+            System.out.println("Total:" + total);
+            break;
+            case 2:
+                mostrarSuporteAoCliente(scanner); // Exibe a seção de suporte ao cliente
+                break;
+            case 3:
+                mostrarSegurancaPrivacidade(scanner); // Exibe a seção de segurança e privacidade
+                break;
+            case 4:
+                System.out.println("Programa foi encerrado com sucesso!"); // Finaliza o programa
+                System.exit(0);
+            default:
+                System.out.println("Erro! número digitado é invalido"); // Mensagem de erro caso a opção escolhida não seja válida
             }
         } while (auxI < 1 || auxI > 6); // Loop para continuar até o usuário selecionar uma opção válida
     }
@@ -422,6 +428,7 @@ public class SistemaUsuario {
 
             if (opcaoFrete == 1) {
                 frete = new FretePadrao(7);  // Define o frete padrão com prazo de 7 dias
+
             } else if (opcaoFrete == 2) {
                 frete = new FreteExpresso(0.02, 5);  // Define o frete expresso com custo adicional de 2% e prazo de 5 dias
                 System.out.println("Deseja contratar um seguro ao frete de 2% do valor do produto? (1 - Sim / 2 - Não)");
@@ -439,16 +446,15 @@ public class SistemaUsuario {
 
             frete = new FreteExpresso(5);  // Substitui o frete para frete expresso com custo de 5 reais
 
-            double custoFrete = frete.calcularFrete(this.total);  // Calcula o custo do frete
-            custoFrete += custoSeguro;  // Adiciona o custo do seguro, se houver
-            total += custoFrete;  // Atualiza o total
+            double custoFrete = frete.calcularFrete(this.total);
+            double totalFinal = this.total + custoFrete + custoSeguro;
 
             // Atualiza o status do pedido e exibe as informações de frete
             statusPedido = StatusPedido.ENVIADO;
             System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
             System.out.printf("Custo do frete (com seguro se houver): R$ %.2f\n", custoFrete);
             System.out.println("O pedido será entregue em " + frete.getTempoDeEntrega() + " dias!");
-            System.out.printf("Valor total do pedido: R$ %.2f\n", total);
+            System.out.printf("Valor total do pedido: R$ %.2f\n",totalFinal);
 
             this.total = 0.0;  // Limpa o total após a confirmação do pedido
             sistemaUsuario();  // Retorna ao menu principal

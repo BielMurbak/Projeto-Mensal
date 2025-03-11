@@ -5,7 +5,7 @@ import cliente.ClientedeAtacado;
 public class Dinheiro extends Pagamento {
 
     @Override
-    public void realizarPagamento(double valor) {
+    public double realizarPagamento(double valor) {
 
         // Cria um novo objeto ClientedeAtacado para representar o cliente de atacado.
         ClientedeAtacado novoClienteAtacado = new ClientedeAtacado();
@@ -24,6 +24,9 @@ public class Dinheiro extends Pagamento {
 
             // Exibe o valor total após o desconto de 12.5% e o desconto especial do cliente de atacado.
             System.out.printf("Total no pix com desconto de %d%%: %.2f", novoClienteAtacado.getDescontoEspecial(), valor);
+
+
         }
+        return valor;
     }
 }

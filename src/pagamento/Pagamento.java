@@ -4,6 +4,6 @@ package pagamento;
 public abstract class Pagamento {
 
     // Método abstrato que deve ser implementado pelas subclasses para realizar o pagamento
-    public abstract void realizarPagamento(double valor);
+    public abstract double realizarPagamento(double valor);
 
 }

@@ -75,34 +75,24 @@ public class Tenis {
     }
 
     // Método para tratar a compra do tênis com base no código e na quantidade desejada
-    public void condicionaisDeCompra(int codigoProduto, int quantidadeProduto, double total) {
-        boolean codigoErrado = false;     // Para verificar se o código é errado
-        boolean produtoEncontrado = false;  // Para verificar se o produto foi encontrado
-
-        // Percorre o catálogo de tênis para procurar o produto
+    public double condicionaisDeCompra(int codigoProduto, int quantidadeProduto, double total) {
         for (Tenis tenis : catalogo) {
-            if (tenis.getCodigo() == codigoProduto) {  // Verifica se o código do tênis corresponde ao código digitado
-                produtoEncontrado = true;
-
-                if (tenis.getQuantidade() >= quantidadeProduto) {  // Verifica se há estoque suficiente
-                    double valorCompra = tenis.getPreco() * quantidadeProduto;  // Calcula o valor da compra
-                    total += valorCompra;  // Soma ao total da compra
-
-                    tenis.setQuantidade(tenis.getQuantidade() - quantidadeProduto);  // Atualiza a quantidade no estoque
-                    System.out.println("✅ Adicionado ao carrinho!");
-                    System.out.println("Total: R$ " + total);  // Exibe o valor total da compra
-
-                } else {
-                    System.out.println("❌ Erro! Quantidade insuficiente em estoque!");  // Mensagem de erro caso não haja estoque suficiente
+            if (tenis.getCodigo() == codigoProduto) { // Se encontrou o produto
+                if (tenis.getQuantidade() < quantidadeProduto) { // Se não tem estoque suficiente
+                    System.out.println("❌ Erro! Quantidade insuficiente em estoque!");
+                    return total; // Mantém o total sem alterações
                 }
-                break;  // Encerra o loop assim que o produto é encontrado
+
+                // Compra válida, atualiza estoque e total
+                double valorCompra = tenis.getPreco() * quantidadeProduto;
+                tenis.setQuantidade(tenis.getQuantidade() - quantidadeProduto);
+                System.out.println("✅ Adicionado ao carrinho!");
+
+                return total + valorCompra; // Atualiza o total corretamente
             }
         }
 
-        // Se o produto não foi encontrado e o código está errado, exibe uma mensagem de erro
-        if (!produtoEncontrado && !codigoErrado) {
-            System.out.println("❌ Erro! Código digitado é inválido!");
-            codigoErrado = true;  // Marca que um erro aconteceu
-        }
+        System.out.println("❌ Erro! Código digitado é inválido!");
+        return total; // Mantém o total se o código for inválido
     }
 }
