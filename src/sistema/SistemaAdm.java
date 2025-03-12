@@ -1,7 +1,8 @@
 package sistema;
 
-import cliente.Cliente;
-import cliente.ClientedeAtacado;
+import pessoa.Administrador;
+import pessoa.ClienteAtacado;
+import pessoa.ClienteVarejo;
 import produtos.Tenis;
 
 import java.util.Scanner;
@@ -15,8 +16,8 @@ public class SistemaAdm {
         // Instanciando as classes necessárias
         Scanner scanner = new Scanner(System.in);  // Scanner para capturar entradas do usuário
         Administrador adm = new Administrador();  // Objeto para o administrador
-        Cliente cliente = new Cliente();  // Cliente Varejo
-        ClientedeAtacado clienteAtacado = new ClientedeAtacado();  // Cliente Atacado
+        ClienteVarejo clienteVarejo = new ClienteVarejo();  // ClienteVarejo Varejo
+        ClienteAtacado clienteAtacado = new ClienteAtacado();  // ClienteVarejo Atacado
         Tenis tenis = new Tenis(null, 0, 0, 0);  // Objeto para representar o produto (Tênis)
 
         int auxI = 0;
@@ -27,13 +28,13 @@ public class SistemaAdm {
             System.out.println("\n=== Sistema E-commerce ===");
             System.out.println("1 - Cadastrar Produto");
             System.out.println("2 - Remover Produto");
-            System.out.println("3 - Remover Cliente");
+            System.out.println("3 - Remover ClienteVarejo");
             System.out.println("4 - Adicionar Administrador");
             System.out.println("5 - Remover Administrador");
             System.out.println("6 - Listar Administradores");
             System.out.println("7 - Listar Produtos");
             System.out.println("8 - Acessar Sistema de Usuário");
-            System.out.println("9 - Cadastrar Cliente");
+            System.out.println("9 - Cadastrar ClienteVarejo");
             System.out.println("10 - Listar Clientes");
             System.out.println("11 - Encerrar Programa");
             System.out.print("Escolha uma opção: ");
@@ -57,11 +58,11 @@ public class SistemaAdm {
                     removerProduto(codigoRemover);  // Chama o método para remover um produto
                     break;
                 case 3:
-                    if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
-                        System.out.println("Nenhum cliente foi criado.");
+                    if (clienteVarejo.getNome() == null || clienteVarejo.getNome().isEmpty()) {
+                        System.out.println("Nenhum clienteVarejo foi criado.");
                         break;
                     }
-                    removerCliente(scanner);  // Chama o método para remover um cliente
+                    removerCliente(scanner);  // Chama o método para remover um clienteVarejo
                     break;
                 case 4:
                     adm.adicionarAdm(scanner);  // Chama o método para adicionar um novo administrador
@@ -115,9 +116,9 @@ public class SistemaAdm {
                     sU.sistemaUsuario();  // Chama o sistema de usuários
                     break;
                 case 9:
-                    System.out.println("\n--- Cadastro de Cliente ---");
-                    System.out.println("1 - Cliente Varejo");
-                    System.out.println("2 - Cliente Atacado");
+                    System.out.println("\n--- Cadastro de ClienteVarejo ---");
+                    System.out.println("1 - ClienteVarejo Varejo");
+                    System.out.println("2 - ClienteVarejo Atacado");
                     System.out.println("3 - Voltar");
                     System.out.print("Escolha uma opção: ");
                     int tipoCadastro = scanner.nextInt();
@@ -126,12 +127,12 @@ public class SistemaAdm {
                     // Switch para selecionar o tipo de cadastro
                     switch (tipoCadastro) {
                         case 1:
-                            cliente.cadastrarCliente(scanner);  // Chama o método para cadastrar cliente varejo
-                            System.out.println("✅ Cadastro de Cliente Varejo concluído.");
+                            clienteVarejo.cadastrarCliente(scanner);  // Chama o método para cadastrar clienteVarejo varejo
+                            System.out.println("✅ Cadastro de ClienteVarejo Varejo concluído.");
                             break;
                         case 2:
-                            clienteAtacado.cadastrarCliente(scanner);  // Chama o método para cadastrar cliente atacado
-                            System.out.println("✅ Cadastro de Cliente Atacado concluído.");
+                            clienteAtacado.cadastrarCliente(scanner);  // Chama o método para cadastrar clienteVarejo atacado
+                            System.out.println("✅ Cadastro de ClienteVarejo Atacado concluído.");
                             break;
                         case 3:
                             System.out.println("Voltando ao menu...");
@@ -143,14 +144,14 @@ public class SistemaAdm {
                 case 10:
                     System.out.println("\n=== Lista de Clientes ===");
                     // Exibe a lista de clientes cadastrados
-                    if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
-                        System.out.println("Nenhum cliente foi cadastrado.");
+                    if (clienteVarejo.getNome() == null || clienteVarejo.getNome().isEmpty()) {
+                        System.out.println("Nenhum clienteVarejo foi cadastrado.");
                         break;
                     }
-                    for (Cliente c : Cliente.catalogoCliente) {
+                    for (ClienteVarejo c : ClienteVarejo.catalogoClienteVarejo ) {
                         System.out.println("Nome: " + c.getNome() + " | Idade: " + c.getIdade() + " | CEP: " + c.getCep());
                     }
-                    for (ClientedeAtacado ca : ClientedeAtacado.catalogoClienteAtacado) {
+                    for (ClienteAtacado ca : ClienteAtacado.catalogoClienteAtacado) {
                         System.out.println("Nome: " + ca.getNome() + " | Idade: " + ca.getIdade() + " | CEP: " + ca.getCep() + " | CNPJ: " + ca.getCnpj() + " | Desconto especial: " + ca.getDescontoEspecial());
                     }
                     break;
@@ -240,7 +241,7 @@ public class SistemaAdm {
 
     // Método para remover um cliente
     public void removerCliente(Scanner scanner) {
-        System.out.println("\n--- Remover Cliente---");
+        System.out.println("\n--- Remover ClienteVarejo---");
         System.out.print("Nome do cliente: ");
         String nomeClienteRemover = scanner.nextLine();
         System.out.print("Senha do cliente: ");

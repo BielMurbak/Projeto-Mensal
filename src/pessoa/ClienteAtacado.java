@@ -1,46 +1,43 @@
-package cliente;
+package pessoa;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Classe ClientedeAtacado herda de Cliente (Cliente de Atacado)
-public class ClientedeAtacado extends Cliente {
-    // Atributos exclusivos para ClientedeAtacado
-    private double descontoEspecial; // Desconto especial para clientes de atacado
-    private long cnpj; // CNPJ do cliente de atacado
+//Class Cliente
+// Atributos exclusivos para ClienteAtacado
+
+ public class ClienteAtacado extends Pessoa {
+    private double descontoEspecial;
+    private long cnpj;
 
     // Lista para armazenar os clientes de atacado cadastrados
-    public static ArrayList<ClientedeAtacado> catalogoClienteAtacado = new ArrayList<>();
+    public static ArrayList<ClienteAtacado> catalogoClienteAtacado = new ArrayList<>();
 
     // Getters e Setters
     public double getDescontoEspecial() {
-        return descontoEspecial; // Retorna o valor do desconto especial
+        return descontoEspecial;
     }
 
     public void setDescontoEspecial(double descontoEspecial) {
-        this.descontoEspecial = descontoEspecial; // Define o desconto especial
+        this.descontoEspecial = descontoEspecial;
     }
 
     public long getCnpj() {
-        return cnpj; // Retorna o CNPJ do cliente de atacado
+        return cnpj;
     }
 
     public void setCnpj(long cnpj) {
-        this.cnpj = cnpj; // Define o CNPJ do cliente de atacado
+        this.cnpj = cnpj;
     }
 
-    // Método para cadastrar um cliente de atacado
+    //metodo pra cadasdrarClienteAtacado
     public void cadastrarCliente(Scanner scanner){
-        // Chama o método cadastrarCliente da classe pai (Cliente)
-        super.cadastrarCliente(scanner);
-
-        // Limpa o buffer do scanner
-        scanner.nextLine();
+        super.cadastrarCliente(scanner); //chama funcao na class Pessoa
 
         // Verifica se a idade do cliente é menor que 18
         if (getIdade() < 18) {
             System.out.println("Erro! Idade não permitida. Retornando ao menu principal.");
-            return; // Se a idade for menor que 18, retorna ao menu sem cadastrar
+            return;
         }
 
         // Solicita o CNPJ do cliente
@@ -50,10 +47,9 @@ public class ClientedeAtacado extends Cliente {
         // Solicita o desconto especial em porcentagem
         System.out.print("Digite o desconto especial em porcentagem: ");
         this.descontoEspecial = scanner.nextDouble();
-        System.out.println("Cadastro de Cliente Atacado concluído.");
 
         // Cria um novo cliente de atacado e define seus atributos
-        ClientedeAtacado novoClienteAtacado = new ClientedeAtacado();
+        ClienteAtacado novoClienteAtacado = new ClienteAtacado();
         novoClienteAtacado.setNome(getNome());
         novoClienteAtacado.setIdade(getIdade());
         novoClienteAtacado.setCep(getCep());
@@ -63,5 +59,8 @@ public class ClientedeAtacado extends Cliente {
 
         // Adiciona o novo cliente de atacado à lista de clientes de atacado
         catalogoClienteAtacado.add(novoClienteAtacado);
+
+        System.out.println("✅ Cliente de Atacado criado com sucesso!");
+
     }
 }

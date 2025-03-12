@@ -1,12 +1,12 @@
 package pagamento;
 
-import cliente.Cliente;
-import cliente.ClientedeAtacado;
+import pessoa.ClienteAtacado;
+import pessoa.ClienteVarejo;
 
 import java.util.Random;
 import java.util.Scanner;
 
-import static cliente.Cliente.catalogoCliente;
+import static pessoa.ClienteVarejo.catalogoClienteVarejo;
 
 public class CartaoDeCredito extends Pagamento {
 
@@ -15,7 +15,7 @@ public class CartaoDeCredito extends Pagamento {
 
     @Override
     public double realizarPagamento(double valor) {
-        ClientedeAtacado novoClienteAtacado = new ClientedeAtacado();
+        ClienteAtacado novoClienteAtacado = new ClienteAtacado();
         boolean isAtacado = novoClienteAtacado.getCnpj() != 0;
         double valorFinal = valor;
 
@@ -33,7 +33,7 @@ public class CartaoDeCredito extends Pagamento {
             valorFinal *= 1.10; // Aumento de 10%
         }
 
-        // Aplica desconto se for cliente de atacado
+        // Aplica desconto se for clienteVarejo de atacado
         if (isAtacado) {
             valorFinal -= valorFinal * (novoClienteAtacado.getDescontoEspecial() / 100.0);
         }
@@ -41,11 +41,11 @@ public class CartaoDeCredito extends Pagamento {
         // Gera um número de pedido aleatório
         int numeroPedido = random.nextInt(101);
         System.out.println("Número do Pedido: " + numeroPedido);
-        System.out.println("Tipo de cliente: " + (isAtacado ? "Atacado" : "Varejo"));
+        System.out.println("Tipo de clienteVarejo: " + (isAtacado ? "Atacado" : "Varejo"));
 
-        // Exibe o nome do cliente
-        for (Cliente cliente2 : catalogoCliente) {
-            System.out.println("Nome: " + cliente2.getNome());
+        // Exibe o nome do clienteVarejo
+        for (ClienteVarejo clienteVarejo2 : catalogoClienteVarejo) {
+            System.out.println("Nome: " + clienteVarejo2.getNome());
             break;
         }
 

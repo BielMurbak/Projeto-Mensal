@@ -1,8 +1,9 @@
 package sistema;
 
-import cliente.Cliente;
-import cliente.ClientedeAtacado;
-import cliente.Login;
+import pessoa.Administrador;
+import pessoa.ClienteAtacado;
+import pessoa.ClienteVarejo;
+import pessoa.ValidadorAcesso;
 import produtos.Tenis;
 
 import java.util.Scanner;
@@ -15,10 +16,10 @@ public class Main {
         // Instanciando as classes necessárias
         Scanner scanner = new Scanner(System.in); // Scanner para capturar entradas do usuário
 
-        Cliente cliente = new Cliente();  // Cliente do tipo Varejo
-        ClientedeAtacado clienteAtacado = new ClientedeAtacado();  // Cliente do tipo Atacado
-        Login login = new Login();  // Objeto para controle de login
-        sistema.Administrador adm = new sistema.Administrador();  // Administrador do sistema
+        ClienteVarejo clienteVarejo = new ClienteVarejo();  // ClienteVarejo do tipo Varejo
+        ClienteAtacado clienteAtacado = new ClienteAtacado();  // ClienteVarejo do tipo Atacado
+        ValidadorAcesso validadorAcesso = new ValidadorAcesso();  // Objeto para controle de validadorAcesso
+        Administrador adm = new Administrador();  // Administrador do sistema
 
         // Adicionando produtos (Tênis) ao catálogo
         catalogo.add(new Tenis("Nike Air Max", 1, 10, 499.99)); // Produto 1
@@ -34,7 +35,7 @@ public class Main {
         do {
             System.out.println("\n");
             System.out.println("---Sistema e-commerce---");
-            System.out.println("1 - Fazer login");
+            System.out.println("1 - Fazer Login");
             System.out.println("2 - Cadastrar");
             System.out.println("3 - Encerrar programa");
             System.out.println("Escolha uma opção:");
@@ -45,57 +46,57 @@ public class Main {
             switch (aux) {
                 case 1:
                     System.out.println("\n");
-                    System.out.println("Escolha o tipo de usuário para login:");
-                    System.out.println("1 - Cliente Varejo");
-                    System.out.println("2 - Cliente Atacado");
+                    System.out.println("Escolha o tipo de usuário para validadorAcesso:");
+                    System.out.println("1 - Cliente de Varejo");
+                    System.out.println("2 - Cliente de Atacado");
                     System.out.println("3 - Administrador");
                     System.out.print("Digite a opção desejada: ");
                     int tipoUsuario = scanner.nextInt();
                     scanner.nextLine();  // Limpa o buffer após nextInt()
 
-                    // Switch para verificar qual tipo de usuário está tentando fazer login
+                    // Switch para verificar qual tipo de usuário está tentando fazer validadorAcesso
                     switch (tipoUsuario) {
-                        case 1: // Login para Cliente Varejo
-                            if (cliente.getNome() == null || cliente.getNome().isEmpty()) {
-                                System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
+                        case 1: // ValidadorAcesso para ClienteVarejo Varejo
+                            if (clienteVarejo.getNome() == null || clienteVarejo.getNome().isEmpty()) {
+                                System.out.println("❌ Erro! Nenhum clienteVarejo cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue; // Retorna ao menu principal
                             }
 
-                            // Solicita o nome de login e senha do cliente
-                            System.out.println("Digite seu nome de login (Cliente Varejo): ");
+                            // Solicita o nome de validadorAcesso e senha do clienteVarejo
+                            System.out.println("Digite seu nome de validadorAcesso (ClienteVarejo Varejo): ");
                             String nomeLoginVarejo = scanner.nextLine();
-                            System.out.println("Digite sua senha de login: ");
+                            System.out.println("Digite sua senha de validadorAcesso: ");
                             int senhaLoginVarejo = scanner.nextInt();
-                            login.setNomeLogin(nomeLoginVarejo);
-                            login.setSenhaLogin(senhaLoginVarejo);
-                            login.realizarLoginCliente(cliente); // Realiza o login do cliente varejo
+                            validadorAcesso.setNomeLogin(nomeLoginVarejo);
+                            validadorAcesso.setSenhaLogin(senhaLoginVarejo);
+                            validadorAcesso.realizarLoginCliente(clienteVarejo); // Realiza o validadorAcesso do clienteVarejo varejo
                             break;
 
-                        case 2:  // Login para Cliente Atacado
+                        case 2:  // ValidadorAcesso para ClienteVarejo Atacado
                             if (clienteAtacado.getCnpj() == 0) {
-                                System.out.println("❌ Erro! Nenhum cliente cadastrado. Cadastre-se primeiro antes de tentar logar.");
+                                System.out.println("❌ Erro! Nenhum clienteVarejo cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue; // Retorna ao menu principal
                             }
 
-                            // Solicita o nome de login e senha do cliente atacado
-                            System.out.println("Digite seu nome de login (Cliente Atacado): ");
+                            // Solicita o nome de validadorAcesso e senha do clienteVarejo atacado
+                            System.out.println("Digite seu nome de validadorAcesso (ClienteVarejo Atacado): ");
                             String nomeLoginAtacado = scanner.nextLine();
-                            System.out.println("Digite sua senha de login: ");
+                            System.out.println("Digite sua senha de validadorAcesso: ");
                             int senhaLoginAtacado = scanner.nextInt();
-                            login.setNomeLogin(nomeLoginAtacado);
-                            login.setSenhaLogin(senhaLoginAtacado);
-                            login.realizarLoginClienteAtacado(clienteAtacado); // Realiza o login do cliente atacado
+                            validadorAcesso.setNomeLogin(nomeLoginAtacado);
+                            validadorAcesso.setSenhaLogin(senhaLoginAtacado);
+                            validadorAcesso.realizarLoginClienteAtacado(clienteAtacado); // Realiza o validadorAcesso do clienteVarejo atacado
                             break;
 
-                        case 3:  // Login para Administrador
-                            // Solicita o nome de login e senha do administrador
-                            System.out.println("Digite seu nome de login (Administrador): ");
+                        case 3:  // ValidadorAcesso para Administrador
+                            // Solicita o nome de validadorAcesso e senha do administrador
+                            System.out.println("Digite seu nome de validadorAcesso (Administrador): ");
                             String nomeLoginAdmin = scanner.nextLine();
-                            System.out.println("Digite sua senha de login: ");
+                            System.out.println("Digite sua senha de validadorAcesso: ");
                             int senhaLoginAdmin = scanner.nextInt();
-                            login.setNomeLogin(nomeLoginAdmin);
-                            login.setSenhaLogin(senhaLoginAdmin);
-                            login.realizarloginAdm(adm); // Realiza o login do administrador
+                            validadorAcesso.setNomeLogin(nomeLoginAdmin);
+                            validadorAcesso.setSenhaLogin(senhaLoginAdmin);
+                            validadorAcesso.realizarloginAdm(adm); // Realiza o validadorAcesso do administrador
                             break;
 
                         default:
@@ -105,8 +106,8 @@ public class Main {
 
                 case 2:  // Cadastro de novos usuários
                     System.out.println("Escolha o tipo de cadastro:");
-                    System.out.println("1 - Cliente Varejo");
-                    System.out.println("2 - Cliente Atacado");
+                    System.out.println("1 - Cliente de Varejo");
+                    System.out.println("2 - Cliente de Atacado");
                     System.out.println("3 - Sair");
                     System.out.print("Digite a opção desejada: ");
                     int tipoCadastro = scanner.nextInt();
@@ -114,13 +115,13 @@ public class Main {
 
                     // Switch para lidar com as opções de cadastro
                     switch (tipoCadastro) {
-                        case 1:  // Cadastro de Cliente Varejo
-                            cliente.cadastrarCliente(scanner);  // Chama o método de cadastro para Cliente Varejo
-                            System.out.println("Cadastro de Cliente Varejo concluído.");
+                        case 1:  // Cadastro de ClienteVarejo Varejo
+                            clienteVarejo.cadastrarCliente(scanner);  // Chama o método de cadastro para ClienteVarejo Varejo
+                            System.out.println("Cadastro de ClienteVarejo Varejo concluído.");
                             break;
 
-                        case 2:  // Cadastro de Cliente Atacado
-                            clienteAtacado.cadastrarCliente(scanner);  // Chama o método de cadastro para Cliente Atacado
+                        case 2:  // Cadastro de ClienteVarejo Atacado
+                            clienteAtacado.cadastrarCliente(scanner);  // Chama o método de cadastro para ClienteVarejo Atacado
                             break;
 
                         case 3:

@@ -1,6 +1,6 @@
 package sistema;
 
-public class Endereco {
+public class EnderecoAPI {
 
     // Atributos de endereço
     private String cep; // CEP do endereço

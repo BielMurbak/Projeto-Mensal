@@ -1,32 +1,34 @@
-package cliente;
+package pessoa;
 
-import sistema.Administrador;
 import sistema.SistemaAdm;
 import sistema.SistemaUsuario;
 
-public class Login {
-    private String nomeLogin; // Nome de usuário para login
-    private int senhaLogin; // Senha para login
+//Class ValidadorAcesso
+//Atributos
+
+public class ValidadorAcesso {
+    private String nomeLogin;
+    private int senhaLogin;
 
     // Getters e Setters para os atributos nomeLogin e senhaLogin
     public String getNomeLogin() {
-        return nomeLogin; // Retorna o nome de usuário
+        return nomeLogin;
     }
 
     public void setNomeLogin(String nomeLogin) {
-        this.nomeLogin = nomeLogin; // Define o nome de usuário
+        this.nomeLogin = nomeLogin;
     }
 
     public int getSenhaLogin() {
-        return senhaLogin; // Retorna a senha do usuário
+        return senhaLogin;
     }
 
     public void setSenhaLogin(int senhaLogin) {
-        this.senhaLogin = senhaLogin; // Define a senha do usuário
+        this.senhaLogin = senhaLogin;
     }
 
-    // Método para realizar login de um Cliente de Atacado
-    public void realizarLoginClienteAtacado(ClientedeAtacado clienteAtacado) {
+   //Metodo de verificar login de Cliente atacado
+    public void realizarLoginClienteAtacado(ClienteAtacado clienteAtacado) {
         // Verifica se o nome do cliente de atacado é igual ao nome de login
         if (clienteAtacado.getNome().equals(nomeLogin)) {
             // Verifica se a senha está correta
@@ -44,12 +46,12 @@ public class Login {
         }
     }
 
-    // Método para realizar login de um Cliente comum
-    public void realizarLoginCliente(Cliente cliente) {
-        // Verifica se o nome do cliente é igual ao nome de login
-        if (cliente.getNome().equals(nomeLogin)) {
+   //Metodo de verificar login Cliente Varejo
+    public void realizarLoginCliente(ClienteVarejo clienteVarejo) {
+        // Verifica se o nome do clienteVarejo é igual ao nome de login
+        if (clienteVarejo.getNome().equals(nomeLogin)) {
             // Verifica se a senha está correta
-            if(cliente.getSenha() == senhaLogin){
+            if(clienteVarejo.getSenha() == senhaLogin){
                 System.out.println("login realizado com sucesso!"); // Sucesso no login
                 SistemaUsuario sU = new SistemaUsuario();
                 sU.sistemaUsuario();
@@ -61,7 +63,7 @@ public class Login {
         }
     }
 
-    /// Método para realizar login de um Administrador
+    //Metodo de verificar login de adm
     public void realizarloginAdm(Administrador adm) {
         // Cria um novo Administrador para verificar nome e senha
         Administrador admRealizarLogin = new Administrador();

@@ -1,8 +1,8 @@
 package sistema;
 
-import cliente.Cliente;
-import cliente.ClientedeAtacado;
-import cliente.Login;
+import pessoa.ClienteAtacado;
+import pessoa.ClienteVarejo;
+import pessoa.ValidadorAcesso;
 import org.json.JSONException;
 import org.json.JSONObject;
 import pagamento.*;
@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static cliente.Cliente.catalogoCliente;
-import static cliente.ClientedeAtacado.catalogoClienteAtacado;
+import static pessoa.ClienteVarejo.catalogoClienteVarejo;
+import static pessoa.ClienteAtacado.catalogoClienteAtacado;
 import static produtos.Tenis.*;
 
 public class SistemaUsuario {
@@ -43,28 +43,28 @@ public class SistemaUsuario {
         Pagamento pagamentoDebito = new pagamento.CartaoDebito();
         Pagamento pagamentoPix = new pagamento.Pix();
         Pagamento pagamentoDinheiro = new pagamento.Dinheiro();
-        Cliente cliente = new Cliente(); // Cliente normal
-        ClientedeAtacado clienteAtacado = new ClientedeAtacado(); // Cliente de atacado
+        ClienteVarejo clienteVarejo = new ClienteVarejo(); // ClienteVarejo normal
+        ClienteAtacado clienteAtacado = new ClienteAtacado(); // ClienteVarejo de atacado
 
-        Login login = new Login(); // Instanciação do login
-        sistema.Endereco Endereco = new Endereco(); // Instanciação de endereço
-        Cliente novoCliente = new Cliente(); // Novo cliente
+        ValidadorAcesso validadorAcesso = new ValidadorAcesso(); // Instanciação do validadorAcesso
+        EnderecoAPI EnderecoAPI = new EnderecoAPI(); // Instanciação de endereço
+        ClienteVarejo novoClienteVarejo = new ClienteVarejo(); // Novo clienteVarejo
 
         int auxI = 0;
         int continuarCadastro = 0;
 
         do {
             System.out.println("\n");
-            // Exibição dos dados de cada cliente do catálogo (apenas nome e senha)
-            for (Cliente cliente2 : catalogoCliente) {
-                System.out.println("Nome: " + cliente2.getNome());
-                System.out.println("Senha: " + cliente2.getSenha());
+            // Exibição dos dados de cada clienteVarejo do catálogo (apenas nome e senha)
+            for (ClienteVarejo clienteVarejo2 : catalogoClienteVarejo) {
+                System.out.println("Nome: " + clienteVarejo2.getNome());
+                System.out.println("Senha: " + clienteVarejo2.getSenha());
                 break;
             }
             // Menu principal
             System.out.println("Sistema E-commerce");
             System.out.println("1 - Nossos Produtos");
-            System.out.println("2 - Suporte ao Cliente");
+            System.out.println("2 - Suporte ao ClienteVarejo");
             System.out.println("3 - Seguraça e Privacidade");
             System.out.println("4 - Sair");
             auxI = scanner.nextInt(); // Escolha do usuário no menu principal
@@ -152,7 +152,7 @@ public class SistemaUsuario {
             System.out.println("Total:" + total);
             break;
             case 2:
-                mostrarSuporteAoCliente(scanner); // Exibe a seção de suporte ao cliente
+                mostrarSuporteAoCliente(scanner); // Exibe a seção de suporte ao clienteVarejo
                 break;
             case 3:
                 mostrarSegurancaPrivacidade(scanner); // Exibe a seção de segurança e privacidade
@@ -199,7 +199,7 @@ public class SistemaUsuario {
                     scanner.nextLine();
 
                     // Tenta alterar a senha do cliente
-                    boolean senhaAlterada = Cliente.alterarSenha(nomeCliente, senhaAtual, novaSenha);
+                    boolean senhaAlterada = ClienteVarejo.alterarSenha(nomeCliente, senhaAtual, novaSenha);
                     if (senhaAlterada) {
                         sistemaUsuario(); // Reinicia o sistema após alteração bem-sucedida
                         return;
@@ -222,7 +222,7 @@ public class SistemaUsuario {
                     String novoNome = scanner.nextLine();
 
                     // Tenta alterar o nome do cliente
-                    boolean nomeAlterada = Cliente.alterarNome(nomeCliente2, senhaAtual2, novoNome);
+                    boolean nomeAlterada = ClienteVarejo.alterarNome(nomeCliente2, senhaAtual2, novoNome);
                     if (nomeAlterada) {
                         System.out.println("O nome foi alterado com sucesso.");
                         sistemaUsuario(); // Reinicia o sistema após alteração bem-sucedida
@@ -241,15 +241,15 @@ public class SistemaUsuario {
 
                     if (opLogout == 1) {
                         // Limpa os dados dos clientes quando realizar o logout
-                        for (Cliente cliente : catalogoCliente) {
-                            cliente.setNome(null);
-                            cliente.setIdade(0);
-                            cliente.setCep(0);
-                            cliente.setSenha(0);
+                        for (ClienteVarejo clienteVarejo : catalogoClienteVarejo) {
+                            clienteVarejo.setNome(null);
+                            clienteVarejo.setIdade(0);
+                            clienteVarejo.setCep(0);
+                            clienteVarejo.setSenha(0);
                         }
-                        for (ClientedeAtacado clientedeAtacado : catalogoClienteAtacado) {
-                            clientedeAtacado.setCnpj(0);
-                            clientedeAtacado.setDescontoEspecial(0);
+                        for (ClienteAtacado clienteAtacado : catalogoClienteAtacado) {
+                            clienteAtacado.setCnpj(0);
+                            clienteAtacado.setDescontoEspecial(0);
                         }
                         System.out.println("🔐 Logout realizado com sucesso!");
                         Main principal = new Main();
@@ -282,7 +282,7 @@ public class SistemaUsuario {
         int escolhaSuporte = 0;
 
         do {
-            System.out.println("\n--- Suporte ao Cliente ---");
+            System.out.println("\n--- Suporte ao ClienteVarejo ---");
             System.out.println("1 - FAQ (Perguntas Frequentes)");
             System.out.println("2 - Abrir um ticket de suporte");
             System.out.println("3 - Informações de contato");
@@ -375,18 +375,18 @@ public class SistemaUsuario {
                     return;  // Retorna se o CEP for inválido
                 }
 
-                // Cria um objeto Endereco e preenche com os dados da API
-                Endereco endereco = new Endereco();
-                endereco.setLogradouro(json.getString("logradouro"));
-                endereco.setBairro(json.getString("bairro"));
-                endereco.setLocalidade(json.getString("localidade"));
-                endereco.setUf(json.getString("uf"));
+                // Cria um objeto EnderecoAPI e preenche com os dados da API
+                EnderecoAPI enderecoAPI = new EnderecoAPI();
+                enderecoAPI.setLogradouro(json.getString("logradouro"));
+                enderecoAPI.setBairro(json.getString("bairro"));
+                enderecoAPI.setLocalidade(json.getString("localidade"));
+                enderecoAPI.setUf(json.getString("uf"));
 
                 // Exibe os dados do endereço
                 System.out.println("\nEndereço encontrado:");
-                System.out.println("Rua: " + endereco.getLogradouro());
-                System.out.println("Bairro: " + endereco.getBairro());
-                System.out.println("Cidade: " + endereco.getLocalidade() + " - " + endereco.getUf());
+                System.out.println("Rua: " + enderecoAPI.getLogradouro());
+                System.out.println("Bairro: " + enderecoAPI.getBairro());
+                System.out.println("Cidade: " + enderecoAPI.getLocalidade() + " - " + enderecoAPI.getUf());
 
             } catch (IOException e) {
                 System.err.println("Erro ao conectar na API: " + e.getMessage());  // Exibe erro caso falhe a conexão
@@ -400,7 +400,7 @@ public class SistemaUsuario {
             scanner.nextLine();  // Limpa o buffer após o nextInt()
 
             if (confirmacao == 1) {
-                System.out.println("Endereco confirmado!");
+                System.out.println("EnderecoAPI confirmado!");
             } else {
                 // Caso o usuário queira corrigir o endereço
                 System.out.println("Por favor, digite o endereço manualmente.");
@@ -451,7 +451,7 @@ public class SistemaUsuario {
 
             // Atualiza o status do pedido e exibe as informações de frete
             statusPedido = StatusPedido.ENVIADO;
-            System.out.println("Endereco confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
+            System.out.println("EnderecoAPI confirmado! Seu pedido foi " + statusPedido.getDescricao() + " com sucesso!");
             System.out.printf("Custo do frete (com seguro se houver): R$ %.2f\n", custoFrete);
             System.out.println("O pedido será entregue em " + frete.getTempoDeEntrega() + " dias!");
             System.out.printf("Valor total do pedido: R$ %.2f\n",totalFinal);
