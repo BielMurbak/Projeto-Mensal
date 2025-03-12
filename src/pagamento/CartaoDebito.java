@@ -1,22 +1,20 @@
 package pagamento;
 
-import cliente.Cliente;
-import cliente.ClientedeAtacado;
-
-import static cliente.Cliente.catalogoCliente;
+import pessoa.ClienteVarejo;
+import pessoa.ClienteAtacado;
 
 // Classe que representa o pagamento via cartão de débito, estendendo a classe Pagamento.
 public class CartaoDebito extends Pagamento {
 
-    // Método que realiza o pagamento via cartão de débito, aplicando desconto se o cliente for de atacado.
+    // Método que realiza o pagamento via cartão de débito, aplicando desconto se o clienteVarejo for de atacado.
     @Override
     public double realizarPagamento(double valor) {
 
-        // Cria um novo objeto ClientedeAtacado para representar o cliente.
-        ClientedeAtacado novoClienteAtacado = new ClientedeAtacado();
-        Cliente cliente = new Cliente();
+        // Cria um novo objeto ClienteAtacado para representar o clienteVarejo.
+        ClienteAtacado novoClienteAtacado = new ClienteAtacado();
+        ClienteVarejo clienteVarejo = new ClienteVarejo();
 
-        // Verifica se o CNPJ do cliente é diferente de 0 (o cliente é um cliente de atacado válido).
+        // Verifica se o CNPJ do clienteVarejo é diferente de 0 (o clienteVarejo é um clienteVarejo de atacado válido).
         if (novoClienteAtacado.getCnpj() != 0) {
 
             // Aplica uma taxa extra de 30% no valor do pagamento (valor * 0.3).
