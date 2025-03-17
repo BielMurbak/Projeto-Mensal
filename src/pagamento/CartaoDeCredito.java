@@ -41,7 +41,7 @@ public class CartaoDeCredito extends Pagamento {
         // Gera um número de pedido aleatório
         int numeroPedido = random.nextInt(101);
         System.out.println("Número do Pedido: " + numeroPedido);
-        System.out.println("Tipo de clienteVarejo: " + (isAtacado ? "Atacado" : "Varejo"));
+        System.out.println("Tipo de cliente: " + (isAtacado ? "Atacado" : "Varejo"));
 
         // Exibe o nome do clienteVarejo
         for (ClienteVarejo clienteVarejo2 : catalogoClienteVarejo) {

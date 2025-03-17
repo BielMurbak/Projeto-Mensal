@@ -58,14 +58,14 @@ public class Main {
                     switch (tipoUsuario) {
                         case 1: // ValidadorAcesso para ClienteVarejo Varejo
                             if (clienteVarejo.getNome() == null || clienteVarejo.getNome().isEmpty()) {
-                                System.out.println("❌ Erro! Nenhum clienteVarejo cadastrado. Cadastre-se primeiro antes de tentar logar.");
+                                System.out.println("❌ Erro! Nenhum cliente de Varejo cadastrado. Cadastre-se primeiro antes de tentar logar.");
                                 continue; // Retorna ao menu principal
                             }
 
                             // Solicita o nome de validadorAcesso e senha do clienteVarejo
                             System.out.println("Digite seu nome de validadorAcesso (ClienteVarejo Varejo): ");
                             String nomeLoginVarejo = scanner.nextLine();
-                            System.out.println("Digite sua senha de validadorAcesso: ");
+                            System.out.println("Digite sua senha de validador Acesso: ");
                             int senhaLoginVarejo = scanner.nextInt();
                             validadorAcesso.setNomeLogin(nomeLoginVarejo);
                             validadorAcesso.setSenhaLogin(senhaLoginVarejo);

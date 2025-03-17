@@ -28,21 +28,7 @@ public class ClienteVarejo extends Pessoa{
         //chama funcao na class Pessoa
         super.cadastrarCliente(scanner);
 
-        // Solicita o desconto especial em porcentagem
-        while(true) {
-            System.out.print("Digite o desconto final: ");
-            if (scanner.hasNextDouble()) {
-                double desconto = scanner.nextInt();
-                if (desconto >= 0) {
-                    this.descontoFinalDaCompra=desconto;
-                    break;
-                }
 
-            } else {
-                scanner.next(); //limpa a entrada invalida
-            }
-            System.out.println("Erro! Digite uma entrada valida");
-        }
         }
 
     //Metodo estatico pra remover a senha do cliente

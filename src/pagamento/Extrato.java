@@ -36,7 +36,7 @@ public class Extrato {
 
         // Verifica se o clienteVarejo de atacado tem CNPJ 0, indicando que não é um clienteVarejo de atacado
         if (novoClienteAtacado.getCnpj() == 0) {
-            System.out.println("Tipo de clienteVarejo:Varejo");
+            System.out.println("Tipo de cliente:Varejo");
             // Caso o clienteVarejo opte por um pagamento com desconto de 30% (opção 2)
             if (opcao == 2) {
                 aux = valor;

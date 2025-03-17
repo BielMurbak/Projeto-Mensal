@@ -10,6 +10,7 @@ public class Pedido {
 
     // Método para atualizar o status do pedido
     public void atualizarStatus(StatusPedido novoStatus) {
+        StatusPedido statusPedido = StatusPedido.PROCESSANDO; // Status do pedido (inicialmente PROCESSANDO)
         this.status = novoStatus; // Atualiza o status do pedido para o novo valor
     }
 

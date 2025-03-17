@@ -35,7 +35,6 @@ public class SistemaUsuario {
         Scanner scanner = new Scanner(System.in); // Leitura de entradas do usuário
         Tenis tenis = new Tenis(null, 0, 0, 0); // Instanciação do objeto Tenis
         List<Tenis> carrinho = new ArrayList<>(); // Lista para armazenar os tênis no carrinho de compras
-        StatusPedido statusPedido = StatusPedido.PROCESSANDO; // Status do pedido (inicialmente PROCESSANDO)
 
 
         // Instâncias de pagamento para diferentes métodos
