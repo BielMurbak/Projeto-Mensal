@@ -70,9 +70,8 @@ public class Pessoa {
                 System.out.print("Digite sua idade: ");
                 if (scanner.hasNextInt()) {
                     int idadeDigitada = scanner.nextInt();
-                    if (idadeDigitada >= 0) { // Garante que a idade seja positiva
+                    if (idadeDigitada > 0) { // Garante que a idade seja positiva
                         this.idade = idadeDigitada;
-                        scanner.nextLine(); // Limpa o buffer
                         break;
                     }
                 } else {
@@ -130,7 +129,5 @@ public class Pessoa {
                 }
                 System.out.println("Erro! A senha precisa ter pelo menos 4 dígitos.");
             }
-
-            System.out.println("Cadastro realizado com sucesso!");
         }
     }

@@ -25,15 +25,25 @@ public class ClienteVarejo extends Pessoa{
     //Metodo pra CadastrarCliente
     public void cadastrarCliente(Scanner scanner) {
 
-        super.cadastrarCliente(scanner); //chama funcao na class Pessoa
+        //chama funcao na class Pessoa
+        super.cadastrarCliente(scanner);
 
         // Solicita o desconto especial em porcentagem
-        System.out.print("Digite o desconto final: ");
-        this.descontoFinalDaCompra=scanner.nextDouble();
+        while(true) {
+            System.out.print("Digite o desconto final: ");
+            if (scanner.hasNextDouble()) {
+                double desconto = scanner.nextInt();
+                if (desconto >= 0) {
+                    this.descontoFinalDaCompra=desconto;
+                    break;
+                }
 
-        System.out.println("✅ Cliente de varejo criado com sucesso!");
-
-    }
+            } else {
+                scanner.next(); //limpa a entrada invalida
+            }
+            System.out.println("Erro! Digite uma entrada valida");
+        }
+        }
 
     //Metodo estatico pra remover a senha do cliente
     static boolean removerCliente(String nomeClienteRemover ,int senhaClienteRemover ){

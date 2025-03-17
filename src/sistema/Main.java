@@ -117,7 +117,7 @@ public class Main {
                     switch (tipoCadastro) {
                         case 1:  // Cadastro de ClienteVarejo Varejo
                             clienteVarejo.cadastrarCliente(scanner);  // Chama o método de cadastro para ClienteVarejo Varejo
-                            System.out.println("Cadastro de ClienteVarejo Varejo concluído.");
+                            System.out.println("Cadastro de Cliente de Varejo concluído.");
                             break;
 
                         case 2:  // Cadastro de ClienteVarejo Atacado

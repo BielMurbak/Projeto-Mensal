@@ -41,12 +41,37 @@ import java.util.Scanner;
         }
 
         // Solicita o CNPJ do cliente
-        System.out.print("Digite o seu CNPJ: ");
-        this.cnpj = scanner.nextLong();
+        while(true) {
+            System.out.print("Digite o seu CNPJ: ");
+            if (scanner.hasNextLong()) {
+                long cnpj = scanner.nextLong();
+                if (cnpj > 0) {
+                    this.cnpj=cnpj;
+                    break;
+                }
+
+            } else {
+                scanner.next(); //limpa a entrada invalida
+            }
+            System.out.println("Erro! Digite uma entrada valida");
+        }
 
         // Solicita o desconto especial em porcentagem
-        System.out.print("Digite o desconto especial em porcentagem: ");
-        this.descontoEspecial = scanner.nextDouble();
+
+        while(true) {
+            System.out.print("Digite o desconto especial em porcentagem: ");
+            if (scanner.hasNextDouble()) {
+                double porcentagemAtacado = scanner.nextLong();
+                if (porcentagemAtacado > 0) {
+                    this.descontoEspecial=porcentagemAtacado;
+                    break;
+                }
+
+            } else {
+                scanner.next(); //limpa a entrada invalida
+            }
+            System.out.println("Erro! Digite uma entrada valida");
+        }
 
         // Cria um novo cliente de atacado e define seus atributos
         ClienteAtacado novoClienteAtacado = new ClienteAtacado();
