@@ -63,7 +63,7 @@ public class Main {
                             }
 
                             // Solicita o nome de validadorAcesso e senha do clienteVarejo
-                            System.out.println("Digite seu nome de validadorAcesso (ClienteVarejo Varejo): ");
+                            System.out.println("Digite seu nome de validadorAcesso (Cliente de Varejo): ");
                             String nomeLoginVarejo = scanner.nextLine();
                             System.out.println("Digite sua senha de validador Acesso: ");
                             int senhaLoginVarejo = scanner.nextInt();
@@ -79,7 +79,7 @@ public class Main {
                             }
 
                             // Solicita o nome de validadorAcesso e senha do clienteVarejo atacado
-                            System.out.println("Digite seu nome de validadorAcesso (ClienteVarejo Atacado): ");
+                            System.out.println("Digite seu nome de validadorAcesso (Cliente de  Atacado): ");
                             String nomeLoginAtacado = scanner.nextLine();
                             System.out.println("Digite sua senha de validadorAcesso: ");
                             int senhaLoginAtacado = scanner.nextInt();

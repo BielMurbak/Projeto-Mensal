@@ -63,7 +63,7 @@ public class Extrato {
 
             }
         }else{
-            System.out.println("Tipo de clienteVarejo:Atacado");
+            System.out.println("Tipo de cliente:Atacado");
         }
 
         // Chama o método realizarPagamento do objeto pagamento associado ao extrato
